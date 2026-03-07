@@ -90,3 +90,26 @@ Python Language Reference
 Python Standard Library Documentation
 
 Referensi tersebut digunakan agar materi tetap akurat, konsisten dengan spesifikasi Python, dan mudah diperbarui mengikuti perkembangan bahasa Python
+
+
+Struktur isi lengkap folder 01_python_basics
+
+supaya nanti di dalamnya menjadi seperti mini buku yang benar-benar rapi, misalnya:
+
+01_python_basics
+│
+├── README.md
+├── 01_getting_started.md
+├── 02_python_syntax.md
+├── 03_variables_and_names.md
+├── 04_basic_data_types.md
+├── 05_operators_and_expressions.md
+├── 06_control_flow.md
+├── 07_functions.md
+├── 08_basic_data_structures.md
+├── 09_modules_and_import.md
+├── 10_input_output.md
+├── 11_file_handling.md
+├── 12_errors_and_exceptions.md
+├── 13_builtin_functions.md
+└── 14_basic_programming_patterns.md
