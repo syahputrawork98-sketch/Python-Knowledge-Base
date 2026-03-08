@@ -127,6 +127,7 @@ Caption: Diagram memperlihatkan hubungan antara prinsip idiomatic style dan damp
 
 ```python
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 
 def load_usernames(file_path: str) -> list[str]:
@@ -138,7 +139,10 @@ def load_usernames(file_path: str) -> list[str]:
         return [line.strip() for line in f if line.strip()]
 
 
-print(load_usernames("users.txt"))
+with TemporaryDirectory() as temp_dir:
+    users_path = Path(temp_dir) / "users.txt"
+    users_path.write_text("alice\nbob\n\ncharlie\n", encoding="utf-8")
+    print(load_usernames(str(users_path)))
 ```
 
 Expected output:

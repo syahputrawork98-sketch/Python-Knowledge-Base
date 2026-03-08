@@ -142,12 +142,18 @@ def calculate_total(price: float) -> float:
     return calculate_total_v2(price)
 
 
-print(calculate_total_v2(100_000))
+with warnings.catch_warnings(record=True) as caught:
+    warnings.simplefilter("always", DeprecationWarning)
+    total = calculate_total(100_000)
+
+print(caught[0].message)
+print(total)
 ```
 
 Expected output:
 
 ```text
+calculate_total() is deprecated; use calculate_total_v2(price, tax_rate)
 111000.0
 ```
 

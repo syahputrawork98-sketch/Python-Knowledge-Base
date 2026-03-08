@@ -5,7 +5,7 @@ Book Code: CORE-02
 Version: v0.2.1
 Last Updated: 2026-03-08
 Status: Draft
-Difficulty: Basic
+Difficulty: Intermediate
 Estimated Time: 40 menit teori + 30 menit praktik
 
 ## Bab Ini Tentang Apa
@@ -128,6 +128,7 @@ Caption: Diagram menggambarkan jalur keputusan dari penggunaan standar bawaan me
 ```python
 from pathlib import Path
 import json
+from tempfile import TemporaryDirectory
 
 
 def load_settings(file_path: str) -> dict:
@@ -139,7 +140,13 @@ def load_settings(file_path: str) -> dict:
         return json.load(f)
 
 
-print(load_settings("settings.json"))
+with TemporaryDirectory() as temp_dir:
+    settings_path = Path(temp_dir) / "settings.json"
+    settings_path.write_text(
+        '{"app_name": "Python Knowledge Universe"}',
+        encoding="utf-8",
+    )
+    print(load_settings(str(settings_path)))
 ```
 
 Expected output:

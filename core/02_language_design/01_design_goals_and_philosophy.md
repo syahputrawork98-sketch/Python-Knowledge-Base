@@ -193,7 +193,7 @@ Buat file `greeting.py` berisi:
 - satu fungsi pembuat pesan sambutan
 - satu fungsi orchestrator pemanggil keduanya
 
-Tambahkan minimal 3 test case sederhana dan tulis 5 kalimat tentang trade-off yang Anda ambil (ringkas vs jelas).
+Tambahkan minimal 4 test case sederhana dan tulis 5-8 kalimat tentang trade-off yang Anda ambil (ringkas vs jelas).
 
 ## Checklist Lulus Bab
 
