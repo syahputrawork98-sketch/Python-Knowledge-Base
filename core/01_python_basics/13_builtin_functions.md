@@ -2,163 +2,219 @@
 
 Chapter Code: CORE-01-13
 Book Code: CORE-01
-Version: v0.1.0
+Version: v0.3.4
 Last Updated: 2026-03-08
-Status: Planned
+Status: In Progress
 Difficulty: Basic
-Estimated Time: 30 menit teori + 30 menit praktik
+Estimated Time: 45 menit teori + 40 menit praktik
 
 ## Bab Ini Tentang Apa
 
-Bab ini menjelaskan fondasi built-in functions sebagai bagian awal penguasaan Python secara bertahap.
+Bab ini membahas fungsi bawaan (built-in functions) Python yang paling sering dipakai dalam praktik sehari-hari. Fokusnya pada fungsi untuk konversi data, iterasi, agregasi, inspeksi tipe, dan utilitas dasar agar kode lebih ringkas.
 
 ## Prasyarat Spesifik Bab
 
-- memahami materi pada bab sebelumnya (jika ada)
-- mampu menjalankan Python interpreter dan script .py
+- memahami `04_basic_data_types.md`
+- memahami `07_functions.md`
+- memahami `08_basic_data_structures.md`
 
 ## Istilah Kunci
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| syntax | aturan penulisan kode Python | if condition: |
-| runtime | lingkungan saat program dijalankan | python main.py |
+| built-in function | fungsi tersedia tanpa import | `len()`, `sum()` |
+| iterable | objek yang bisa diiterasi | list, tuple, range |
+| callable | objek yang bisa dipanggil seperti fungsi | `print`, custom function |
+| predicate | fungsi yang menghasilkan bool | `lambda x: x > 0` |
+| casting function | fungsi konversi tipe | `int()`, `str()` |
 
 ## Tujuan Besar
 
-Membantu pembaca memahami konsep inti Built-in Functions agar siap melanjutkan ke bab berikutnya.
+Membantu pembaca menggunakan built-in functions secara efektif untuk menulis kode yang lebih sederhana dan idiomatik.
 
 ## Tujuan Kecil
 
-- mengenali konsep dasar topik bab
-- menjalankan contoh kode terkait topik
-- menghindari kesalahan dasar yang umum
+- mengenali built-in yang sering dipakai
+- memilih fungsi bawaan yang sesuai kasus
+- menghindari penamaan variabel yang menimpa built-in
+- memakai built-in untuk validasi dan transformasi data sederhana
+
+## Hasil Belajar
+
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
 
 ## Peruntukan
-
 Bab ini digunakan saat:
 
-- memulai pembelajaran Python dari dasar
-- membutuhkan referensi konsep inti topik ini
+- ingin mengurangi kode manual berulang
+- butuh operasi cepat pada list/dict/string
+- ingin menulis kode Python yang lebih idiomatik
 
 ## Bukan Peruntukan
 
 Bab ini bukan untuk:
 
-- pembahasan internal CPython tingkat lanjut
-- optimasi performa lanjutan yang spesifik
+- pembahasan semua built-in secara exhaustif
+- metaprogramming built-in tingkat lanjut
 
 ## Analogi
 
-Anggap topik ini sebagai blok bangunan: tanpa blok ini, struktur program Python akan rapuh.
+Built-in functions seperti toolkit bawaan di mobil: tidak perlu bawa alat eksternal untuk kebutuhan dasar yang sering muncul.
 
 ## Miskonsepsi Umum
 
-- Miskonsepsi: memahami teori saja sudah cukup.
-  Klarifikasi: topik ini perlu dipahami lewat praktik kode.
+- Miskonsepsi: semakin banyak built-in dipakai, kode makin sulit dibaca.
+  Klarifikasi: jika dipilih tepat, built-in justru memperjelas intent.
 
-- Miskonsepsi: satu cara menyelesaikan masalah selalu paling benar.
-  Klarifikasi: Python menyediakan beberapa pendekatan, pilih sesuai konteks.
+- Miskonsepsi: menamai variabel dengan nama built-in aman.
+  Klarifikasi: menimpa nama built-in (`list`, `sum`) bisa bikin bug membingungkan.
 
 ## Konsep Inti
 
-### 1. Konsep Dasar
+### 1. Built-in Konversi dan Inspeksi
 
-Jelaskan aturan inti dan bentuk dasar penggunaan topik ini dalam Python.
+```python
+raw = "123"
+num = int(raw)
+text = str(num)
 
-### 2. Penerapan Dasar
+print(type(num))
+print(isinstance(num, int))
+```
 
-Hubungkan konsep dengan contoh sederhana yang sering dijumpai.
+### 2. Built-in Agregasi
+
+```python
+scores = [80, 90, 75]
+print(len(scores))
+print(sum(scores))
+print(min(scores), max(scores))
+```
+
+### 3. Built-in Iterasi
+
+```python
+names = ["Ayu", "Budi", "Cici"]
+for i, name in enumerate(names, start=1):
+    print(i, name)
+
+ages = [20, 21, 22]
+for name, age in zip(names, ages):
+    print(name, age)
+```
+
+### 4. Built-in Transformasi
+
+```python
+numbers = [1, 2, 3, 4]
+squared = list(map(lambda x: x * x, numbers))
+evans = list(filter(lambda x: x % 2 == 0, numbers))
+print(squared, evans)
+```
 
 ## Diagram
 
 ![Big picture Built-in Functions](assets/13_builtin_functions.svg)
 
-Caption: Diagram memberi gambaran besar alur pemahaman bab ini.
+Caption: Diagram menunjukkan kategori built-in utama dan alur penggunaannya dalam pemrosesan data.
 
 ### Legenda Diagram
 
-- kotak biru: konsep utama
-- panah: alur logika
-- kotak hijau: output/hasil
+- kotak biru: kategori fungsi bawaan
+- kotak tengah: input data
+- kotak hijau: hasil transformasi/agregasi
 
 ## Contoh Kode (Benar)
 
-`python
-print("Belajar Python Basics")
-`
+```python
+prices = [12000, 15000, 10000]
+qty = [2, 1, 3]
+
+subtotals = [p * q for p, q in zip(prices, qty)]
+print("Subtotals:", subtotals)
+print("Total:", sum(subtotals))
+```
 
 Expected output:
 
-`	ext
-Belajar Python Basics
-`
+```text
+Subtotals: [24000, 15000, 30000]
+Total: 69000
+```
 
 ## Pitfall Umum
 
-Contoh kesalahan yang sering terjadi:
+Menimpa nama built-in:
 
-`python
-if True
-    print("missing colon")
-`
+```python
+list = [1, 2, 3]
+print(list("abc"))
+```
 
 Perbaikan:
 
-`python
-if True:
-    print("colon fixed")
-`
+```python
+numbers = [1, 2, 3]
+print(list("abc"))
+```
+
+Menggunakan `map/filter` berlebihan saat list comprehension lebih jelas.
 
 ## Catatan Praktis
 
-- jalankan contoh kecil lebih dulu sebelum memperbesar kompleksitas
-- cek error message Python sebelum melakukan perubahan besar
+- prioritaskan built-in sebelum membuat helper function baru
+- jangan gunakan nama variabel yang sama dengan built-in
+- pakai list comprehension saat lebih terbaca daripada `map/filter`
 
 ## Latihan
 
 ### Dasar
 
-Tulis ulang contoh kode dan ubah nilai output.
+Gunakan `len`, `sum`, `min`, `max` pada list angka buatanmu.
 
 ### Menengah
 
-Gabungkan konsep bab ini dengan konsep bab sebelumnya.
+Gunakan `enumerate` untuk menampilkan daftar menu bernomor.
 
 ### Mini Challenge
 
-Buat script kecil yang menampilkan solusi sederhana berdasarkan topik bab.
+Buat program ringkasan nilai siswa: hitung rata-rata, nilai tertinggi, nilai terendah, dan status lulus berdasarkan threshold tertentu.
 
 ## Checklist Lulus Bab
 
-- [ ] memahami konsep inti
-- [ ] menjalankan contoh tanpa error
-- [ ] memahami pitfall dan perbaikannya
+- [ ] mengenali built-in utama untuk kasus dasar
+- [ ] bisa memilih built-in sesuai kebutuhan
+- [ ] menghindari shadowing nama built-in
 - [ ] menyelesaikan mini challenge
 
 ## Peta Keterkaitan
 
-- Bab sebelumnya: $(System.Collections.Hashtable.Prev)
-- Bab berikutnya: $(System.Collections.Hashtable.Next)
-- Keterkaitan lintas buku Core: $(System.Collections.Hashtable.Link)
+- Bab sebelumnya: `12_errors_and_exceptions.md`
+- Bab berikutnya: `14_basic_programming_patterns.md`
+- Keterkaitan lintas buku Core: `CORE-07` (Standard Library)
 
 ## Ringkasan
 
-- topik bab ini adalah fondasi utama Python Basics
-- praktik langsung penting untuk menguatkan konsep
-- bab ini menyiapkan transisi ke topik berikutnya
+- Built-in functions mempercepat pekerjaan umum tanpa import tambahan.
+- Pemakaian yang tepat membuat kode lebih ringkas dan ekspresif.
+- Hindari menimpa nama built-in untuk menjaga kejelasan kode.
 
 ## FAQ Singkat
 
-1. Kenapa bab ini penting?
-   Jawaban singkat: karena menjadi fondasi untuk bab setelahnya.
-2. Apakah harus menguasai semua detail sekaligus?
-   Jawaban singkat: tidak, kuasai inti dulu lalu lanjut bertahap.
-3. Kapan perlu lanjut ke bab berikutnya?
-   Jawaban singkat: setelah checklist lulus bab terpenuhi.
+1. Kapan pakai `map/filter` vs list comprehension?
+   Jawaban singkat: pakai yang paling jelas dibaca; seringnya list comprehension lebih eksplisit.
+2. Apakah semua built-in harus dihafal?
+   Jawaban singkat: tidak, kuasai yang paling sering dipakai dulu.
+3. Kenapa `type()` dan `isinstance()` keduanya ada?
+   Jawaban singkat: `isinstance()` lebih fleksibel untuk hierarchy class.
 
 ## Referensi
 
-- Python Official Documentation: https://docs.python.org/3/
-- Python Language Reference: https://docs.python.org/3/reference/
-- Python Tutorial: https://docs.python.org/3/tutorial/
+- Built-in Functions: https://docs.python.org/3/library/functions.html
+- Python Tutorial (Data Structures): https://docs.python.org/3/tutorial/datastructures.html
+- Functional Programming HOWTO: https://docs.python.org/3/howto/functional.html
+

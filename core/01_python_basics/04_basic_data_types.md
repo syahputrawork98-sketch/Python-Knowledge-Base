@@ -40,8 +40,15 @@ Membekali pembaca kemampuan memilih dan menggunakan tipe data yang tepat untuk k
 - melakukan konversi tipe dengan aman
 - memahami truthiness dasar pada kondisi
 
-## Peruntukan
+## Hasil Belajar
 
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
+
+## Peruntukan
 Bab ini digunakan saat:
 
 - mulai membangun logika program sederhana
@@ -222,3 +229,4 @@ Buat program kecil yang menerima nama dan tahun lahir, lalu menampilkan umur per
 - Python Standard Types: https://docs.python.org/3/library/stdtypes.html
 - Python Built-in Functions (`type`, `int`, `float`, `str`, `bool`): https://docs.python.org/3/library/functions.html
 - Python Tutorial (Data Types): https://docs.python.org/3/tutorial/introduction.html
+

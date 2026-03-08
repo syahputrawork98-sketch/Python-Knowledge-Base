@@ -39,8 +39,15 @@ Membekali pembaca kemampuan mengendalikan alur program sehingga program dapat me
 - menggunakan `break` dan `continue` dengan benar
 - menghindari infinite loop sederhana
 
-## Peruntukan
+## Hasil Belajar
 
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
+
+## Peruntukan
 Bab ini digunakan saat:
 
 - perlu keputusan berbasis kondisi
@@ -239,3 +246,4 @@ Buat program menu sederhana menggunakan `while` yang berjalan sampai user memili
 - Python Tutorial (More Control Flow Tools): https://docs.python.org/3/tutorial/controlflow.html
 - Python Language Reference (`if`, `while`, `for`): https://docs.python.org/3/reference/compound_stmts.html
 - Built-in `range()`: https://docs.python.org/3/library/stdtypes.html#ranges
+

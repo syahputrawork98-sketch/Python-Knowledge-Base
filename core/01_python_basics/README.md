@@ -1,7 +1,7 @@
 ﻿# Python Basics
 
 Book Code: CORE-01
-Version: v0.2.9
+Version: v0.3.5
 Last Updated: 2026-03-08
 Status: In Progress
 
@@ -66,3 +66,4 @@ Python Basics merupakan fondasi untuk seluruh bagian Core Python.
 - Python Tutorial
 - Python Language Reference
 - Python Standard Library Documentation
+

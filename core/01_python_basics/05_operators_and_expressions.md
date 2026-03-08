@@ -39,8 +39,15 @@ Membekali pembaca kemampuan membangun expression Python yang benar, terbaca, dan
 - membaca expression kompleks dengan prioritas evaluasi
 - menghindari bug umum pada operator logika
 
-## Peruntukan
+## Hasil Belajar
 
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
+
+## Peruntukan
 Bab ini digunakan saat:
 
 - menulis perhitungan dalam program
@@ -230,3 +237,4 @@ Buat kalkulator diskon sederhana: input harga dan persen diskon, lalu tampilkan 
 - Python Expressions: https://docs.python.org/3/reference/expressions.html
 - Python Operators (Built-in Types): https://docs.python.org/3/library/stdtypes.html
 - Python Tutorial (More Control Flow Tools): https://docs.python.org/3/tutorial/controlflow.html
+

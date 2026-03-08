@@ -2,163 +2,241 @@
 
 Chapter Code: CORE-01-12
 Book Code: CORE-01
-Version: v0.1.0
+Version: v0.3.4
 Last Updated: 2026-03-08
-Status: Planned
+Status: In Progress
 Difficulty: Basic
-Estimated Time: 35 menit teori + 35 menit praktik
+Estimated Time: 50 menit teori + 45 menit praktik
 
 ## Bab Ini Tentang Apa
 
-Bab ini menjelaskan fondasi errors and exceptions sebagai bagian awal penguasaan Python secara bertahap.
+Bab ini membahas cara Python menangani kesalahan melalui exceptions. Kamu akan belajar membedakan syntax error vs runtime exception, memakai `try/except`, `else`, `finally`, serta membuat exception handling yang tepat tanpa menutupi bug.
 
 ## Prasyarat Spesifik Bab
 
-- memahami materi pada bab sebelumnya (jika ada)
-- mampu menjalankan Python interpreter dan script .py
+- memahami `06_control_flow.md`
+- memahami `10_input_output.md`
+- memahami `11_file_handling.md`
 
 ## Istilah Kunci
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| syntax | aturan penulisan kode Python | if condition: |
-| runtime | lingkungan saat program dijalankan | python main.py |
+| exception | kondisi error saat runtime | `ValueError` |
+| traceback | jejak call stack saat error | output error Python |
+| try block | blok kode yang dipantau error | `try: ...` |
+| except block | penanganan error tertentu | `except ValueError:` |
+| finally | blok yang selalu dijalankan | `finally: cleanup()` |
+| raise | melempar exception manual | `raise ValueError(...)` |
 
 ## Tujuan Besar
 
-Membantu pembaca memahami konsep inti Errors and Exceptions agar siap melanjutkan ke bab berikutnya.
+Membantu pembaca menulis program yang tahan error dan memberikan respon kegagalan yang jelas.
 
 ## Tujuan Kecil
 
-- mengenali konsep dasar topik bab
-- menjalankan contoh kode terkait topik
-- menghindari kesalahan dasar yang umum
+- membaca traceback dasar
+- menangani exception spesifik
+- menggunakan `else/finally` sesuai kebutuhan
+- menghindari `except:` yang terlalu umum
+- melempar exception dengan pesan jelas
+
+## Hasil Belajar
+
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
 
 ## Peruntukan
-
 Bab ini digunakan saat:
 
-- memulai pembelajaran Python dari dasar
-- membutuhkan referensi konsep inti topik ini
+- program berinteraksi dengan input pengguna
+- program membaca file/network/resource eksternal
+- ingin menjaga aplikasi tetap stabil saat error terjadi
 
 ## Bukan Peruntukan
 
 Bab ini bukan untuk:
 
-- pembahasan internal CPython tingkat lanjut
-- optimasi performa lanjutan yang spesifik
+- logging framework lanjutan
+- error recovery arsitektur distributed system
 
 ## Analogi
 
-Anggap topik ini sebagai blok bangunan: tanpa blok ini, struktur program Python akan rapuh.
+Exception handling seperti prosedur darurat: bukan mencegah semua masalah, tapi memastikan saat masalah terjadi, responsnya tertib dan aman.
 
 ## Miskonsepsi Umum
 
-- Miskonsepsi: memahami teori saja sudah cukup.
-  Klarifikasi: topik ini perlu dipahami lewat praktik kode.
+- Miskonsepsi: menangkap semua error dengan `except:` adalah solusi terbaik.
+  Klarifikasi: terlalu umum dan bisa menyembunyikan bug penting.
 
-- Miskonsepsi: satu cara menyelesaikan masalah selalu paling benar.
-  Klarifikasi: Python menyediakan beberapa pendekatan, pilih sesuai konteks.
+- Miskonsepsi: jika pakai `try/except`, program pasti aman.
+  Klarifikasi: kualitas handling tergantung exception yang ditangkap dan aksi lanjutannya.
 
 ## Konsep Inti
 
-### 1. Konsep Dasar
+### 1. Struktur `try/except`
 
-Jelaskan aturan inti dan bentuk dasar penggunaan topik ini dalam Python.
+```python
+try:
+    value = int(input("Masukkan angka: "))
+    print(value * 2)
+except ValueError:
+    print("Input harus berupa angka")
+```
 
-### 2. Penerapan Dasar
+### 2. `else` dan `finally`
 
-Hubungkan konsep dengan contoh sederhana yang sering dijumpai.
+```python
+try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("Pembagian dengan nol")
+else:
+    print("Hasil:", result)
+finally:
+    print("Selesai diproses")
+```
+
+### 3. Menangkap Beberapa Exception
+
+```python
+try:
+    data = [1, 2, 3]
+    idx = int(input("Index: "))
+    print(data[idx])
+except ValueError:
+    print("Index harus angka")
+except IndexError:
+    print("Index di luar jangkauan")
+```
+
+### 4. `raise` untuk Validasi
+
+```python
+def set_age(age):
+    if age < 0:
+        raise ValueError("Umur tidak boleh negatif")
+    return age
+```
 
 ## Diagram
 
 ![Big picture Errors and Exceptions](assets/12_errors_and_exceptions.svg)
 
-Caption: Diagram memberi gambaran besar alur pemahaman bab ini.
+Caption: Diagram menunjukkan alur normal vs alur exception dan titik penanganannya.
 
 ### Legenda Diagram
 
-- kotak biru: konsep utama
-- panah: alur logika
-- kotak hijau: output/hasil
+- kotak biru: eksekusi normal
+- kotak merah: exception muncul
+- kotak hijau: handling dan recovery
 
 ## Contoh Kode (Benar)
 
-`python
-print("Belajar Python Basics")
-`
+```python
+def divide(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return "Tidak bisa membagi dengan nol"
+
+print(divide(10, 2))
+print(divide(10, 0))
+```
 
 Expected output:
 
-`	ext
-Belajar Python Basics
-`
+```text
+5.0
+Tidak bisa membagi dengan nol
+```
 
 ## Pitfall Umum
 
-Contoh kesalahan yang sering terjadi:
+Menangkap semua exception tanpa konteks:
 
-`python
-if True
-    print("missing colon")
-`
+```python
+try:
+    risky()
+except:
+    print("error")
+```
 
 Perbaikan:
 
-`python
-if True:
-    print("colon fixed")
-`
+```python
+try:
+    risky()
+except ValueError as e:
+    print(f"ValueError: {e}")
+```
+
+Menelan error tanpa aksi lanjut:
+
+```python
+try:
+    process()
+except Exception:
+    pass
+```
+
+Perbaikan: log/raise ulang jika perlu.
 
 ## Catatan Praktis
 
-- jalankan contoh kecil lebih dulu sebelum memperbesar kompleksitas
-- cek error message Python sebelum melakukan perubahan besar
+- tangkap exception sespesifik mungkin
+- gunakan pesan error yang membantu pengguna
+- jangan pakai `pass` kecuali ada alasan jelas
+- gunakan `finally` untuk cleanup resource
 
 ## Latihan
 
 ### Dasar
 
-Tulis ulang contoh kode dan ubah nilai output.
+Buat program konversi string ke int dengan handling `ValueError`.
 
 ### Menengah
 
-Gabungkan konsep bab ini dengan konsep bab sebelumnya.
+Buat fungsi akses list by index dengan handling `IndexError`.
 
 ### Mini Challenge
 
-Buat script kecil yang menampilkan solusi sederhana berdasarkan topik bab.
+Buat kalkulator sederhana yang tahan input tidak valid dan pembagian nol, lalu berikan pesan error ramah pengguna.
 
 ## Checklist Lulus Bab
 
-- [ ] memahami konsep inti
-- [ ] menjalankan contoh tanpa error
-- [ ] memahami pitfall dan perbaikannya
-- [ ] menyelesaikan mini challenge
+- [ ] memahami perbedaan syntax error dan exception runtime
+- [ ] mampu menulis `try/except` spesifik
+- [ ] menggunakan `else/finally` dengan tepat
+- [ ] mampu memakai `raise` untuk validasi
 
 ## Peta Keterkaitan
 
-- Bab sebelumnya: $(System.Collections.Hashtable.Prev)
-- Bab berikutnya: $(System.Collections.Hashtable.Next)
-- Keterkaitan lintas buku Core: $(System.Collections.Hashtable.Link)
+- Bab sebelumnya: `11_file_handling.md`
+- Bab berikutnya: `13_builtin_functions.md`
+- Keterkaitan lintas buku Core: `CORE-12` (Testing)
 
 ## Ringkasan
 
-- topik bab ini adalah fondasi utama Python Basics
-- praktik langsung penting untuk menguatkan konsep
-- bab ini menyiapkan transisi ke topik berikutnya
+- Exception handling membuat program lebih robust saat menghadapi kondisi gagal.
+- Tangkap exception yang tepat, berikan respon jelas, dan hindari menutupi bug.
+- `try/except/else/finally` memberi kontrol lengkap pada alur error.
 
 ## FAQ Singkat
 
-1. Kenapa bab ini penting?
-   Jawaban singkat: karena menjadi fondasi untuk bab setelahnya.
-2. Apakah harus menguasai semua detail sekaligus?
-   Jawaban singkat: tidak, kuasai inti dulu lalu lanjut bertahap.
-3. Kapan perlu lanjut ke bab berikutnya?
-   Jawaban singkat: setelah checklist lulus bab terpenuhi.
+1. Kapan pakai `except Exception as e`?
+   Jawaban singkat: saat butuh fallback umum, tapi tetap log dan evaluasi detail error.
+2. Haruskah semua fungsi pakai `try/except`?
+   Jawaban singkat: tidak, gunakan pada area yang memang rentan gagal.
+3. Bedanya `raise` dan `print` error?
+   Jawaban singkat: `raise` menghentikan alur dengan exception, `print` hanya menampilkan teks.
 
 ## Referensi
 
-- Python Official Documentation: https://docs.python.org/3/
-- Python Language Reference: https://docs.python.org/3/reference/
-- Python Tutorial: https://docs.python.org/3/tutorial/
+- Python Tutorial (Errors and Exceptions): https://docs.python.org/3/tutorial/errors.html
+- Built-in Exceptions: https://docs.python.org/3/library/exceptions.html
+- Exception hierarchy: https://docs.python.org/3/library/exceptions.html#exception-hierarchy
+

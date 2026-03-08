@@ -41,8 +41,15 @@ Membantu pembaca menulis kode yang modular, lebih mudah diuji, dan tidak duplika
 - memahami scope lokal dan global dasar
 - menulis docstring sederhana
 
-## Peruntukan
+## Hasil Belajar
 
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
+
+## Peruntukan
 Bab ini digunakan saat:
 
 - kode mulai panjang dan berulang
@@ -243,3 +250,4 @@ Buat kumpulan fungsi kecil untuk kalkulator sederhana: `add`, `subtract`, `multi
 - Python Tutorial (Defining Functions): https://docs.python.org/3/tutorial/controlflow.html#defining-functions
 - Python Language Reference (Function Definitions): https://docs.python.org/3/reference/compound_stmts.html#function-definitions
 - PEP 257 (Docstring Conventions): https://peps.python.org/pep-0257/
+

@@ -38,8 +38,15 @@ Membentuk cara menulis kode Python yang valid, konsisten, dan mudah dibaca sejak
 - membedakan komentar dan kode eksekusi
 - mengenali error syntax paling umum
 
-## Peruntukan
+## Hasil Belajar
 
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
+
+## Peruntukan
 Bab ini digunakan saat:
 
 - baru mulai menulis kode Python sendiri
@@ -206,3 +213,4 @@ Buat script yang mengecek umur pengguna, lalu menampilkan kategori: `anak`, `rem
 - Python Tutorial (Informal Introduction): https://docs.python.org/3/tutorial/introduction.html
 - Python Tutorial (Control Flow): https://docs.python.org/3/tutorial/controlflow.html
 - Python Lexical Analysis: https://docs.python.org/3/reference/lexical_analysis.html
+

@@ -39,8 +39,15 @@ Membantu pembaca memahami model objek Python sejak awal agar terhindar dari kesa
 - memahami dampak mutable vs immutable
 - mengenali masalah aliasing sederhana
 
-## Peruntukan
+## Hasil Belajar
 
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
+
+## Peruntukan
 Bab ini digunakan saat:
 
 - mulai bekerja dengan data yang sering berubah
@@ -216,3 +223,4 @@ Buat program kecil yang menyimpan profil pengguna dalam dictionary, lalu ubah da
 - Python Tutorial (Data Structures): https://docs.python.org/3/tutorial/datastructures.html
 - Python Data Model: https://docs.python.org/3/reference/datamodel.html
 - Python Standard Types: https://docs.python.org/3/library/stdtypes.html
+

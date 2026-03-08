@@ -38,8 +38,15 @@ Membentuk kebiasaan awal yang benar saat memulai Python: setup yang rapi, ekseku
 - membaca output dan pesan error sederhana
 - memahami perbedaan REPL vs script
 
-## Peruntukan
+## Hasil Belajar
 
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
+
+## Peruntukan
 Bab ini digunakan saat:
 
 - baru pertama belajar Python
@@ -202,3 +209,4 @@ Buat script yang menerima input nama dari pengguna lalu menampilkan sapaan perso
 - Python Official Documentation: https://docs.python.org/3/
 - Python Tutorial: https://docs.python.org/3/tutorial/
 - Python Language Reference: https://docs.python.org/3/reference/
+

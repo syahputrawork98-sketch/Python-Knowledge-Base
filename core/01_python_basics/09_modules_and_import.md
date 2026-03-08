@@ -41,8 +41,15 @@ Membantu pembaca menyusun kode menjadi modul terpisah agar proyek lebih terstruk
 - memahami fungsi `if __name__ == "__main__":`
 - menghindari masalah import path dasar
 
-## Peruntukan
+## Hasil Belajar
 
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
+
+## Peruntukan
 Bab ini digunakan saat:
 
 - kode sudah terlalu panjang dalam satu file
@@ -247,3 +254,4 @@ Buat mini project 3 file: `main.py`, `calculator.py`, `formatter.py`, lalu hubun
 - Python Tutorial (Modules): https://docs.python.org/3/tutorial/modules.html
 - Python Reference (import statement): https://docs.python.org/3/reference/simple_stmts.html#import
 - Python Standard Library (Modules): https://docs.python.org/3/library/modules.html
+

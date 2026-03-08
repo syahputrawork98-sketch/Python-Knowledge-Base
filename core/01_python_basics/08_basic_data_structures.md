@@ -40,8 +40,15 @@ Membekali pembaca kemampuan memilih struktur data yang tepat untuk penyimpanan d
 - melakukan iterasi pada struktur data
 - memilih struktur data sesuai kebutuhan kasus
 
-## Peruntukan
+## Hasil Belajar
 
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
+
+## Peruntukan
 Bab ini digunakan saat:
 
 - mengelola sekumpulan data dalam program
@@ -240,3 +247,4 @@ Buat aplikasi mini todo list sederhana dengan list dan dict (tiap task punya `ti
 - Python Tutorial (Data Structures): https://docs.python.org/3/tutorial/datastructures.html
 - Python Standard Types: https://docs.python.org/3/library/stdtypes.html
 - Python `dict` docs: https://docs.python.org/3/library/stdtypes.html#dict
+

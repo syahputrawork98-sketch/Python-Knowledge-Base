@@ -1,8 +1,43 @@
 ﻿# CHANGELOG
 
 Book Code: CORE-01
-Version: v0.2.9
+Version: v0.3.5
 Last Updated: 2026-03-08
+
+## 2026-03-08
+- Changed: Menambahkan section `Hasil Belajar` pada seluruh bab 01-14, memperbaiki urutan prasyarat di `11_file_handling.md`, dan menambahkan catatan alasan penggunaan referensi non-resmi di bab 14.
+- Reason: Menutup temuan review agar seluruh bab selaras dengan standar wajib pada `core/docs/CONTRIBUTING.md`.
+- Impact: Konsistensi pedagogi dan kepatuhan struktur buku meningkat sehingga buku siap masuk tahap commit.
+
+## 2026-03-08
+- Changed: Mendesain ulang seluruh aset SVG bab 01-14 dengan visual map yang lebih jelas dan menambahkan emoji sebagai anchor pembelajaran.
+- Reason: Meningkatkan keterbacaan visual serta diferensiasi identitas tiap bab agar lebih mudah dipahami.
+- Impact: Materi visual buku 01 sekarang lebih kuat untuk mendukung pemahaman konsep inti di setiap bab.
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `14_basic_programming_patterns.md` meliputi pola IPO, guard clause, accumulator, refactor fungsi kecil, pitfall, dan mini challenge end-to-end.
+- Reason: Mengganti placeholder bab 14 agar buku ditutup dengan pola integrasi konsep yang dapat langsung dipraktikkan.
+- Impact: Bab penutup Python Basics kini menjadi jembatan praktis menuju mini project yang lebih utuh.
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `13_builtin_functions.md` mencakup built-in penting (len/sum/min/max/enumerate/zip/map/filter), pitfall, dan latihan.
+- Reason: Mengganti placeholder bab 13 agar pembaca dapat menulis kode lebih idiomatik dengan toolkit bawaan Python.
+- Impact: Pemahaman utilitas inti Python meningkat dan mengurangi kode manual berulang.
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `12_errors_and_exceptions.md` meliputi try/except/else/finally, raise, handling spesifik, pitfall, dan latihan.
+- Reason: Mengganti placeholder bab 12 agar pembaca mampu membuat program yang lebih robust saat terjadi error runtime.
+- Impact: Fondasi reliability aplikasi Python meningkat sebelum masuk pola pemrograman akhir.
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `11_file_handling.md` meliputi mode file, context manager, encoding, operasi baca/tulis, pitfall, dan latihan.
+- Reason: Mengganti placeholder bab 11 agar pembaca siap mengelola data berbasis file dengan aman.
+- Impact: Materi I/O buku 1 kini lebih lengkap dan siap dipakai untuk latihan data persistence dasar.
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `10_input_output.md` meliputi input(), output formatting, parsing tipe, validasi input, pitfall, dan latihan.
+- Reason: Mengganti placeholder bab 10 agar pembaca siap membangun program interaktif berbasis terminal.
+- Impact: Sepuluh bab awal Python Basics kini mencakup fondasi interaksi pengguna yang lebih lengkap.
 
 ## 2026-03-08
 - Changed: Menulis konten nyata untuk `09_modules_and_import.md` meliputi konsep module, pola import, package dasar, `__main__`, pitfall, dan latihan.
@@ -58,3 +93,4 @@ Last Updated: 2026-03-08
 - Changed: Inisialisasi struktur awal buku.
 - Reason: Menetapkan fondasi dokumentasi dan tracking perubahan.
 - Impact: Buku siap menerima pembaruan konten dengan histori yang jelas.
+

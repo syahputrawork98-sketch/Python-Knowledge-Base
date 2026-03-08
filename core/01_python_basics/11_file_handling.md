@@ -2,163 +2,227 @@
 
 Chapter Code: CORE-01-11
 Book Code: CORE-01
-Version: v0.1.0
+Version: v0.3.4
 Last Updated: 2026-03-08
-Status: Planned
+Status: In Progress
 Difficulty: Basic
-Estimated Time: 35 menit teori + 35 menit praktik
+Estimated Time: 50 menit teori + 45 menit praktik
 
 ## Bab Ini Tentang Apa
 
-Bab ini menjelaskan fondasi file handling sebagai bagian awal penguasaan Python secara bertahap.
+Bab ini membahas cara membaca, menulis, dan mengelola file di Python secara aman. Kamu akan belajar mode file, context manager (`with`), encoding, path dasar, serta pola penanganan error sederhana saat bekerja dengan file.
 
 ## Prasyarat Spesifik Bab
 
-- memahami materi pada bab sebelumnya (jika ada)
-- mampu menjalankan Python interpreter dan script .py
+- memahami `09_modules_and_import.md`
+- memahami `10_input_output.md`
+- memahami konsep validasi input dasar
 
 ## Istilah Kunci
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| syntax | aturan penulisan kode Python | if condition: |
-| runtime | lingkungan saat program dijalankan | python main.py |
+| file mode | cara membuka file | `'r'`, `'w'`, `'a'` |
+| context manager | manajemen resource otomatis | `with open(...) as f:` |
+| encoding | standar representasi karakter | `encoding='utf-8'` |
+| path | alamat file/folder | `data/users.txt` |
+| buffer | penyangga I/O sementara | default `open()` |
 
 ## Tujuan Besar
 
-Membantu pembaca memahami konsep inti File Handling agar siap melanjutkan ke bab berikutnya.
+Membantu pembaca memproses data berbasis file secara aman, terstruktur, dan minim kebocoran resource.
 
 ## Tujuan Kecil
 
-- mengenali konsep dasar topik bab
-- menjalankan contoh kode terkait topik
-- menghindari kesalahan dasar yang umum
+- membuka file dengan mode yang tepat
+- membaca dan menulis isi file teks
+- memahami kapan pakai `with`
+- menangani error file umum
+- menggunakan path relatif sederhana
+
+## Hasil Belajar
+
+Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
+
+- menjelaskan konsep inti bab dengan kata-kata sendiri
+- menjalankan contoh utama tanpa error
+- menerapkan konsep bab pada latihan dasar
 
 ## Peruntukan
-
 Bab ini digunakan saat:
 
-- memulai pembelajaran Python dari dasar
-- membutuhkan referensi konsep inti topik ini
+- menyimpan hasil program ke file
+- membaca data dari file teks
+- membuat log sederhana berbasis file
 
 ## Bukan Peruntukan
 
 Bab ini bukan untuk:
 
-- pembahasan internal CPython tingkat lanjut
-- optimasi performa lanjutan yang spesifik
+- database management
+- file format kompleks tingkat lanjut
 
 ## Analogi
 
-Anggap topik ini sebagai blok bangunan: tanpa blok ini, struktur program Python akan rapuh.
+File handling seperti meminjam buku perpustakaan: buka buku, baca/tulis seperlunya, lalu tutup dengan benar agar tidak rusak/terkunci.
 
 ## Miskonsepsi Umum
 
-- Miskonsepsi: memahami teori saja sudah cukup.
-  Klarifikasi: topik ini perlu dipahami lewat praktik kode.
+- Miskonsepsi: file otomatis tertutup setelah dipakai.
+  Klarifikasi: file bisa tetap terbuka jika tidak ditutup dengan benar.
 
-- Miskonsepsi: satu cara menyelesaikan masalah selalu paling benar.
-  Klarifikasi: Python menyediakan beberapa pendekatan, pilih sesuai konteks.
+- Miskonsepsi: mode `'w'` menambah isi di akhir.
+  Klarifikasi: `'w'` menimpa isi file, untuk menambah gunakan `'a'`.
 
 ## Konsep Inti
 
-### 1. Konsep Dasar
+### 1. Membuka dan Membaca File
 
-Jelaskan aturan inti dan bentuk dasar penggunaan topik ini dalam Python.
+```python
+with open("notes.txt", "r", encoding="utf-8") as f:
+    content = f.read()
 
-### 2. Penerapan Dasar
+print(content)
+```
 
-Hubungkan konsep dengan contoh sederhana yang sering dijumpai.
+### 2. Menulis dan Menambah File
+
+```python
+with open("notes.txt", "w", encoding="utf-8") as f:
+    f.write("Baris pertama\n")
+
+with open("notes.txt", "a", encoding="utf-8") as f:
+    f.write("Baris tambahan\n")
+```
+
+### 3. Membaca per Baris
+
+```python
+with open("notes.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        print(line.strip())
+```
+
+### 4. Penanganan Error Dasar
+
+```python
+try:
+    with open("missing.txt", "r", encoding="utf-8") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("File tidak ditemukan")
+```
 
 ## Diagram
 
 ![Big picture File Handling](assets/11_file_handling.svg)
 
-Caption: Diagram memberi gambaran besar alur pemahaman bab ini.
+Caption: Diagram menunjukkan alur open -> read/write -> close saat bekerja dengan file.
 
 ### Legenda Diagram
 
-- kotak biru: konsep utama
-- panah: alur logika
-- kotak hijau: output/hasil
+- kotak biru: sumber file/path
+- kotak tengah: operasi I/O
+- kotak hijau: output data
 
 ## Contoh Kode (Benar)
 
-`python
-print("Belajar Python Basics")
-`
+```python
+items = ["apel", "jeruk", "mangga"]
+
+with open("items.txt", "w", encoding="utf-8") as f:
+    for item in items:
+        f.write(item + "\n")
+
+with open("items.txt", "r", encoding="utf-8") as f:
+    print(f.read())
+```
 
 Expected output:
 
-`	ext
-Belajar Python Basics
-`
+```text
+apel
+jeruk
+mangga
+```
 
 ## Pitfall Umum
 
-Contoh kesalahan yang sering terjadi:
+Lupa encoding saat file berisi karakter non-ASCII:
 
-`python
-if True
-    print("missing colon")
-`
+```python
+with open("data.txt", "r") as f:
+    print(f.read())
+```
 
 Perbaikan:
 
-`python
-if True:
-    print("colon fixed")
-`
+```python
+with open("data.txt", "r", encoding="utf-8") as f:
+    print(f.read())
+```
+
+Menimpa file tanpa sadar:
+
+```python
+with open("report.txt", "w", encoding="utf-8") as f:
+    f.write("new")
+```
+
+Perbaikan: gunakan `'a'` jika ingin menambahkan.
 
 ## Catatan Praktis
 
-- jalankan contoh kecil lebih dulu sebelum memperbesar kompleksitas
-- cek error message Python sebelum melakukan perubahan besar
+- default ke `with open(...)` untuk keamanan resource
+- selalu tentukan `encoding="utf-8"` untuk teks
+- pahami beda mode `'w'` vs `'a'`
+- simpan path relatif konsisten terhadap root project
 
 ## Latihan
 
 ### Dasar
 
-Tulis ulang contoh kode dan ubah nilai output.
+Buat file `bio.txt`, tulis 3 baris data diri, lalu baca kembali.
 
 ### Menengah
 
-Gabungkan konsep bab ini dengan konsep bab sebelumnya.
+Buat program yang menyalin isi file A ke file B.
 
 ### Mini Challenge
 
-Buat script kecil yang menampilkan solusi sederhana berdasarkan topik bab.
+Buat simple notes app CLI: tambah catatan dan tampilkan semua catatan dari file.
 
 ## Checklist Lulus Bab
 
-- [ ] memahami konsep inti
-- [ ] menjalankan contoh tanpa error
-- [ ] memahami pitfall dan perbaikannya
-- [ ] menyelesaikan mini challenge
+- [ ] memahami mode file utama (`r`, `w`, `a`)
+- [ ] bisa membaca dan menulis file teks
+- [ ] menggunakan `with` secara konsisten
+- [ ] menangani `FileNotFoundError` dasar
 
 ## Peta Keterkaitan
 
-- Bab sebelumnya: $(System.Collections.Hashtable.Prev)
-- Bab berikutnya: $(System.Collections.Hashtable.Next)
-- Keterkaitan lintas buku Core: $(System.Collections.Hashtable.Link)
+- Bab sebelumnya: `10_input_output.md`
+- Bab berikutnya: `12_errors_and_exceptions.md`
+- Keterkaitan lintas buku Core: `CORE-08` (File System and IO)
 
 ## Ringkasan
 
-- topik bab ini adalah fondasi utama Python Basics
-- praktik langsung penting untuk menguatkan konsep
-- bab ini menyiapkan transisi ke topik berikutnya
+- File handling memungkinkan data program disimpan permanen.
+- `with open(...)` adalah pola aman dan direkomendasikan.
+- Mode file dan encoding yang tepat mencegah banyak bug I/O.
 
 ## FAQ Singkat
 
-1. Kenapa bab ini penting?
-   Jawaban singkat: karena menjadi fondasi untuk bab setelahnya.
-2. Apakah harus menguasai semua detail sekaligus?
-   Jawaban singkat: tidak, kuasai inti dulu lalu lanjut bertahap.
-3. Kapan perlu lanjut ke bab berikutnya?
-   Jawaban singkat: setelah checklist lulus bab terpenuhi.
+1. Kapan pakai `'w'` dan kapan `'a'`?
+   Jawaban singkat: `'w'` menimpa, `'a'` menambahkan.
+2. Kenapa file harus ditutup?
+   Jawaban singkat: agar resource dilepas dan data flush dengan benar.
+3. Kenapa perlu `encoding='utf-8'`?
+   Jawaban singkat: untuk konsistensi pembacaan/penulisan karakter modern.
 
 ## Referensi
 
-- Python Official Documentation: https://docs.python.org/3/
-- Python Language Reference: https://docs.python.org/3/reference/
-- Python Tutorial: https://docs.python.org/3/tutorial/
+- Python Tutorial (Reading and Writing Files): https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+- Python `open()` docs: https://docs.python.org/3/library/functions.html#open
+- `pathlib` docs: https://docs.python.org/3/library/pathlib.html
+
