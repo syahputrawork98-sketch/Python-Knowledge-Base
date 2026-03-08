@@ -2,163 +2,207 @@
 
 Chapter Code: CORE-01-02
 Book Code: CORE-01
-Version: v0.1.0
+Version: v0.2.2
 Last Updated: 2026-03-08
-Status: Planned
+Status: In Progress
 Difficulty: Basic
 Estimated Time: 30 menit teori + 25 menit praktik
 
 ## Bab Ini Tentang Apa
 
-Bab ini menjelaskan fondasi python syntax sebagai bagian awal penguasaan Python secara bertahap.
+Bab ini membahas aturan penulisan dasar Python agar kode bisa dibaca interpreter tanpa error syntax. Fokusnya ada pada indentation, blok kode, komentar, statement sederhana, dan gaya penulisan awal yang rapi. Ini adalah fondasi untuk semua bab setelahnya.
 
 ## Prasyarat Spesifik Bab
 
-- memahami materi pada bab sebelumnya (jika ada)
-- mampu menjalankan Python interpreter dan script .py
+- sudah memahami workflow dasar dari bab `01_getting_started.md`
+- dapat menjalankan file `.py` dari terminal
+- memahami output sederhana `print()`
 
 ## Istilah Kunci
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| syntax | aturan penulisan kode Python | if condition: |
-| runtime | lingkungan saat program dijalankan | python main.py |
+| statement | satu instruksi Python | `x = 10` |
+| block | kumpulan statement dengan indentation sama | isi `if`, `for`, `def` |
+| indentation | spasi di awal baris untuk menandai blok | `if cond:\n    print(...)` |
+| comment | catatan yang diabaikan interpreter | `# ini komentar` |
 
 ## Tujuan Besar
 
-Membantu pembaca memahami konsep inti Python Syntax agar siap melanjutkan ke bab berikutnya.
+Membentuk cara menulis kode Python yang valid, konsisten, dan mudah dibaca sejak awal.
 
 ## Tujuan Kecil
 
-- mengenali konsep dasar topik bab
-- menjalankan contoh kode terkait topik
-- menghindari kesalahan dasar yang umum
+- memahami kenapa indentation wajib di Python
+- menulis statement dan blok dengan benar
+- membedakan komentar dan kode eksekusi
+- mengenali error syntax paling umum
 
 ## Peruntukan
 
 Bab ini digunakan saat:
 
-- memulai pembelajaran Python dari dasar
-- membutuhkan referensi konsep inti topik ini
+- baru mulai menulis kode Python sendiri
+- sering menemui `SyntaxError` atau `IndentationError`
+- ingin membentuk kebiasaan coding yang rapi
 
 ## Bukan Peruntukan
 
 Bab ini bukan untuk:
 
-- pembahasan internal CPython tingkat lanjut
-- optimasi performa lanjutan yang spesifik
+- pembahasan fitur bahasa tingkat lanjut
+- optimasi struktur program kompleks
 
 ## Analogi
 
-Anggap topik ini sebagai blok bangunan: tanpa blok ini, struktur program Python akan rapuh.
+Sintaks Python seperti tata bahasa dalam menulis kalimat: idenya bisa benar, tapi kalau struktur kalimat salah, pembaca tidak bisa memahami maksudnya.
 
 ## Miskonsepsi Umum
 
-- Miskonsepsi: memahami teori saja sudah cukup.
-  Klarifikasi: topik ini perlu dipahami lewat praktik kode.
+- Miskonsepsi: indentation hanya soal gaya.
+  Klarifikasi: di Python, indentation menentukan struktur blok dan memengaruhi eksekusi.
 
-- Miskonsepsi: satu cara menyelesaikan masalah selalu paling benar.
-  Klarifikasi: Python menyediakan beberapa pendekatan, pilih sesuai konteks.
+- Miskonsepsi: komentar memperlambat program secara signifikan.
+  Klarifikasi: komentar diabaikan interpreter saat runtime.
 
 ## Konsep Inti
 
-### 1. Konsep Dasar
+### 1. Statement dan Blok Kode
 
-Jelaskan aturan inti dan bentuk dasar penggunaan topik ini dalam Python.
+Statement adalah instruksi tunggal. Blok adalah kumpulan instruksi dengan indentation sama.
 
-### 2. Penerapan Dasar
+```python
+x = 10
+if x > 5:
+    print("x lebih besar dari 5")
+```
 
-Hubungkan konsep dengan contoh sederhana yang sering dijumpai.
+Baris `print(...)` berada di dalam blok `if` karena indentation.
+
+### 2. Indentation Konsisten
+
+Gunakan 4 spasi per level blok. Hindari campuran tab dan spasi.
+
+```python
+for i in range(3):
+    print(i)
+```
+
+### 3. Komentar dan Keterbacaan
+
+Komentar membantu menjelaskan alasan kode, bukan mengulang isi kode.
+
+```python
+# Hitung total harga setelah diskon
+final_price = price - discount
+```
 
 ## Diagram
 
 ![Big picture Python Syntax](assets/02_python_syntax.svg)
 
-Caption: Diagram memberi gambaran besar alur pemahaman bab ini.
+Caption: Diagram menunjukkan alur dari aturan sintaks ke proses interpretasi dan hasil eksekusi/error.
 
 ### Legenda Diagram
 
-- kotak biru: konsep utama
-- panah: alur logika
-- kotak hijau: output/hasil
+- kotak biru: aturan syntax input
+- kotak tengah: parsing/interpreting
+- kotak hijau: output valid atau error syntax
 
 ## Contoh Kode (Benar)
 
-`python
-print("Belajar Python Basics")
-`
+```python
+name = "Syahputra"
+if name:
+    print(f"Halo, {name}")
+```
 
 Expected output:
 
-`	ext
-Belajar Python Basics
-`
+```text
+Halo, Syahputra
+```
 
 ## Pitfall Umum
 
 Contoh kesalahan yang sering terjadi:
 
-`python
+```python
 if True
     print("missing colon")
-`
+```
 
 Perbaikan:
 
-`python
+```python
 if True:
     print("colon fixed")
-`
+```
+
+Contoh lain (indentation tidak konsisten):
+
+```python
+if True:
+print("bad indent")
+```
+
+Perbaikan:
+
+```python
+if True:
+    print("good indent")
+```
 
 ## Catatan Praktis
 
-- jalankan contoh kecil lebih dulu sebelum memperbesar kompleksitas
-- cek error message Python sebelum melakukan perubahan besar
+- gunakan editor yang menampilkan indentation dengan jelas
+- aktifkan format otomatis jika tersedia
+- jalankan kode kecil secara berkala untuk validasi syntax
 
 ## Latihan
 
 ### Dasar
 
-Tulis ulang contoh kode dan ubah nilai output.
+Tulis 3 statement Python sederhana: assignment, print, dan if.
 
 ### Menengah
 
-Gabungkan konsep bab ini dengan konsep bab sebelumnya.
+Buat blok `if-else` dengan indentation benar dan tambahkan komentar penjelas.
 
 ### Mini Challenge
 
-Buat script kecil yang menampilkan solusi sederhana berdasarkan topik bab.
+Buat script yang mengecek umur pengguna, lalu menampilkan kategori: `anak`, `remaja`, atau `dewasa`.
 
 ## Checklist Lulus Bab
 
-- [ ] memahami konsep inti
-- [ ] menjalankan contoh tanpa error
-- [ ] memahami pitfall dan perbaikannya
+- [ ] menulis statement Python tanpa `SyntaxError`
+- [ ] menggunakan indentation konsisten 4 spasi
+- [ ] bisa menjelaskan fungsi komentar
 - [ ] menyelesaikan mini challenge
 
 ## Peta Keterkaitan
 
-- Bab sebelumnya: $(System.Collections.Hashtable.Prev)
-- Bab berikutnya: $(System.Collections.Hashtable.Next)
-- Keterkaitan lintas buku Core: $(System.Collections.Hashtable.Link)
+- Bab sebelumnya: `01_getting_started.md`
+- Bab berikutnya: `03_variables_and_names.md`
+- Keterkaitan lintas buku Core: `CORE-03` (Execution Model)
 
 ## Ringkasan
 
-- topik bab ini adalah fondasi utama Python Basics
-- praktik langsung penting untuk menguatkan konsep
-- bab ini menyiapkan transisi ke topik berikutnya
+- Sintaks adalah aturan dasar agar kode bisa dijalankan Python.
+- Indentation di Python bersifat struktural, bukan sekadar estetika.
+- Membaca dan memperbaiki error syntax adalah skill wajib sejak awal.
 
 ## FAQ Singkat
 
-1. Kenapa bab ini penting?
-   Jawaban singkat: karena menjadi fondasi untuk bab setelahnya.
-2. Apakah harus menguasai semua detail sekaligus?
-   Jawaban singkat: tidak, kuasai inti dulu lalu lanjut bertahap.
-3. Kapan perlu lanjut ke bab berikutnya?
-   Jawaban singkat: setelah checklist lulus bab terpenuhi.
+1. Kenapa Python sensitif terhadap indentation?
+   Jawaban singkat: karena indentation dipakai untuk menentukan blok kode.
+2. Lebih baik pakai tab atau spasi?
+   Jawaban singkat: gunakan 4 spasi agar konsisten dengan standar Python.
+3. Komentar idealnya ditulis kapan?
+   Jawaban singkat: saat perlu menjelaskan alasan/niat kode yang tidak langsung terlihat.
 
 ## Referensi
 
-- Python Official Documentation: https://docs.python.org/3/
-- Python Language Reference: https://docs.python.org/3/reference/
-- Python Tutorial: https://docs.python.org/3/tutorial/
+- Python Tutorial (Informal Introduction): https://docs.python.org/3/tutorial/introduction.html
+- Python Tutorial (Control Flow): https://docs.python.org/3/tutorial/controlflow.html
+- Python Lexical Analysis: https://docs.python.org/3/reference/lexical_analysis.html

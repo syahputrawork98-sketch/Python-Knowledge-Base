@@ -1,7 +1,7 @@
 ﻿# Python Basics
 
 Book Code: CORE-01
-Version: v0.2.1
+Version: v0.2.2
 Last Updated: 2026-03-08
 Status: In Progress
 

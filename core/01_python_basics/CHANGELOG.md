@@ -1,8 +1,13 @@
 ﻿# CHANGELOG
 
 Book Code: CORE-01
-Version: v0.2.1
+Version: v0.2.2
 Last Updated: 2026-03-08
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `02_python_syntax.md` termasuk konsep syntax, indentation, contoh runnable, pitfall, latihan, dan FAQ.
+- Reason: Mengganti placeholder bab 02 agar pembahasan sintaks dasar siap dipelajari setelah bab pembuka.
+- Impact: Jalur belajar Python Basics kini memiliki dua bab awal yang sudah operasional.
 
 ## 2026-03-08
 - Changed: Menulis konten nyata untuk `01_getting_started.md` termasuk konsep inti, contoh kode runnable, latihan, FAQ, dan perbaikan format markdown.
