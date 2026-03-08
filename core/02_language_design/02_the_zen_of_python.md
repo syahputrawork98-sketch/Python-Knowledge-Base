@@ -1,107 +1,152 @@
-﻿# The Zen of Python
+# The Zen of Python
 
 Chapter Code: CORE-02-02
 Book Code: CORE-02
-Version: v0.2.0
+Version: v0.2.1
 Last Updated: 2026-03-08
-Status: Planned
+Status: Draft
 Difficulty: Basic
 Estimated Time: 35 menit teori + 25 menit praktik
 
 ## Bab Ini Tentang Apa
 
-Bab ini membahas konsep inti the zen of python dalam konteks filosofi desain bahasa Python.
+Bab ini membahas The Zen of Python (PEP 20) sebagai kompas pengambilan keputusan saat menulis kode. Zen bukan aturan kaku, melainkan prinsip praktis agar kode tetap jelas, konsisten, dan mudah dirawat.
 
 ## Prasyarat Spesifik Bab
 
-- memahami bab sebelumnya (jika ada)
-- memahami dasar sintaks Python dari CORE-01
+- sudah menyelesaikan CORE-02-01
+- memahami struktur kontrol, fungsi, dan error handling dasar
+- siap membandingkan beberapa gaya implementasi
 
 ## Istilah Kunci
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| language design | prinsip perancangan bahasa | readability over cleverness |
-| trade-off | kompromi antar tujuan desain | simplicity vs flexibility |
+| Zen of Python | kumpulan aphorism yang memandu gaya desain Python | `import this` |
+| aphorism | prinsip ringkas yang mudah diingat | "Explicit is better than implicit" |
+| explicitness | niat kode terlihat jelas | named argument, guard clause |
+| ambiguity | kondisi makna kode bisa ditafsir ganda | API tanpa kontrak parameter |
+| practicality | keputusan berbasis manfaat nyata | solusi sederhana yang stabil |
 
 ## Tujuan Besar
 
-Membantu pembaca memahami alasan desain Python agar keputusan coding lebih sadar konteks.
+Membentuk kebiasaan mengambil keputusan coding berbasis prinsip Zen, bukan sekadar preferensi pribadi.
 
 ## Tujuan Kecil
 
-- mengenali prinsip inti topik bab
-- menghubungkan prinsip dengan praktik coding
-- mengidentifikasi trade-off dasar pada kasus sederhana
+- memahami makna praktis aphorism utama Zen
+- menghubungkan Zen dengan code review sehari-hari
+- menerapkan Zen saat refactor kode sederhana
 
 ## Hasil Belajar
 
 Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
 
-- menjelaskan prinsip utama bab ini
-- menerapkan prinsip pada contoh kode sederhana
-- mengevaluasi dampak desain pada keterbacaan kode
+- menjelaskan 5 aphorism Zen yang paling sering muncul di proyek nyata
+- menemukan pelanggaran prinsip Zen pada contoh kode
+- memperbaiki kode agar lebih explicit dan maintainable
 
 ## Peruntukan
 
 Bab ini digunakan saat:
 
-- ingin memahami "mengapa" di balik gaya Python
-- ingin menulis kode yang lebih idiomatik
+- ingin membangun standar code review berbasis prinsip
+- perlu alasan objektif saat memilih gaya implementasi
+- membina kebiasaan menulis kode Pythonic yang dapat dipertanggungjawabkan
 
 ## Bukan Peruntukan
 
 Bab ini bukan untuk:
 
-- pembahasan internal CPython detail rendah
-- pembahasan implementasi compiler/interpreter mendalam
+- menghafal semua kalimat Zen tanpa konteks implementasi
+- membenarkan satu gaya coding untuk semua kondisi
+- pembahasan performa tingkat mesin/low-level
 
 ## Analogi
 
-Anggap desain bahasa seperti arsitektur kota: keputusan tata letak memengaruhi semua aktivitas di dalamnya.
+Zen of Python seperti checklist pilot sebelum terbang. Checklist tidak menjamin 100% bebas masalah, tetapi menurunkan risiko keputusan buruk secara signifikan.
 
 ## Miskonsepsi Umum
 
-- Miskonsepsi: desain bahasa hanya urusan pembuat bahasa.
-  Klarifikasi: pemrogram tetap terdampak langsung oleh keputusan desain.
+- Miskonsepsi: "Zen adalah aturan wajib yang tidak boleh dilanggar."
+  Klarifikasi: Zen adalah pedoman. Dalam konteks tertentu, trade-off dapat membuat kita memilih pendekatan berbeda.
 
-- Miskonsepsi: aturan gaya hanya preferensi pribadi.
-  Klarifikasi: banyak aturan gaya berakar dari filosofi desain bahasa.
+- Miskonsepsi: "Pythonic berarti kode paling pendek."
+  Klarifikasi: Pythonic menekankan kejelasan intent, bukan sekadar jumlah karakter.
+
+- Miskonsepsi: "Kalau sudah jalan, Zen tidak relevan."
+  Klarifikasi: Zen sangat relevan untuk maintenance, onboarding, dan stabilitas jangka panjang.
 
 ## Konsep Inti
 
 ### 1. Prinsip Dasar
 
-Jelaskan prinsip utama yang dibahas di bab ini dan hubungannya dengan kode Python.
+Beberapa aphorism Zen yang paling sering dipakai dalam praktik:
+
+1. Beautiful is better than ugly
+Kode yang rapi dan konsisten memudahkan kerja tim.
+
+2. Explicit is better than implicit
+Kontrak fungsi, validasi input, dan error message perlu jelas.
+
+3. Simple is better than complex
+Mulai dari solusi sederhana sebelum membangun abstraksi besar.
+
+4. Readability counts
+Keterbacaan adalah faktor utama saat kode dibaca ulang oleh orang lain.
+
+5. Errors should never pass silently
+Error sebaiknya terlihat, kecuali memang sengaja ditangani dengan alasan jelas.
 
 ### 2. Dampak Praktis
 
-Jelaskan bagaimana prinsip ini memengaruhi keputusan coding sehari-hari.
+Zen memengaruhi keputusan harian seperti:
+
+- memilih nama fungsi yang deskriptif dibanding singkatan
+- menghindari nested logic yang terlalu dalam
+- menulis exception yang spesifik, bukan `except Exception` untuk semua
+- memecah fungsi panjang menjadi unit yang lebih mudah diuji
+
+Pola penerapan cepat:
+
+1. cek apakah intent fungsi sudah langsung terbaca
+2. pastikan input invalid ditangani eksplisit
+3. sederhanakan alur kontrol jika terlalu rumit
+4. dokumentasikan alasan jika mengambil pengecualian dari prinsip Zen
 
 ## Diagram
 
 ![Big picture The Zen of Python](assets/02_the_zen_of_python.svg)
 
-Caption: Diagram memetakan alur konsep utama bab dan dampaknya ke praktik coding.
+Caption: Diagram menggambarkan alur dari aphorism Zen ke keputusan coding yang lebih konsisten dan mudah dirawat.
 
 ### Legenda Diagram
 
-- 1️⃣: konsep awal
-- 2️⃣: proses analisis
-- 3️⃣: keputusan praktis
+- 1??: prinsip Zen sebagai kompas
+- 2??: evaluasi opsi implementasi
+- 3??: hasil akhir pada kualitas kode
 
 ## Contoh Kode (Benar)
 
 ```python
-# contoh sederhana penerapan prinsip desain
-message = "Readability matters"
-print(message)
+def parse_age(text: str) -> int:
+    cleaned = text.strip()
+    if not cleaned:
+        raise ValueError("age text must not be empty")
+
+    age = int(cleaned)
+    if age < 0:
+        raise ValueError("age must be >= 0")
+    return age
+
+
+print(parse_age(" 21 "))
 ```
 
 Expected output:
 
 ```text
-Readability matters
+21
 ```
 
 ## Pitfall Umum
@@ -109,70 +154,93 @@ Readability matters
 Contoh kesalahan yang sering terjadi:
 
 ```python
-# kode terlalu kompleks untuk masalah sederhana
-result = [x for x in range(10) if (x % 2 == 0 and x > 3) or (x == 1)]
+def parse_age(text):
+    try:
+        return int(text)
+    except Exception:
+        return 0
 ```
+
+Masalah:
+
+- menelan semua error tanpa konteks
+- sulit membedakan input kosong, format salah, dan nilai negatif
+- melanggar prinsip "Errors should never pass silently"
 
 Perbaikan:
 
 ```python
-# pecah logika agar intent lebih jelas
-result = []
-for x in range(10):
-    if x % 2 == 0 and x > 3:
-        result.append(x)
+def parse_age(text: str) -> int:
+    cleaned = text.strip()
+    if not cleaned:
+        raise ValueError("age text must not be empty")
+
+    age = int(cleaned)
+    if age < 0:
+        raise ValueError("age must be >= 0")
+    return age
 ```
 
 ## Catatan Praktis
 
-- prioritaskan kejelasan intent
-- dokumentasikan keputusan desain yang tidak obvious
-- hindari clever code jika mengorbankan readability
+- gunakan Zen untuk menilai opsi, bukan untuk menghakimi tim
+- jika kode terasa "pintar", cek lagi apakah pembaca baru langsung paham
+- exception harus membantu debugging, bukan menyembunyikan masalah
+- konsistensi style tim lebih penting daripada preferensi individu
+- refactor kecil rutin lebih murah daripada rewrite besar di akhir
 
 ## Latihan
 
 ### Dasar
 
-Identifikasi satu keputusan desain Python yang kamu lihat pada contoh bab ini.
+Pilih 3 aphorism Zen favorit Anda dan jelaskan contoh penerapannya di proyek nyata.
 
 ### Menengah
 
-Refactor contoh kode agar lebih jelas tanpa mengubah hasil.
+Ambil satu fungsi lama yang memakai `except Exception`, lalu refactor menjadi penanganan error yang lebih spesifik.
 
 ### Mini Challenge
 
-Buat script kecil lalu jelaskan trade-off desain yang kamu pilih (kejelasan vs keringkasan).
+Buat file `user_input.py` berisi:
+
+- fungsi parsing angka umur
+- fungsi validasi range umur (0-120)
+- fungsi pemformatan pesan hasil validasi
+
+Tambahkan minimal 4 test case, lalu tulis 5-8 kalimat: aphorism Zen mana yang paling memengaruhi desain Anda dan kenapa.
 
 ## Checklist Lulus Bab
 
-- [ ] memahami prinsip inti bab
-- [ ] mampu menjelaskan trade-off dasar
-- [ ] menyelesaikan mini challenge
-- [ ] bisa menjelaskan alasan refactor
+- [ ] memahami 5 aphorism Zen yang penting untuk praktik
+- [ ] mampu mengidentifikasi pelanggaran Zen pada kode sederhana
+- [ ] menyelesaikan mini challenge beserta test
+- [ ] mampu menjelaskan alasan refactor berbasis prinsip Zen
 
 ## Peta Keterkaitan
 
 - Bab sebelumnya: 01_design_goals_and_philosophy.md
 - Bab berikutnya: 03_readability_and_explicitness.md
-- Keterkaitan lintas buku Core: CORE-15
+- Keterkaitan lintas buku Core: CORE-01 (dasar sintaks), CORE-05 (error handling)
 
 ## Ringkasan
 
-- topik bab ini membentuk dasar language design Python
-- keputusan desain memengaruhi kode harian
-- pemahaman prinsip desain meningkatkan kualitas implementasi
+- Zen of Python adalah kompas berpikir untuk desain kode
+- prinsip Zen membantu membuat keputusan lebih konsisten
+- explicitness dan readability adalah kunci maintainability
+- trade-off tetap ada, tapi Zen memberi baseline evaluasi yang kuat
 
 ## FAQ Singkat
 
-1. Kenapa perlu belajar language design sebagai developer aplikasi?
-   Jawaban singkat: supaya keputusan coding lebih terarah dan konsisten.
-2. Apakah prinsip desain selalu absolut?
-   Jawaban singkat: tidak, sering ada trade-off antar prinsip.
-3. Bagaimana menerapkan bab ini ke proyek nyata?
-   Jawaban singkat: evaluasi keputusan kode dengan kriteria readability, maintainability, dan consistency.
+1. Apakah harus menghafal semua kalimat Zen?
+   Jawaban singkat: tidak wajib; yang penting memahami penerapan praktisnya.
+2. Kapan boleh "melanggar" Zen?
+   Jawaban singkat: saat ada alasan teknis kuat dan konsekuensinya dipahami tim.
+3. Kenapa `except Exception` sering dianggap buruk?
+   Jawaban singkat: karena menyembunyikan akar masalah dan menyulitkan debugging.
 
 ## Referensi
 
+- PEP 20 (Zen of Python): https://peps.python.org/pep-0020/
 - Python Tutorial: https://docs.python.org/3/tutorial/
 - Python Language Reference: https://docs.python.org/3/reference/
-- PEP Index: https://peps.python.org/
+- PEP 8 (Style Guide): https://peps.python.org/pep-0008/
