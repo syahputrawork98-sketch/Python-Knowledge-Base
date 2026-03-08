@@ -1,8 +1,18 @@
 ﻿# CHANGELOG
 
 Book Code: CORE-01
-Version: v0.2.4
+Version: v0.2.6
 Last Updated: 2026-03-08
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `06_control_flow.md` mencakup percabangan, loop, break/continue/pass, pitfall, dan latihan.
+- Reason: Mengganti placeholder bab 06 agar pembaca memiliki fondasi alur eksekusi sebelum masuk ke fungsi.
+- Impact: Enam bab awal Python Basics kini siap sebagai jalur belajar dasar yang lebih stabil.
+
+## 2026-03-08
+- Changed: Menulis konten nyata untuk `05_operators_and_expressions.md` mencakup operator aritmatika, perbandingan, logika, precedence, pitfall, dan latihan.
+- Reason: Mengganti placeholder bab 05 agar pembaca siap masuk ke kontrol alur dengan fondasi expression yang kuat.
+- Impact: Lima bab awal Python Basics kini membentuk jalur konsep dasar yang lebih utuh.
 
 ## 2026-03-08
 - Changed: Menulis konten nyata untuk `04_basic_data_types.md` meliputi tipe data dasar, casting, truthiness, pitfall, latihan, dan FAQ.
