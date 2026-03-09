@@ -1,41 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
-  <title id="title">Idiomatic Python and Style visual map</title>
-  <desc id="desc">Core language design chapter map for Idiomatic Python and Style.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f8fafc"/>
-      <stop offset="100%" stop-color="#e2e8f0"/>
-    </linearGradient>
-    <linearGradient id="card1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1d4ed8"/>
-      <stop offset="100%" stop-color="#0f172a"/>
-    </linearGradient>
-    <linearGradient id="card2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#0f766e"/>
-    </linearGradient>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#334155"/>
-    </marker>
-  </defs>
-
-  <rect width="1200" height="700" fill="url(#bg)"/>
-
-  <text x="80" y="86" font-size="38" font-weight="700" fill="#0f172a" font-family="Segoe UI, Arial">Idiomatic Python and Style</text>
-  <text x="80" y="122" font-size="20" fill="#334155" font-family="Segoe UI, Arial">CORE-02-11 | Language Design Map</text>
-
-  <rect x="80" y="220" rx="20" ry="20" width="300" height="210" fill="url(#card1)"/>
-  <rect x="450" y="220" rx="20" ry="20" width="300" height="210" fill="url(#card2)"/>
-  <rect x="820" y="220" rx="20" ry="20" width="300" height="210" fill="url(#card1)"/>
-
-  <text x="112" y="278" font-size="24" fill="#ffffff" font-family="Segoe UI, Arial">1. Pythonic Pattern</text>
-  <text x="482" y="278" font-size="24" fill="#ffffff" font-family="Segoe UI, Arial">2. Style Consistency</text>
-  <text x="852" y="278" font-size="24" fill="#ffffff" font-family="Segoe UI, Arial">3. Review Feedback</text>
-
-  <line x1="380" y1="325" x2="450" y2="325" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="750" y1="325" x2="820" y2="325" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
-
-  <rect x="80" y="500" width="1040" height="120" rx="18" ry="18" fill="#ffffff" opacity="0.94"/>
-  <text x="115" y="548" font-size="24" fill="#0f172a" font-family="Segoe UI, Arial">Learning Target</text>
-  <text x="115" y="584" font-size="18" fill="#334155" font-family="Segoe UI, Arial">Apply idiomatic patterns that improve readability and team collaboration.</text>
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Idiomatic Python and Style</title>
+  <desc id="desc">From style principles to team collaboration quality.</desc>
+  <rect width="1200" height="700" fill="#f8fafc"/>
+  <text x="70" y="72" font-family="Segoe UI, Arial" font-size="36" font-weight="700" fill="#0f172a">CORE-02-11 Idiomatic Python and Style</text>
+  <text x="70" y="106" font-family="Segoe UI, Arial" font-size="18" fill="#334155">✨ Style idiomatic meningkatkan readability, review speed, dan kolaborasi tim.</text>
+  <rect x="120" y="210" width="300" height="360" rx="18" fill="#e0e7ff" stroke="#4338ca"/>
+  <text x="145" y="255" font-family="Segoe UI, Arial" font-size="21" font-weight="700" fill="#312e81">Style Principles</text>
+  <text x="145" y="290" font-family="Segoe UI, Arial" font-size="16" fill="#312e81">- naming jelas</text>
+  <text x="145" y="316" font-family="Segoe UI, Arial" font-size="16" fill="#312e81">- flow sederhana</text>
+  <text x="145" y="342" font-family="Segoe UI, Arial" font-size="16" fill="#312e81">- gunakan idiom secukupnya</text>
+  <rect x="470" y="210" width="300" height="360" rx="18" fill="#dbeafe" stroke="#1d4ed8"/>
+  <text x="495" y="255" font-family="Segoe UI, Arial" font-size="21" font-weight="700" fill="#1e3a8a">Code Structure</text>
+  <text x="495" y="290" font-family="Segoe UI, Arial" font-size="16" fill="#1e3a8a">- fungsi kecil fokus</text>
+  <text x="495" y="316" font-family="Segoe UI, Arial" font-size="16" fill="#1e3a8a">- error handling jelas</text>
+  <text x="495" y="342" font-family="Segoe UI, Arial" font-size="16" fill="#1e3a8a">- konsisten lintas modul</text>
+  <rect x="820" y="210" width="300" height="360" rx="18" fill="#dcfce7" stroke="#15803d"/>
+  <text x="845" y="255" font-family="Segoe UI, Arial" font-size="21" font-weight="700" fill="#14532d">Team Outcome</text>
+  <text x="845" y="290" font-family="Segoe UI, Arial" font-size="16" fill="#14532d">- review lebih cepat</text>
+  <text x="845" y="316" font-family="Segoe UI, Arial" font-size="16" fill="#14532d">- onboarding lebih mudah</text>
+  <text x="845" y="342" font-family="Segoe UI, Arial" font-size="16" fill="#14532d">- refactor lebih aman</text>
+  <line x1="420" y1="390" x2="470" y2="390" stroke="#475569" stroke-width="4"/>
+  <line x1="770" y1="390" x2="820" y2="390" stroke="#475569" stroke-width="4"/>
 </svg>
+
+
+

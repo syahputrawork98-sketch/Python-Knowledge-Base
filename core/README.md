@@ -105,6 +105,14 @@ Setiap direktori merepresentasikan satu buku utama.
 - konsep penting wajib menyertakan referensi resmi
 - gunakan istilah konsisten dengan `docs/glossary.md`
 
+## Kebijakan Aset Visual (Core)
+
+- jangan membuat aset visual (`assets/*.svg`) di awal saat konten buku masih berkembang
+- selesaikan dulu konten buku sampai status draft final (content lock) per bab atau per buku
+- lakukan review pedagogi dan konsistensi istilah sebelum desain visual
+- setelah konten stabil, baru buat diagram spesifik per bab berdasarkan konsep final
+- hindari template visual generik yang tidak merepresentasikan konsep bab secara akurat
+
 ## Progress Tracker
 
 | Status | Arti |
