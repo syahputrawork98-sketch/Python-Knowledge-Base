@@ -1,6 +1,6 @@
 ﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
   <title id="title">Functions visual map</title>
-  <desc id="desc">Chapter map for Functions using three learning stages.</desc>
+  <desc id="desc">Chapter map for Functions with chapter-specific learning flow.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#f8fafc"/>
@@ -36,20 +36,20 @@
     <rect x="820" y="210" rx="22" ry="22" width="300" height="230" fill="url(#cardA)"/>
   </g>
 
-  <text x="110" y="270" font-size="24" fill="#ffffff" font-family="Segoe UI Emoji, Segoe UI Symbol, Segoe UI">1️⃣  Input</text>
-  <text x="480" y="270" font-size="24" fill="#ffffff" font-family="Segoe UI Emoji, Segoe UI Symbol, Segoe UI">2️⃣  Process</text>
-  <text x="850" y="270" font-size="24" fill="#ffffff" font-family="Segoe UI Emoji, Segoe UI Symbol, Segoe UI">3️⃣  Return</text>
+  <text x="110" y="270" font-size="24" fill="#ffffff" font-family="Segoe UI Emoji, Segoe UI Symbol, Segoe UI">1️⃣  Arguments</text>
+  <text x="480" y="270" font-size="24" fill="#ffffff" font-family="Segoe UI Emoji, Segoe UI Symbol, Segoe UI">2️⃣  Function Body</text>
+  <text x="850" y="270" font-size="24" fill="#ffffff" font-family="Segoe UI Emoji, Segoe UI Symbol, Segoe UI">3️⃣  Return Value</text>
 
-  <text x="110" y="315" font-size="17" fill="#e2e8f0" font-family="Segoe UI, Arial">Understand the input concept first.</text>
-  <text x="480" y="315" font-size="17" fill="#e2e8f0" font-family="Segoe UI, Arial">Process with clear Python rules.</text>
-  <text x="850" y="315" font-size="17" fill="#e2e8f0" font-family="Segoe UI, Arial">Check outcome and refine logic.</text>
+  <text x="110" y="315" font-size="17" fill="#e2e8f0" font-family="Segoe UI, Arial">Masukan dikirim ke fungsi.</text>
+  <text x="480" y="315" font-size="17" fill="#e2e8f0" font-family="Segoe UI, Arial">Logika diproses dalam body fungsi.</text>
+  <text x="850" y="315" font-size="17" fill="#e2e8f0" font-family="Segoe UI, Arial">Nilai dikembalikan lewat return.</text>
 
   <line x1="380" y1="325" x2="450" y2="325" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
   <line x1="750" y1="325" x2="820" y2="325" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
 
   <rect x="80" y="500" width="1040" height="120" rx="18" ry="18" fill="#ffffff" opacity="0.92"/>
   <text x="115" y="548" font-size="24" fill="#0f172a" font-family="Segoe UI Emoji, Segoe UI Symbol, Segoe UI">🎯 Learning Target</text>
-  <text x="115" y="585" font-size="18" fill="#334155" font-family="Segoe UI, Arial">After this chapter, the learner can explain the core idea, run examples, and apply it to a small task.</text>
+  <text x="115" y="585" font-size="18" fill="#334155" font-family="Segoe UI, Arial">Setelah bab ini, pembaca bisa menulis fungsi reusable dengan parameter dan return yang jelas.</text>
 
   <text x="1010" y="655" font-size="16" fill="#64748b" font-family="Segoe UI, Arial">Python Knowledge Universe</text>
 </svg>
