@@ -1,4 +1,4 @@
-﻿# Python Knowledge Universe
+# Python Knowledge Universe
 
 Python Knowledge Universe adalah rak buku digital tentang Python yang disusun terstruktur, modular, dan terus berkembang.
 
@@ -20,50 +20,43 @@ Tujuan utamanya adalah membangun struktur pengetahuan Python yang jelas, bertaha
 
 ## Struktur Pengetahuan
 
-Repository ini dibagi menjadi dua bagian utama.
+Repository ini dirancang dengan analogi sebuah perpustakaan, di mana struktur tertata dari tingkat yang luas hingga ke materi spesifik (Perpustakaan -> Rak -> Sub-Rak -> Buku -> Bab).
 
-### 1. Core Python
+Repository ini dibagi menjadi dua **Rak** utama.
 
-Core adalah sub-rak fondasi. Setiap folder di dalam `core/` adalah buku utama.
+### 1. Rak Core (`core/`)
 
-Direktori inti:
-- `core/01_python_basics`
-- `core/02_language_design`
-- `core/03_execution_model`
-- `core/04_object_model`
-- `core/05_memory_management`
-- `core/06_modules_import_system`
-- `core/07_standard_library`
-- `core/08_file_system_io`
-- `core/09_networking`
-- `core/10_concurrency`
-- `core/11_async_programming`
-- `core/12_testing`
-- `core/13_packaging`
-- `core/14_virtual_environments`
-- `core/15_tooling`
+Core adalah rak fondasi. Rak ini dibagi lagi menjadi beberapa **Sub-Rak** (Fase) untuk memandu perjalanan belajar:
 
-### 2. Python Specializations
+1. **01_fundamentals**: Pemahaman dasar tentang bahasa (`01_python_basics`, `02_language_design`)
+2. **02_advanced_concepts**: Konsep mendalam di balik layar (`01_execution_model`, `02_object_model`, `03_memory_management`)
+3. **03_system_and_io**: Interaksi program dengan sistem operasi (`01_modules_import_system`, `02_file_system_io`, `03_networking`)
+4. **04_concurrency**: Eksekusi paralel dan asynchronous (`01_concurrency`, `02_async_programming`)
+5. **05_ecosystem_and_tooling**: Perangkat pengembangan dunia nyata (`01_standard_library`, `02_testing`, `03_packaging`, `04_virtual_environments`, `05_tooling`)
 
-Specializations adalah sub-rak terapan. Setiap domain di dalam `specializations/` adalah sub-rak domain, lalu di dalamnya akan berisi banyak buku.
+### 2. Rak Specializations (`specializations/`)
 
-Setelah memahami Core Python, pembaca dapat melanjutkan ke jalur:
-- Web Development
-- Data Science
-- Machine Learning
-- AI Engineering
-- Automation
+Specializations adalah rak terapan. Setelah memahami Core Python, pembaca dapat memilih sub-rak domain spesifik:
+
+- `01_web_development`
+- `02_data_science`
+- `03_machine_learning`
+- `04_ai_engineering`
+- `05_automation`
 
 ## Arsitektur Rak
 
 Model organisasi repository ini:
 
-1. `root` adalah rak utama (library Python Knowledge Universe).
-2. `core/` adalah sub-rak fondasi.
-3. `core/<book>/` adalah buku.
-4. `specializations/` adalah sub-rak terapan.
-5. `specializations/<domain>/` adalah sub-rak domain.
-6. `specializations/<domain>/<book>/` adalah buku di domain tersebut.
+1. `root` adalah Perpustakaan (Library).
+2. `core/` & `specializations/` adalah Rak Utama (Shelf).
+3. `core/01_fundamentals/` adalah Sub-Rak (Fase/Domain).
+4. `core/01_fundamentals/01_python_basics/` adalah Buku.
+5. `.../01_python_basics/01_variables.md` adalah Bab (Chapter).
+
+Setiap sub-rak dan buku di atas akan memiliki file `README.md` tersendiri.
+
+*Untuk aturan rinci penggunaan direktori dan penamaan, silakan baca `docs/structure-guide.md`.*
 
 ## Struktur Repository
 
@@ -74,72 +67,37 @@ python-knowledge-universe/
 |-- docs/
 |   |-- roadmap.md
 |   |-- glossary.md
+|   |-- structure-guide.md
 |   `-- contribution-guide.md
 |
 |-- core/
 |   |-- README.md
-|   |-- 01_python_basics/
-|   |-- 02_language_design/
-|   |-- 03_execution_model/
-|   |-- 04_object_model/
-|   |-- 05_memory_management/
-|   |-- 06_modules_import_system/
-|   |-- 07_standard_library/
-|   |-- 08_file_system_io/
-|   |-- 09_networking/
-|   |-- 10_concurrency/
-|   |-- 11_async_programming/
-|   |-- 12_testing/
-|   |-- 13_packaging/
-|   |-- 14_virtual_environments/
-|   `-- 15_tooling/
+|   |-- 01_fundamentals/
+|   |-- 02_advanced_concepts/
+|   |-- 03_system_and_io/
+|   |-- 04_concurrency/
+|   `-- 05_ecosystem_and_tooling/
 |
 `-- specializations/
     |-- README.md
-    |-- web-development/
-    |   |-- README.md
-    |   `-- <book>/
-    |-- data-science/
-    |   |-- README.md
-    |   `-- <book>/
-    |-- machine-learning/
-    |   |-- README.md
-    |   `-- <book>/
-    |-- ai-engineering/
-    |   |-- README.md
-    |   `-- <book>/
-    `-- automation/
-        |-- README.md
-        `-- <book>/
+    |-- 01_web_development/
+    |-- 02_data_science/
+    |-- 03_machine_learning/
+    |-- 04_ai_engineering/
+    `-- 05_automation/
 ```
 
 ## Cara Menggunakan Repository
 
 ### 1. Jalur Belajar Berurutan
 
-Urutan rekomendasi untuk pemula:
+Urutan rekomendasi untuk pemula adalah mengikuti urutan nomor pada direktori `core/`. Selesaikan semua buku di sub-rak `01_fundamentals` sebelum berpindah ke `02_advanced_concepts`, dan seterusnya.
 
-1. Python Basics
-2. Language Design
-3. Execution Model
-4. Object Model
-5. Memory Management
-6. Modules and Import System
-7. Standard Library
-8. File System and IO
-9. Networking
-10. Concurrency
-11. Async Programming
-12. Testing
-13. Packaging
-14. Virtual Environments
-15. Tooling
-
-Lanjutkan ke bagian specialization setelah menyelesaikan core.
+Lanjutkan ke bagian `specializations` setelah menyelesaikan `core`.
 
 ### 2. Jalur Referensi
 
-Jika sudah familiar dengan Python, pembaca dapat langsung menuju topik tertentu sesuai kebutuhan.
+Jika sudah familiar dengan Python, pembaca dapat langsung menuju rak, sub-rak, atau buku tertentu sesuai kebutuhan, membaca ringkasan pada `README.md` masing-masing folder.
 
 ## Status Proyek
 
