@@ -1,0 +1,46 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- The Factory Box (The Function) -->
+  <rect x="250" y="200" width="300" height="200" rx="15" fill="#f1f5f9" stroke="#3b82f6" stroke-width="4" />
+  <text x="325" y="310" font-family="Arial" font-size="24" fill="#1e40af" font-weight="bold">FUNCTION</text>
+  <text x="335" y="340" font-family="Arial" font-size="16" fill="#3b82f6">def my_factory()</text>
+
+  <!-- Input (Parameters) -->
+  <path d="M 100 250 L 250 250" stroke="#94a3b8" stroke-width="6" marker-end="url(#arrowhead)" />
+  <rect x="50" y="230" width="80" height="40" rx="5" fill="#10b981" />
+  <text x="65" y="255" font-family="Arial" font-size="14" fill="white" font-weight="bold">INPUT</text>
+  <text x="140" y="235" font-family="Arial" font-size="12" fill="#64748b">Arguments</text>
+
+  <!-- Output (Return) -->
+  <path d="M 550 350 L 700 350" stroke="#3b82f6" stroke-width="6" marker-end="url(#arrowhead)" />
+  <rect x="670" y="330" width="100" height="40" rx="5" fill="#3b82f6" />
+  <text x="685" y="355" font-family="Arial" font-size="14" fill="white" font-weight="bold">RETURN</text>
+  <text x="590" y="335" font-family="Arial" font-size="12" fill="#1e40af">Value Output</text>
+
+  <!-- Internal Process (The Logic) -->
+  <circle cx="350" cy="240" r="15" fill="#94a3b8" opacity="0.4" />
+  <circle cx="400" cy="240" r="15" fill="#94a3b8" opacity="0.4" />
+  <circle cx="450" cy="240" r="15" fill="#94a3b8" opacity="0.4" />
+  <text x="360" y="280" font-family="Arial" font-size="12" fill="#64748b" font-style="italic">Internal Logic</text>
+
+  <!-- Scope Barrier (Glass Walls) -->
+  <rect x="240" y="190" width="320" height="220" rx="20" fill="none" stroke="#3b82f6" stroke-width="1" stroke-dasharray="8,8" opacity="0.5" />
+  <text x="240" y="180" font-family="Arial" font-size="14" fill="#3b82f6" font-style="italic">Local Scope Barrier</text>
+
+  <!-- Global World -->
+  <text x="50" y="80" font-family="Arial" font-size="18" fill="#64748b" font-weight="bold">GLOBAL SCOPE</text>
+  <rect x="50" y="100" width="120" height="30" rx="5" fill="#e2e8f0" />
+  <text x="60" y="120" font-family="Arial" font-size="12" fill="#475569">global_variable</text>
+
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="320" y="580" font-family="Arial" font-size="14" fill="#94a3b8">© Python Knowledge Universe - Modular Factory</text>
+</svg>

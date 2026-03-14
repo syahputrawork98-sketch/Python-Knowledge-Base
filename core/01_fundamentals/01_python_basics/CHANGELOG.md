@@ -15,6 +15,15 @@
 
 ## [Core.Fundamentals.01.00] - 2026-03-14
 ### Ditambahkan
+- **Bab 14 (`14_basic_programming_patterns`):** Penulisan draf materi pola pemrograman dasar menggunakan Analogi "Buku Resep & Cetak Biru Logika". Membahas pola-pola esensial seperti *Accumulator*, *Filtering*, *Searching*, dan *Counting*.
+- **Bab 13 (`13_builtin_functions`):** Penulisan draf materi fungsi bawaan menggunakan Analogi "Sabuk Alat Tukang Ahli". Membahas alat ukur (`len`, `sum`), alat identifikasi (`type`, `dir`), serta alat perulangan modern (`range`, `enumerate`, `zip`).
+- **Bab 12 (`12_exception_handling`):** Penulisan draf materi sistem keamanan menggunakan Analogi "Manajemen Krisis Gedung". Membahas penggunaan `try`, `except`, `else`, `finally`, dan cara melempar error manual dengan `raise`.
+- **Bab 11 (`11_file_handling`):** Penulisan draf materi interaksi file menggunakan Analogi "Sekretaris Digital & Lemari Arsip". Membahas siklus `open-work-close`, mode file (`r, w, a`), kekuatan `with`, dan mekanisme *buffering*.
+- **Bab 10 (`10_input_output`):** Penulisan draf materi interaksi terminal menggunakan Analogi "Meja Resepsionis". Membahas `input()`, `print()`, f-string, dan validasi tipe data dasar.
+- **Bab 09 (`09_modules_and_import`):** Penulisan draf materi modularitas menggunakan Analogi "Ekspedisi Logistik Kargo". Membahas cara pemecahan file (`import`), struktur folder (`package`), peran `__init__.py`, serta rahasia identitas `__name__`.
+- **Bab 08 (`08_basic_data_structures`):** Penulisan draf materi struktur data menggunakan Analogi "Manajemen Gudang Pusat". Menjelaskan perbedaan fungsional antara `list`, `tuple`, `set`, dan `dict`, beserta mekanisme internal *Hash Table*.
+- **Bab 07 (`07_functions`):** Penulisan draf materi fungsi menggunakan metafora "Stasiun Masak/Pabrik Mini". Membahas anatomi `def`, perbedaan parameter vs argumen, kekuatan `return`, serta isolasi variabel (*Scope*).
+- **Bab 06 (`06_control_flow`):** Penulisan draf materi kendali alur menggunakan Analogi "Navigasi Jalan Raya". Menjelaskan `if/else` sebagai persimpangan, `for` sebagai bus wisata, dan `while` sebagai bundaran. Dilengkapi 4 skrip simulasi sistem lalu lintas.
 - **Bab 05 (`05_operators_and_expressions`):** Penulisan ulang materi operator menggunakan metafora "Alat Masak & Hierarki Resep". Mencakup detail *precedence*, *short-circuit logic*, dan mekanisme internal *dunder methods* secara konseptual.
 - **Bab 04 (`04_basic_data_types`):** Ditulis ulang seutuhnya menggunakan Analogi "Wadah Kemasan Pasar". Menambahkan tabel Istilah Kunci lengkap dan demonstrasi interaktif penggunaan inspektur obyek `type()` serta trik konversi paksa (*Type Casting*). Disertai satu diagram SVG pengolahan *parsing* data.
 - **Bab 03 (`03_variables_and_names`):** Ditulis ulang seutuhnya dengan implementasi Analogi Gudang & Stiker Label. Menyertakan bab komprehensif tentang teori *Name Binding*, konsep mutable vs immutable, bahaya aliasing, serta visual SVG arsitektur objek.

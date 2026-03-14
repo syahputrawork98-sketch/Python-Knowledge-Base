@@ -1,257 +1,85 @@
-﻿# Modules and Import
+# Bab 09: Modules and Import
 
 Chapter Code: CORE-01-09
-Book Code: CORE-01
-Version: v0.2.9
-Last Updated: 2026-03-08
-Status: In Progress
-Difficulty: Basic
-Estimated Time: 45 menit teori + 40 menit praktik
+Version: Core.Fundamentals.01.01-draft
+Last Updated: 2026-03-14
+Status: Draft
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Bab ini membahas cara memecah kode program raksasa menjadi potongan-potongan file kecil (Module) dan folder terorganisir (Package) agar kode mudah dikelola, dibagikan, dan digunakan kembali.
 
-Bab ini membahas cara memecah kode Python ke beberapa file (module) dan cara memakainya dengan `import`. Kamu akan memahami pola import yang umum, struktur package dasar, penggunaan alias, serta praktik agar kode tetap rapi dan mudah dirawat.
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "Module adalah sebuah **Laci Berkas** spesifik, sementara Package adalah **Lemari Berkas** yang berisi banyak laci. Anda tidak perlu membawa seluruh lemari ke meja kerja; cukup ambil (import) laci yang Anda butuhkan saja."
 
-- memahami `07_functions.md`
-- memahami `08_basic_data_structures.md`
-- memahami alur eksekusi dari `06_control_flow.md`
+### Analogi Panjang / Cerita (Ekspedisi Logistik Kargo)
+Bayangkan Anda sedang mengelola sebuah pusat distribusi barang berskala besar. Anda tidak mungkin menaruh jutaan barang di satu meja kerja yang sama karena akan sangat berantakan dan sulit dicari.
 
-## Istilah Kunci
+- **Module (`.py` file) - Kotak Paket**: Setiap file Python yang Anda buat adalah satu kotak paket. Di dalamnya terdapat alat-alat khusus (Fungsi, Variabel, atau Class).
+- **`import` (Pemesanan Barang)**: Jika meja kerja Anda butuh obeng, Anda "memesan" kotak paket tersebut. Instruksi `import alat_tukang` berarti Anda mendatangkan kotak bernama `alat_tukang` ke meja Anda. Untuk memakainya: `alat_tukang.obeng()`.
+- **`from ... import` (Kurir Ekspres)**: Anda tidak butuh seluruh isi kotak paket karena terlalu berat. Anda hanya meminta kurir membawakan **satu buah kunci inggris** saja dari kotak `alat_tukang`. Dengan `from alat_tukang import kunci_inggris`, barang tersebut langsung ada di meja Anda tanpa perlu menyebut nama kotaknya lagi.
+- **Package (Kontainer Kargo)**: Adalah folder yang mengelompokkan banyak kotak paket (Module). Syarat sah sebuah folder dianggap Kontainer Kargo resmi (Package) di Python adalah adanya file manifes ghaib bernama `__init__.py`.
+- **`__name__` (Kartu Identitas)**: Setiap kotak paket punya stiker nama ghaib. Jika kotak tersebut sedang dikirim ke meja orang lain, stikernya bertuliskan nama asli file-nya. Tapi, jika Anda sedang berada di dalam gudang asal dan membuka kotak tersebut langsung, stikernya berubah menjadi simbol rahasia: `"__main__"`. Ini berguna untuk mengetes isi kotak tanpa mengganggu orang yang memesannya.
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| module | file Python yang bisa diimpor | `math_utils.py` |
-| import | mekanisme menggunakan module lain | `import math` |
-| package | folder berisi modul-modul terkait | `utils/` |
-| namespace | ruang nama untuk mencegah bentrok identifier | `math.sqrt` |
-| alias import | nama singkat untuk module/simbol | `import numpy as np` |
-| entry point | titik awal eksekusi script | `if __name__ == "__main__":` |
+| Module | File tunggal berakhiran `.py` yang berisi kode Python | `matematika.py` |
+| Package | Direktori (folder) yang berisi setidaknya satu file `__init__.py` dan beberapa module | Folder `database/` |
+| Namespace | Wilayah kekuasaan nama variabel agar tidak bentrok dengan file lain | `module_a.data` vs `module_b.data` |
+| Alias | Nama samaran singkat untuk modul yang namanya terlalu panjang | `import pandas as pd` |
+| Standard Library | Koleksi modul bawaan yang sudah terpasang otomatis saat Anda install Python | `math`, `sys`, `os` |
 
-## Tujuan Besar
+## 3. Konsep Utama
 
-Membantu pembaca menyusun kode menjadi modul terpisah agar proyek lebih terstruktur, reusable, dan mudah dikembangkan.
+### A. Tiga Cara Melakukan Impor
+Python sangat fleksibel dalam cara Anda mendatangkan modul:
+1. **`import resep`**: Mengambil seluruh modul. Akses isi dengan tanda titik (`resep.potong()`).
+2. **`from resep import potong`**: Mengambil fungsi spesifik. Bisa langsung dipanggil `potong()`.
+3. **`import resep as rs`**: Memberi nama panggilan agar tidak capek mengetik nama yang panjang.
 
-## Tujuan Kecil
+### B. Membuat Package (Folder Proyek)
+Jika proyek Anda semakin besar, pecahlah menjadi folder. Pastikan ada file kosong bernama `__init__.py` di dalamnya agar Python mengenalnya sebagai kumpulan modul terpadu.
 
-- memahami perbedaan `import x` vs `from x import y`
-- menggunakan alias import dengan tepat
-- membuat module sederhana sendiri
-- memahami fungsi `if __name__ == "__main__":`
-- menghindari masalah import path dasar
+### C. Standard Library: "Battery Included"
+Python terkenal dengan filosofi *"Battery Included"*, artinya ia sudah membekali Anda dengan ribuan alat gratis di dalam "Gudang Pusat" miliknya.
+- `math`: Untuk kalkulasi tingkat dewa (sin, cos, pi).
+- `random`: Untuk kebutuhan dadu/angka acak.
+- `datetime`: Untuk urusan waktu dan tanggal.
 
-## Hasil Belajar
-
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
-
-- menjelaskan konsep inti bab dengan kata-kata sendiri
-- menjalankan contoh utama tanpa error
-- menerapkan konsep bab pada latihan dasar
-
-## Peruntukan
-Bab ini digunakan saat:
-
-- kode sudah terlalu panjang dalam satu file
-- ingin memisahkan fungsi per tanggung jawab
-- ingin menggunakan modul bawaan atau modul buatan sendiri
-
-## Bukan Peruntukan
-
-Bab ini bukan untuk:
-
-- internals import system CPython tingkat lanjut
-- packaging/distribution lanjutan (akan dibahas di buku lain)
-
-## Analogi
-
-Module itu seperti lemari arsip per kategori. Import adalah cara mengambil berkas yang kamu butuhkan tanpa mencampur semua berkas dalam satu map besar.
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: `from module import *` aman untuk pemula.
-  Klarifikasi: wildcard import membuat namespace tidak jelas dan berisiko bentrok nama.
-
-- Miskonsepsi: file `.py` otomatis jadi package.
-  Klarifikasi: package adalah organisasi folder modul; praktik modern bisa pakai namespace package, namun struktur perlu jelas.
-
-## Konsep Inti
-
-### 1. Pola Import Dasar
+### D. Pelindung `__name__ == "__main__"`
+Gunakan pelindung ini di akhir modul Anda agar kode tes/percobaan tidak ikut berjalan saat orang lain mengimpor modul Anda.
 
 ```python
-import math
-print(math.sqrt(25))
-
-from math import pi
-print(pi)
-
-import math as m
-print(m.ceil(2.1))
-```
-
-Gunakan `import module` saat ingin namespace jelas. Gunakan `from ... import ...` saat butuh simbol tertentu.
-
-### 2. Membuat Module Sendiri
-
-Contoh file `math_utils.py`:
-
-```python
-# math_utils.py
-def add(a, b):
-    return a + b
-
-def multiply(a, b):
-    return a * b
-```
-
-Contoh pemakaian di `main.py`:
-
-```python
-import math_utils
-
-print(math_utils.add(2, 3))
-print(math_utils.multiply(4, 5))
-```
-
-### 3. `if __name__ == "__main__"`
-
-```python
-def greet(name):
-    return f"Halo, {name}!"
-
 if __name__ == "__main__":
-    print(greet("Python"))
+    print("Kode ini hanya jalan jika file ini dibuka langsung!")
 ```
 
-Blok ini hanya jalan saat file dieksekusi langsung, bukan saat di-import.
+## 4. Visualisasi Analogi
 
-### 4. Struktur Package Dasar
+![Big Picture Module and Package Cargo System](assets/09_modules_and_import.svg)
 
-```text
-project/
-|-- app.py
-`-- utils/
-    |-- __init__.py
-    `-- formatter.py
-```
+## 5. Di Balik Layar (Under the Hood)
+Pernahkah Anda bingung kenapa Python bisa menemukan modul `math` tapi tidak bisa menemukan file `.py` yang baru saja Anda buat? Python mencari file berdasarkan daftar alamat rahasia yang disebut **`sys.path`**. Urutannya adalah:
+1. Folder tempat skrip utama dijalankan.
+2. Variabel lingkungan `PYTHONPATH`.
+3. Folder instalasi Standard Library.
+Jika di semua alamat itu file Anda tidak ditemukan, Python akan melontarkan pesan `ModuleNotFoundError`.
 
-Contoh import:
+## 6. Peringatan / Jebakan Umum (Gotchas)
+- **Nama File yang "Sama"**: Jangan pernah menamai file Anda `random.py` atau `math.py`. Jika Anda melakukan `import random`, Python akan bingung dan mungkin malah mengimpor file Anda sendiri alih-alih modul bawaan, menyebabkan error massal.
+- **Circular Imports**: Kejadian di mana Modul A mengimpor Modul B, dan Modul B juga mengimpor Modul A. Ini adalah "Cinta Segitiga" yang mematikan bagi Python.
+- **Wildcard Import (`from ... import *`)**: Cara malas yang berbahaya karena akan memasukkan jutaan nama asing ke kode Anda dan mungkin menindih nama variabel yang sudah Anda buat sebelumnya.
 
-```python
-from utils.formatter import to_upper
-```
+## 7. Referensi Kode Praktik
+Simulasi pengiriman kargo tersedia di folder `examples/`:
+- `toko_alat.py`: Sebuah modul penyedia fungsi (Kotak Paket).
+- `01_pembeli_import.py`: Demonstrasi mengimpor dan memesan barang dari `toko_alat`.
+- `paket_kurir/`: Contoh struktur Package (Kontainer).
+- `02_uji_identitas.py`: Membuktikan kekuatan rahasia `__name__`.
 
-## Diagram
-
-![Big picture Modules and Import](assets/09_modules_and_import.svg)
-
-Caption: Diagram memperlihatkan alur pemisahan kode ke modul dan proses pemanggilan kembali lewat import.
-
-### Legenda Diagram
-
-- kotak biru: file/module sumber
-- panah: proses import
-- kotak hijau: fungsi/kelas dipakai di modul pemanggil
-
-## Contoh Kode (Benar)
-
-```python
-# text_utils.py
-def shout(text):
-    return text.upper() + "!"
-
-# main.py
-from text_utils import shout
-
-print(shout("belajar python"))
-```
-
-Expected output:
-
-```text
-BELAJAR PYTHON!
-```
-
-## Pitfall Umum
-
-Wildcard import:
-
-```python
-from math import *
-print(sqrt(16))
-```
-
-Perbaikan (lebih jelas):
-
-```python
-import math
-print(math.sqrt(16))
-```
-
-Masalah nama file bentrok dengan module standar (`math.py`, `json.py`):
-
-```text
-math.py  # file lokal
-```
-
-Perbaikan:
-
-- ganti nama file lokal agar tidak bentrok module bawaan
-- pastikan struktur folder proyek jelas
-
-## Catatan Praktis
-
-- hindari `import *`
-- gunakan nama module deskriptif (`text_utils`, `validators`)
-- letakkan import di bagian atas file (kecuali ada alasan khusus)
-- kelompokkan import: standard library, third-party, local
-
-## Latihan
-
-### Dasar
-
-Buat module `greetings.py` berisi fungsi `hello(name)`, lalu panggil dari file lain.
-
-### Menengah
-
-Pisahkan fungsi matematika sederhana (`add`, `subtract`) ke module terpisah dan gunakan alias import.
-
-### Mini Challenge
-
-Buat mini project 3 file: `main.py`, `calculator.py`, `formatter.py`, lalu hubungkan dengan import agar aplikasi berjalan modular.
-
-## Checklist Lulus Bab
-
-- [ ] memahami konsep module dan import
-- [ ] bisa membuat dan mengimpor module sendiri
-- [ ] menggunakan `if __name__ == "__main__":` dengan benar
-- [ ] menghindari wildcard import dan bentrok nama modul
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: `08_basic_data_structures.md`
-- Bab berikutnya: `10_input_output.md`
-- Keterkaitan lintas buku Core: `CORE-06` (Modules and Import System)
-
-## Ringkasan
-
-- Module membantu memecah kode agar rapi dan reusable.
-- Import yang jelas menjaga namespace tetap aman dan mudah dibaca.
-- Struktur package sederhana memberi fondasi proyek Python yang sehat.
-
-## FAQ Singkat
-
-1. Kapan pakai `import module` vs `from module import func`?
-   Jawaban singkat: pakai `import module` untuk kejelasan namespace; pakai `from ... import ...` saat butuh simbol spesifik.
-2. Kenapa `if __name__ == "__main__":` penting?
-   Jawaban singkat: agar file bisa berfungsi ganda sebagai module dan script eksekusi langsung.
-3. Kenapa import saya gagal padahal file ada?
-   Jawaban singkat: biasanya karena struktur folder/path atau nama modul bentrok.
-
-## Referensi
-
-- Python Tutorial (Modules): https://docs.python.org/3/tutorial/modules.html
-- Python Reference (import statement): https://docs.python.org/3/reference/simple_stmts.html#import
-- Python Standard Library (Modules): https://docs.python.org/3/library/modules.html
-
+## 8. Latihan (Validasi)
+- [ ] Buatlah file bernama `kalkulator.py` berisi fungsi tambah dan kurang, lalu impor ke file baru bernama `main.py`.
+- [ ] Gunakan modul bawaan `random` untuk memilih satu nama secara acak dari sebuah list teman Anda.
+- [ ] Cobalah hapus file `__init__.py` di dalam sebuah folder modul, lalu coba impor sub-modulnya. Lihat apakah Python masih mengenalinya.

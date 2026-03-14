@@ -1,0 +1,58 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- Main Road (The Flow) -->
+  <path d="M 400 50 L 400 150" stroke="#cbd5e1" stroke-width="20" fill="none" />
+  
+  <!-- Section 1: IF/ELSE (The Fork) -->
+  <text x="420" y="80" font-family="Arial" font-size="14" fill="#64748b" font-weight="bold">START: LINEAR FLOW</text>
+  
+  <!-- Decision Diamond -->
+  <path d="M 400 150 L 480 190 L 400 230 L 320 190 Z" fill="#3b82f6" />
+  <text x="365" y="195" font-family="Arial" font-size="14" fill="white" font-weight="bold">IF / ELSE</text>
+  
+  <!-- Forking Paths -->
+  <path d="M 480 190 L 600 190 L 600 300" stroke="#3b82f6" stroke-width="8" fill="none" stroke-dasharray="5,5" />
+  <path d="M 320 190 L 200 190 L 200 300" stroke="#64748b" stroke-width="8" fill="none" />
+  
+  <text x="510" y="180" font-family="Arial" font-size="12" fill="#3b82f6">TRUE Path (VIP)</text>
+  <text x="210" y="180" font-family="Arial" font-size="12" fill="#64748b">FALSE Path (Else)</text>
+  
+  <!-- Section 2: FOR Loop (Bus Stops) -->
+  <path d="M 400 230 L 400 350" stroke="#cbd5e1" stroke-width="20" fill="none" />
+  
+  <rect x="360" y="270" width="80" height="40" rx="5" fill="#10b981" />
+  <text x="375" y="295" font-family="Arial" font-size="14" fill="white" font-weight="bold">FOR</text>
+  
+  <!-- Bus Stops -->
+  <circle cx="400" cy="350" r="15" fill="#10b981" />
+  <circle cx="400" cy="400" r="15" fill="#10b981" opacity="0.6" />
+  <circle cx="400" cy="450" r="15" fill="#10b981" opacity="0.3" />
+  
+  <text x="430" y="355" font-family="Arial" font-size="12" fill="#047857">Halte 1 (Iterasi)</text>
+  <text x="430" y="405" font-family="Arial" font-size="12" fill="#047857">Halte 2</text>
+  <text x="430" y="455" font-family="Arial" font-size="12" fill="#047857">Halte N (Done)</text>
+  
+  <!-- Section 3: WHILE Loop (Roundabout) -->
+  <path d="M 400 450 L 400 500" stroke="#cbd5e1" stroke-width="20" fill="none" />
+  
+  <circle cx="250" cy="480" r="60" stroke="#f59e0b" stroke-width="15" fill="none" stroke-dasharray="10,5" />
+  <text x="215" y="485" font-family="Arial" font-size="14" fill="#d97706" font-weight="bold">WHILE</text>
+  
+  <!-- Light Indicator -->
+  <circle cx="250" cy="410" r="10" fill="#22c55e" />
+  <text x="170" y="415" font-family="Arial" font-size="12" fill="#15803d">Condition: TRUE</text>
+  
+  <!-- Section 4: BREAK/CONTINUE (Exit/Skip) -->
+  <rect x="550" y="430" width="100" height="40" rx="5" fill="#ef4444" />
+  <text x="575" y="455" font-family="Arial" font-size="14" fill="white" font-weight="bold">BREAK</text>
+  <path d="M 400 440 L 550 450" stroke="#ef4444" stroke-width="4" fill="none" stroke-dasharray="2,2" />
+  
+  <rect x="550" y="380" width="100" height="40" rx="5" fill="#0ea5e9" />
+  <text x="562" y="405" font-family="Arial" font-size="12" fill="white" font-weight="bold">CONTINUE</text>
+  <path d="M 400 390 L 550 400" stroke="#0ea5e9" stroke-width="4" fill="none" />
+  
+  <!-- Footer -->
+  <text x="320" y="580" font-family="Arial" font-size="14" fill="#94a3b8">© Python Knowledge Universe - Traffic Navigation</text>
+</svg>

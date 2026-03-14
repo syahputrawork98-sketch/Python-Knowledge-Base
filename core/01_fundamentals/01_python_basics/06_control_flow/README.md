@@ -1,249 +1,103 @@
-﻿# Control Flow
+# Bab 06: Control Flow
 
 Chapter Code: CORE-01-06
-Book Code: CORE-01
-Version: v0.2.6
-Last Updated: 2026-03-08
-Status: In Progress
-Difficulty: Basic
-Estimated Time: 45 menit teori + 40 menit praktik
+Version: Core.Fundamentals.01.01-draft
+Last Updated: 2026-03-14
+Status: Draft
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Bab ini membahas jantung logika pemrograman: bagaimana Python membuat keputusan menggunakan percabangan (`if`) dan mengulang tugas menggunakan perulangan (`for`, `while`).
 
-Bab ini membahas bagaimana Python menentukan jalur eksekusi program berdasarkan kondisi dan perulangan. Kamu akan mempelajari `if/elif/else`, `for`, `while`, serta kontrol tambahan seperti `break`, `continue`, dan `pass`.
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "Control Flow adalah **Papan Petunjuk Jalan** di dalam kode Anda. Ia menentukan apakah mobil (eksekusi program) harus belok kanan, kiri, atau berputar-putar di bundaran sampai bensin (kondisi) habis."
 
-- memahami `02_python_syntax.md`
-- memahami `04_basic_data_types.md`
-- memahami `05_operators_and_expressions.md`
+### Analogi Panjang / Cerita (Menavigasi Kota Python)
+Bayangkan eksekusi program Anda adalah sebuah mobil yang melaju di jalan raya. Tanpa *Control Flow*, mobil hanya bisa lurus terus sampai menabrak dinding (ujung file).
 
-## Istilah Kunci
+- **`if`, `elif`, `else` (Persimpangan Tiket)**: Bayangkan ada gerbang tol. Petugas bertanya: "Jika (`if`) Anda punya Kartu VIP, silakan lewat jalur kanan. Atau jika (`elif`) Anda punya Kartu Member, lewat jalur tengah. Selain itu (`else`), lewatlah jalur kiri yang macet." Hanya satu jalur yang dipilih, dan mobil tidak bisa melewati dua jalur sekaligus.
+- **`for` loop (Bus Wisata Halte)**: Ini adalah bus yang sudah punya daftar tujuan pasti di peta (List). Bus akan berhenti di Halte A, menurunkan penumpang, lalu otomatis maju ke Halte B, dan seterusnya. Bus akan berhenti dengan sendirinya jika daftar di peta sudah habis dikunjungi.
+- **`while` loop (Bundaran Tanpa Ujung)**: Ini adalah mobil yang terjebak di **Bundaran (Roundabout)**. Mobil akan terus berputar-putar SELAMA lampu indikator di dashboard masih berwarna Hijau (`True`). Begitu lampu berubah Merah (`False`), mobil baru diperbolehkan keluar dari putaran. Bahayanya: jika lampu tidak pernah Merah, mobil akan berputar selamanya (*Infinite Loop*).
+- **`break` & `continue` (Aksi Darurat)**:
+    - **`break`**: "Hentikan mobil sekarang juga dan keluar dari jalan tol!" (Keluar paksa dari loop).
+    - **`continue`**: "Lewati rest area ini, jangan berhenti, langsung gas ke halte berikutnya!" (Melewati sisa kode di loop saat ini dan lanjut ke iterasi selanjutnya).
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| branching | percabangan alur berdasarkan kondisi | `if score >= 75:` |
-| loop | perulangan eksekusi blok kode | `for x in items:` |
-| iterator | objek yang menghasilkan item satu per satu | hasil `range(5)` |
-| break | menghentikan loop lebih awal | `if done: break` |
-| continue | loncat ke iterasi berikutnya | `if skip: continue` |
+| Conditional | Pengecekan kondisi yang menghasilkan True atau False | `if x > 10:` |
+| Iteration | Satu kali putaran atau satu langkah dalam perulangan | Putaran ke-1 dalam `for` |
+| Iterable | Obyek yang bisa dijalani elemennya satu per satu | `list`, `string`, `range` |
+| Infinite Loop | Perulangan yang tidak pernah berhenti karena kondisinya selalu True | `while True:` |
+| Clause | Bagian atau blok dari sebuah pernyataan kontrol alur | Blok di bawah `else` |
 
-## Tujuan Besar
+## 3. Konsep Utama
 
-Membekali pembaca kemampuan mengendalikan alur program sehingga program dapat merespons kondisi data secara dinamis.
-
-## Tujuan Kecil
-
-- menulis percabangan dengan kondisi yang jelas
-- memilih loop yang tepat (`for` vs `while`)
-- menggunakan `break` dan `continue` dengan benar
-- menghindari infinite loop sederhana
-
-## Hasil Belajar
-
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
-
-- menjelaskan konsep inti bab dengan kata-kata sendiri
-- menjalankan contoh utama tanpa error
-- menerapkan konsep bab pada latihan dasar
-
-## Peruntukan
-Bab ini digunakan saat:
-
-- perlu keputusan berbasis kondisi
-- perlu memproses data berulang
-- perlu menghentikan proses berdasarkan syarat tertentu
-
-## Bukan Peruntukan
-
-Bab ini bukan untuk:
-
-- optimasi algoritma kompleks
-- pembahasan async flow atau concurrency
-
-## Analogi
-
-Control flow seperti navigasi di persimpangan jalan: kondisi menentukan belok kiri/kanan, loop seperti memutar rute sampai tujuan tercapai.
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: `for` selalu lebih baik dari `while`.
-  Klarifikasi: pilih berdasarkan kebutuhan; `for` untuk iterasi koleksi, `while` untuk kondisi dinamis.
-
-- Miskonsepsi: `break` dan `continue` membuat kode selalu buruk.
-  Klarifikasi: keduanya valid jika dipakai terukur dan meningkatkan kejelasan alur.
-
-## Konsep Inti
-
-### 1. Percabangan dengan `if/elif/else`
+### A. Percabangan Bertingkat (`if-elif-else`)
+Python mengevaluasi kondisi dari atas ke bawah. Begitu satu kondisi `True`, blok di bawahnya dijalankan, dan Python mengabaikan sisa rantai `elif` atau `else` di bawahnya.
 
 ```python
-score = 82
-
-if score >= 90:
-    grade = "A"
-elif score >= 75:
-    grade = "B"
+skor = 85
+if skor >= 90:
+    print("Grade A")
+elif skor >= 80:
+    print("Grade B") # Ini yang dijalankan
 else:
-    grade = "C"
-
-print(grade)
+    print("Grade C")
 ```
 
-### 2. Perulangan dengan `for`
+### B. Perulangan `for` (Pasti & Terukur)
+Gunakan `for` jika Anda tahu persis berapa banyak item yang ingin diproses. Fungsi `range(start, stop)` adalah alat pembantu paling populer untuk menciptakan deretan angka halte.
 
 ```python
-names = ["Ayu", "Budi", "Cici"]
-for name in names:
-    print(f"Halo, {name}")
+# Berhenti di angka 0 sampai 4 (5 tidak termasuk)
+for i in range(5):
+    print(f"Langkah ke-{i}")
 ```
 
-`for` cocok untuk mengiterasi list, tuple, dict, string, atau `range()`.
-
-### 3. Perulangan dengan `while`
+### C. Perulangan `while` (Berdasarkan Syarat)
+Gunakan `while` jika Anda tidak tahu kapan tugas akan selesai, tapi Anda tahu syarat apa yang membuatnya harus berhenti.
 
 ```python
-count = 1
-while count <= 3:
-    print(count)
-    count += 1
+bensin = 3
+while bensin > 0:
+    print("Mobil melaju...")
+    bensin -= 1  # Penting: kurangi agar tidak putar selamanya!
+print("Bensin habis. Berhenti.")
 ```
 
-Pastikan kondisi berhenti jelas agar tidak infinite loop.
+### D. Pengendali Loop: `break` dan `continue`
+- `break`: Membatalkan seluruh sisa perulangan.
+- `continue`: Membatalkan putaran *saat ini* dan langsung loncat ke putaran berikutnya.
+- `pass`: Tidak melakukan apa-apa (hanya sebagai penanda tempat agar tidak Error jika blok masih kosong).
 
-### 4. `break`, `continue`, dan `pass`
+## 4. Visualisasi Analogi
 
-```python
-for n in range(1, 6):
-    if n == 2:
-        continue
-    if n == 5:
-        break
-    print(n)
-```
+![Big Picture Control Flow - Navigasi Jalan Raya](assets/06_control_flow.svg)
 
-- `continue`: lewati iterasi saat ini
-- `break`: keluar dari loop
-- `pass`: placeholder blok kosong sementara
+## 5. Di Balik Layar (Under the Hood)
+Di tingkat mesin (Bytecode), Python tidak benar-benar memiliki konsep "perulangan" yang puitis. Ia menggunakan instruksi **`POP_JUMP_IF_FALSE`** atau **`JUMP_ABSOLUTE`**. Saat interpreter sampai di ujung blok `while`, ia hanya diperintah untuk "Loncat kembali ke baris nomor X". Jika syaratnya sudah salah, ia diperintah "Loncat Lewati baris Y sampai Z". Komputer hanya terus-menerus melakukan lompatan baris berdasarkan hasil evaluasi True/False.
 
-## Diagram
+## 6. Peringatan / Jebakan Umum (Gotchas)
+- **Infinite Loop**: Sering terjadi pada `while` karena lupa memperbarui variabel penentu kondisi di dalam blok (seperti lupa `i += 1`).
+- **Off-by-One Error**: Saat memakai `range(5)`, ingatlah bahwa Python berhenti *sebelum* angka 5. Jadi ia hanya mencetak 0, 1, 2, 3, 4.
+- **Modifikasi List**: Hindari menghapus item dari list saat Anda sedang melakukan `for item in my_list`. Hal ini akan membuat indeks Python berantakan dan melewatkan beberapa item. **Solusi**: Gunakan salinan list `for item in my_list.copy()`.
 
-![Big picture Control Flow](assets/06_control_flow.svg)
+## 7. Referensi Kode Praktik
+Silakan eksekusi simulasi jalan raya di folder `examples/`:
+- `01_sistem_tilang.py`: Logika `if-elif-else` deteksi kecepatan.
+- `02_absensi_bus.py`: Iterasi list menggunakan `for`.
+- `03_pom_bensin.py`: Pengisian bensin menggunakan `while`.
+- `04_pintu_darurat.py`: Demonstrasi `break` dan `continue`.
 
-Caption: Diagram menggambarkan alur keputusan (branching) dan perulangan (loop) hingga program mencapai kondisi selesai.
-
-### Legenda Diagram
-
-- kotak biru: kondisi atau aksi
-- panah: arah alur eksekusi
-- kotak hijau: output/akhir proses
-
-## Contoh Kode (Benar)
-
-```python
-numbers = [1, 2, 3, 4, 5]
-even_total = 0
-
-for n in numbers:
-    if n % 2 == 0:
-        even_total += n
-
-print(even_total)
-```
-
-Expected output:
-
-```text
-6
-```
-
-## Pitfall Umum
-
-Infinite loop karena lupa update kondisi:
-
-```python
-x = 1
-while x <= 3:
-    print(x)
-```
-
-Perbaikan:
-
-```python
-x = 1
-while x <= 3:
-    print(x)
-    x += 1
-```
-
-Pitfall percabangan bertumpuk tak jelas:
-
-```python
-if a > 0:
-    if a > 10:
-        print("besar")
-```
-
-Perbaikan (lebih jelas):
-
-```python
-if a > 10:
-    print("besar")
-elif a > 0:
-    print("positif")
-```
-
-## Catatan Praktis
-
-- tulis kondisi yang eksplisit dan mudah dibaca
-- hindari nesting terlalu dalam; pecah ke fungsi jika perlu
-- gunakan guard clause saat memungkinkan
-
-## Latihan
-
-### Dasar
-
-Buat percabangan yang menentukan kategori umur (`anak`, `remaja`, `dewasa`).
-
-### Menengah
-
-Gunakan `for` untuk menghitung total nilai dari list angka.
-
-### Mini Challenge
-
-Buat program menu sederhana menggunakan `while` yang berjalan sampai user memilih keluar.
-
-## Checklist Lulus Bab
-
-- [ ] menulis `if/elif/else` dengan benar
-- [ ] membedakan penggunaan `for` dan `while`
-- [ ] menggunakan `break`/`continue` secara tepat
-- [ ] menghindari infinite loop dasar
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: `05_operators_and_expressions.md`
-- Bab berikutnya: `07_functions.md`
-- Keterkaitan lintas buku Core: `CORE-03` (Execution Model)
-
-## Ringkasan
-
-- Control flow mengatur urutan eksekusi berdasarkan kondisi dan iterasi.
-- `if/elif/else` untuk keputusan, `for`/`while` untuk pengulangan.
-- Kejelasan kondisi dan titik berhenti loop adalah kunci kode yang aman.
-
-## FAQ Singkat
-
-1. Kapan pakai `for` dan kapan `while`?
-   Jawaban singkat: `for` saat jumlah iterasi berbasis koleksi/range, `while` saat berbasis kondisi.
-2. Apakah `break` itu jelek?
-   Jawaban singkat: tidak, selama dipakai untuk menyederhanakan alur secara jelas.
-3. Kenapa loop saya tidak berhenti?
-   Jawaban singkat: biasanya kondisi berhenti tidak pernah menjadi `False`.
-
-## Referensi
-
-- Python Tutorial (More Control Flow Tools): https://docs.python.org/3/tutorial/controlflow.html
-- Python Language Reference (`if`, `while`, `for`): https://docs.python.org/3/reference/compound_stmts.html
-- Built-in `range()`: https://docs.python.org/3/library/stdtypes.html#ranges
-
+## 8. Latihan (Validasi)
+- [ ] Buatlah `for` loop yang mencetak angka genap saja dari 1 sampai 20. (Petunjuk: Gunakan operator `%` atau langkah di `range`).
+- [ ] Buatlah sebuah `while` loop yang terus meminta input nama dari user, dan hanya boleh berhenti jika user mengetik kata "selesai".
+- [ ] Prediksi: Apa hasil dari kode ini?
+  ```python
+  for i in range(3):
+      if i == 1:
+          continue
+      print(i)
+  ```

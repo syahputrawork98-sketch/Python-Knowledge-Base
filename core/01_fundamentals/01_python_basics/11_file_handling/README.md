@@ -1,228 +1,91 @@
-﻿# File Handling
+# Bab 11: File Handling
 
 Chapter Code: CORE-01-11
-Book Code: CORE-01
-Version: v0.3.4
-Last Updated: 2026-03-08
-Status: In Progress
-Difficulty: Basic
-Estimated Time: 50 menit teori + 45 menit praktik
+Version: Core.Fundamentals.01.01-draft
+Last Updated: 2026-03-14
+Status: Draft
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Bab ini mengajarkan cara program Anda berinteraksi dengan dunia luar secara permanen dengan membaca isi file teks dan menuliskan data ke dalam harddisk.
 
-Bab ini membahas cara membaca, menulis, dan mengelola file di Python secara aman. Kamu akan belajar mode file, context manager (`with`), encoding, path dasar, serta pola penanganan error sederhana saat bekerja dengan file.
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "File I/O adalah cara Python mengakses **Lemari Arsip** permanen. Tanpa I/O, semua data Python Anda akan hilang saat komputer dimatikan. Anda harus membuka laci (`open`), melakukan pekerjaan (`read/write`), lalu yang terpenting: **menutup laci** tersebut (`close`)."
 
-- memahami `09_modules_and_import.md`
-- memahami `10_input_output.md`
-- memahami konsep validasi input dasar
+### Analogi Panjang / Cerita (Sekretaris Digital & Buku Laporan)
+Bayangkan Anda memiliki seorang Sekretaris Digital (Interpreter Python) dan sekumpulan Buku Laporan (Files) di dalam gudang (Harddisk).
 
-## Istilah Kunci
+- **`open()` (Membuka Buku)**: Anda memanggil sekretaris Anda: "Tolong ambilkan buku 'laporan.txt'." Sekretaris akan mencari buku tersebut. Namun, Anda harus menentukan niat Anda melalui **Mode**:
+    - `'r'` (Reading): "Saya hanya ingin membaca, tolong jangan bawa pulpen!"
+    - `'w'` (Writing): "Tolong hapus seluruh isi buku lama, saya mau menulis laporan baru dari nol." (Hati-hati: isi lama akan musnah!).
+    - `'a'` (Appending): "Jangan hapus isinya, cukup tambahkan tulisan saya di baris paling terakhir."
+- **`read()` vs `write()`**: Ini adalah instruksi tugas saat buku sudah terbuka di atas meja.
+- **`close()` (Mengembalikan ke Rak)**: Ini sangat krusial. Jika Anda tidak menyuruh sekretaris menutup dan mengembalikan buku, buku tersebut akan tetap di meja (memakan memori RAM) dan mungkin akan rusak atau tidak bisa dipinjam oleh program lain.
+- **`with` statement (Asisten Pintar Otomatis)**: Python memiliki sistem asisten bernama `with`. Ia akan membukakan buku untuk Anda, menjaga buku tetap terbuka selama Anda bekerja di dalam ruangan (blok kode), dan **otomatis** mengembalikan buku ke rak begitu Anda melangkah keluar ruangan tersebut—bahkan jika tiba-tiba terjadi kesalahan teknis (Error).
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| file mode | cara membuka file | `'r'`, `'w'`, `'a'` |
-| context manager | manajemen resource otomatis | `with open(...) as f:` |
-| encoding | standar representasi karakter | `encoding='utf-8'` |
-| path | alamat file/folder | `data/users.txt` |
-| buffer | penyangga I/O sementara | default `open()` |
+| File Handle | Objek perantara yang digunakan Python untuk mengontrol file yang terbuka | `f = open(...)` |
+| Mode | Parameter yang menentukan apa yang boleh dilakukan terhadap file | `'r'`, `'w'`, `'a'` |
+| Context Manager | Sistem `with` yang mengelola siklus hidup sumber daya (buka-tutup otomatis) | `with open(...) as f:` |
+| Encoding | Cara komputer menerjemahkan karakter manusia menjadi angka biner | `utf-8` |
+| Buffer | Tempat penyimpanan sementara sebelum data benar-benar ditulis ke disk | - |
 
-## Tujuan Besar
+## 3. Konsep Utama
 
-Membantu pembaca memproses data berbasis file secara aman, terstruktur, dan minim kebocoran resource.
-
-## Tujuan Kecil
-
-- membuka file dengan mode yang tepat
-- membaca dan menulis isi file teks
-- memahami kapan pakai `with`
-- menangani error file umum
-- menggunakan path relatif sederhana
-
-## Hasil Belajar
-
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
-
-- menjelaskan konsep inti bab dengan kata-kata sendiri
-- menjalankan contoh utama tanpa error
-- menerapkan konsep bab pada latihan dasar
-
-## Peruntukan
-Bab ini digunakan saat:
-
-- menyimpan hasil program ke file
-- membaca data dari file teks
-- membuat log sederhana berbasis file
-
-## Bukan Peruntukan
-
-Bab ini bukan untuk:
-
-- database management
-- file format kompleks tingkat lanjut
-
-## Analogi
-
-File handling seperti meminjam buku perpustakaan: buka buku, baca/tulis seperlunya, lalu tutup dengan benar agar tidak rusak/terkunci.
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: file otomatis tertutup setelah dipakai.
-  Klarifikasi: file bisa tetap terbuka jika tidak ditutup dengan benar.
-
-- Miskonsepsi: mode `'w'` menambah isi di akhir.
-  Klarifikasi: `'w'` menimpa isi file, untuk menambah gunakan `'a'`.
-
-## Konsep Inti
-
-### 1. Membuka dan Membaca File
-
+### A. Membuka dan Menutup File
+Cara manual (Tidak disarankan namun perlu tahu):
 ```python
-with open("notes.txt", "r", encoding="utf-8") as f:
-    content = f.read()
-
-print(content)
+f = open("catatan.txt", "w")
+f.write("Halo Dunia")
+f.close() # WAJIB
 ```
 
-### 2. Menulis dan Menambah File
-
+### B. Menggunakan `with` (Standard Industri)
+Ini adalah cara yang aman. Anda tidak perlu memanggil `.close()` secara manual.
 ```python
-with open("notes.txt", "w", encoding="utf-8") as f:
-    f.write("Baris pertama\n")
-
-with open("notes.txt", "a", encoding="utf-8") as f:
-    f.write("Baris tambahan\n")
+with open("laporan.txt", "r") as f:
+    konten = f.read()
+    print(konten)
+# Di sini file otomatis sudah ditutup
 ```
 
-### 3. Membaca per Baris
+### C. Mode-mode Penting
+- **`'r'` (Read)**: Error jika file tidak ada.
+- **`'w'` (Write)**: Membuat file baru jika belum ada. Jika sudah ada, isinya ditimpa/dihapus.
+- **`'a'` (Append)**: Menambah data tanpa menghapus isi lama.
+- **`'x'` (Exclusive)**: Gagal jika file sudah ada (untuk keamanan).
 
+### D. Membaca Baris demi Baris
+Untuk file yang sangat besar, jangan gunakan `.read()` (karena akan memakan seluruh RAM). Gunakan perulangan:
 ```python
-with open("notes.txt", "r", encoding="utf-8") as f:
-    for line in f:
-        print(line.strip())
+with open("data_besar.txt", "r") as f:
+    for baris in f:
+        print(baris.strip()) # strip() membuang enter tambahan
 ```
 
-### 4. Penanganan Error Dasar
+## 4. Visualisasi Analogi
 
-```python
-try:
-    with open("missing.txt", "r", encoding="utf-8") as f:
-        print(f.read())
-except FileNotFoundError:
-    print("File tidak ditemukan")
-```
+![Big Picture File IO - The Digital Secretary](assets/11_file_handling.svg)
 
-## Diagram
+## 5. Di Balik Layar (Under the Hood)
+Saat Anda melakukan `.write()`, Python tidak langsung memutar piringan harddisk Anda. Ia menyimpannya dulu di sebuah area memori cepat bernama **Buffer**. Data baru benar-benar dipindahkan ke harddisk (Flushing) saat area buffer penuh atau saat fungsi `.close()` dipanggil. Itulah mengapa jika program Anda mati mendadak sebelum ditutup, data terakhir Anda seringkali hilang atau korup.
 
-![Big picture File Handling](assets/11_file_handling.svg)
+## 6. Peringatan / Jebakan Umum (Gotchas)
+- **Terhapusnya Data Secara Tidak Sengaja**: Menggunakan mode `'w'` pada file yang sudah berisi data penting akan menghapus isinya secara permanen tanpa konfirmasi. Selalu gunakan `'a'` jika ingin menambah.
+- **Encoding Errors**: Membuka file berisi emoji atau bahasa asing tanpa menentukan `encoding='utf-8'` di Windows seringkali menyebabkan error `UnicodeDecodeError`.
+- **Lupa `close()`**: Pada program besar (seperti server), lupa menutup file bisa menyebabkan "Resource Leak" yang membuat server melambat atau crash karena kehabisan slot file sistem.
 
-Caption: Diagram menunjukkan alur open -> read/write -> close saat bekerja dengan file.
+## 7. Referensi Kode Praktik
+Simulasi kearsipan tersedia di folder `examples/`:
+- `01_tulis_catatan.py`: Membuat file teks pertama Anda.
+- `02_baca_arsip.py`: Mengintip isi folder kearsipan.
+- `03_tambah_log.py`: Sistem pencatatan riwayat (Appending).
+- `04_asisten_otomatis.py`: Kekuatan `with` dalam menjaga kerapihan.
 
-### Legenda Diagram
-
-- kotak biru: sumber file/path
-- kotak tengah: operasi I/O
-- kotak hijau: output data
-
-## Contoh Kode (Benar)
-
-```python
-items = ["apel", "jeruk", "mangga"]
-
-with open("items.txt", "w", encoding="utf-8") as f:
-    for item in items:
-        f.write(item + "\n")
-
-with open("items.txt", "r", encoding="utf-8") as f:
-    print(f.read())
-```
-
-Expected output:
-
-```text
-apel
-jeruk
-mangga
-```
-
-## Pitfall Umum
-
-Lupa encoding saat file berisi karakter non-ASCII:
-
-```python
-with open("data.txt", "r") as f:
-    print(f.read())
-```
-
-Perbaikan:
-
-```python
-with open("data.txt", "r", encoding="utf-8") as f:
-    print(f.read())
-```
-
-Menimpa file tanpa sadar:
-
-```python
-with open("report.txt", "w", encoding="utf-8") as f:
-    f.write("new")
-```
-
-Perbaikan: gunakan `'a'` jika ingin menambahkan.
-
-## Catatan Praktis
-
-- default ke `with open(...)` untuk keamanan resource
-- selalu tentukan `encoding="utf-8"` untuk teks
-- pahami beda mode `'w'` vs `'a'`
-- simpan path relatif konsisten terhadap root project
-
-## Latihan
-
-### Dasar
-
-Buat file `bio.txt`, tulis 3 baris data diri, lalu baca kembali.
-
-### Menengah
-
-Buat program yang menyalin isi file A ke file B.
-
-### Mini Challenge
-
-Buat simple notes app CLI: tambah catatan dan tampilkan semua catatan dari file.
-
-## Checklist Lulus Bab
-
-- [ ] memahami mode file utama (`r`, `w`, `a`)
-- [ ] bisa membaca dan menulis file teks
-- [ ] menggunakan `with` secara konsisten
-- [ ] menangani `FileNotFoundError` dasar
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: `10_input_output.md`
-- Bab berikutnya: `12_errors_and_exceptions.md`
-- Keterkaitan lintas buku Core: `CORE-08` (File System and IO)
-
-## Ringkasan
-
-- File handling memungkinkan data program disimpan permanen.
-- `with open(...)` adalah pola aman dan direkomendasikan.
-- Mode file dan encoding yang tepat mencegah banyak bug I/O.
-
-## FAQ Singkat
-
-1. Kapan pakai `'w'` dan kapan `'a'`?
-   Jawaban singkat: `'w'` menimpa, `'a'` menambahkan.
-2. Kenapa file harus ditutup?
-   Jawaban singkat: agar resource dilepas dan data flush dengan benar.
-3. Kenapa perlu `encoding='utf-8'`?
-   Jawaban singkat: untuk konsistensi pembacaan/penulisan karakter modern.
-
-## Referensi
-
-- Python Tutorial (Reading and Writing Files): https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
-- Python `open()` docs: https://docs.python.org/3/library/functions.html#open
-- `pathlib` docs: https://docs.python.org/3/library/pathlib.html
-
+## 8. Latihan (Validasi)
+- [ ] Buatlah program yang menanyakan nama Anda, lalu simpan nama tersebut ke dalam file `pengguna.txt`.
+- [ ] Buatlah file berisi 3 baris angka, lalu tulis program Python untuk membaca file tersebut dan menjumlahkan semua angkanya.
+- [ ] Apa perbedaan hasil akhir antara menjalankan mode `'w'` dua kali dan mode `'a'` dua kali pada file yang sama? Cobalah!

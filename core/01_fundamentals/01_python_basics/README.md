@@ -3,7 +3,7 @@
 Book Code: CORE-01
 Version: Core.Fundamentals.01.00
 Last Updated: 2026-03-14
-Status: In Progress (Chapters 1-5 Released)
+Status: Draft Complete (Chapters 1-14 Authored)
 
 Bagian ini membahas fondasi dasar bahasa pemrograman Python.
 
@@ -34,7 +34,7 @@ Materi pada bagian ini dirancang untuk membantu pembaca memahami konsep dasar Py
 | 09 | CORE-01-09 | Modules and Import | `09_modules_and_import/` |
 | 10 | CORE-01-10 | Input and Output | `10_input_output/` |
 | 11 | CORE-01-11 | File Handling | `11_file_handling/` |
-| 12 | CORE-01-12 | Errors and Exceptions | `12_errors_and_exceptions/` |
+| 12 | CORE-01-12 | Errors and Exceptions | `12_exception_handling/` |
 | 13 | CORE-01-13 | Built-in Functions | `13_builtin_functions/` |
 | 14 | CORE-01-14 | Basic Programming Patterns | `14_basic_programming_patterns/` |
 

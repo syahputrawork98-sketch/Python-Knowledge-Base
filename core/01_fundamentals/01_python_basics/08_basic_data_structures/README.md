@@ -1,250 +1,77 @@
-﻿# Basic Data Structures
+# Bab 08: Basic Data Structures
 
 Chapter Code: CORE-01-08
-Book Code: CORE-01
-Version: v0.2.8
-Last Updated: 2026-03-08
-Status: In Progress
-Difficulty: Basic
-Estimated Time: 50 menit teori + 45 menit praktik
+Version: Core.Fundamentals.01.01-draft
+Last Updated: 2026-03-14
+Status: Draft
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Bab ini memperkenalkan empat sistem penyimpanan data utama di Python: `List` (Berurutan), `Tuple` (Permanen), `Set` (Unik), dan `Dictionary` (Label Nama).
 
-Bab ini membahas struktur data bawaan Python yang paling sering dipakai: `list`, `tuple`, `set`, dan `dict`. Kamu akan belajar kapan masing-masing struktur digunakan, operasi dasar yang umum, serta kesalahan praktis yang sering terjadi.
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "Struktur Data adalah **Berbagai Jenis Rak/Wadah** di gudang Anda. Ada yang raknya berurutan (List), ada yang permanen tidak bisa diganti (Tuple), ada yang otomatis membuang barang duplikat (Set), dan ada yang menggunakan label nama untuk mencari barang (Dictionary)."
 
-- memahami `04_basic_data_types.md`
-- memahami `05_operators_and_expressions.md`
-- memahami `07_functions.md`
+### Analogi Panjang / Cerita (Manajemen Gudang Pusat)
+Bayangkan Anda adalah manajer gudang logistik raksasa. Untuk menyimpan jutaan barang, Anda memiliki 4 unit penyimpanan dengan fungsi berbeda:
 
-## Istilah Kunci
+- **`List` (Rak Antrean Karung)**: Bagaikan rak panjang di mana setiap barang diletakkan berjejer dan diberi nomor urut (Indeks 0, 1, 2...). Anda bebas menambah barang di ujung, menyisipkan di tengah, atau menukar barang lama dengan yang baru. Ini adalah wadah paling populer karena sangat fleksibel.
+- **`Tuple` (Kotak Brankas Tersegel)**: Bagaikan kotak yang begitu diisi dan ditutup, segelnya tidak boleh dirusak. Isinya permanen. Jika Anda ingin mengubah isinya, Anda harus menghancurkan kotak lama dan membuat kotak baru. Sangat cocok untuk data rahasia atau kordinat lokasi yang tidak boleh berubah secara tidak sengaja.
+- **`Set` (Keranjang Sortir Logistik)**: Keranjang ajaib yang tidak peduli urutan barang. Hebatnya, keranjang ini punya sensor anti-duplikat. Jika Anda memasukkan dua buah "Susu", ia otomatis hanya menyimpan satu. Sangat efisien untuk membersihkan data sampah dan mengecek keberadaan barang secara instan.
+- **`Dictionary` (Loker Berlabel Nama)**: Anda mencari barang bukan pakai nomor urut, tapi pakai **Kunci (Key)**. "Mana loker milik 'Budi'?" -> Keluar isinya "Sepatu". Tidak boleh ada dua loker dengan nama kunci yang persis sama.
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| list | koleksi berurutan dan mutable | `[1, 2, 3]` |
-| tuple | koleksi berurutan dan immutable | `(1, 2, 3)` |
-| set | koleksi tanpa urutan, unik | `{1, 2, 3}` |
-| dict | pasangan key-value | `{"name": "Ayu"}` |
-| indexing | akses elemen berdasarkan posisi | `items[0]` |
-| slicing | ambil sebagian data berurutan | `items[1:4]` |
-
-## Tujuan Besar
-
-Membekali pembaca kemampuan memilih struktur data yang tepat untuk penyimpanan dan pemrosesan data sehari-hari dalam Python.
-
-## Tujuan Kecil
-
-- membedakan karakteristik list, tuple, set, dan dict
-- melakukan operasi dasar tambah/ubah/hapus data
-- melakukan iterasi pada struktur data
-- memilih struktur data sesuai kebutuhan kasus
-
-## Hasil Belajar
-
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
-
-- menjelaskan konsep inti bab dengan kata-kata sendiri
-- menjalankan contoh utama tanpa error
-- menerapkan konsep bab pada latihan dasar
-
-## Peruntukan
-Bab ini digunakan saat:
-
-- mengelola sekumpulan data dalam program
-- memproses data berulang dengan loop
-- membangun representasi data sederhana (profil, daftar tugas, dsb.)
-
-## Bukan Peruntukan
-
-Bab ini bukan untuk:
-
-- struktur data custom kompleks
-- optimasi algoritma tingkat lanjut
-
-## Analogi
-
-Struktur data seperti jenis lemari penyimpanan: list itu rak fleksibel, tuple itu kotak segel, set itu daftar unik tanpa duplikasi, dict itu map label-ke-nilai.
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: set mempertahankan urutan seperti list.
-  Klarifikasi: set fokus pada keunikan elemen, bukan urutan indeks.
-
-- Miskonsepsi: tuple dan list sama saja.
-  Klarifikasi: tuple immutable, list mutable.
-
-## Konsep Inti
-
-### 1. List dan Tuple
-
-```python
-fruits = ["apple", "banana", "orange"]
-fruits.append("mango")
-print(fruits[0])
-print(fruits[1:3])
-
-point = (10, 20)
-print(point[0])
-```
-
-`list` cocok untuk data yang sering berubah, `tuple` untuk data tetap.
-
-### 2. Set
-
-```python
-tags = {"python", "api", "python", "backend"}
-print(tags)
-
-tags.add("learning")
-print("api" in tags)
-```
-
-Set otomatis menghapus duplikasi.
-
-### 3. Dictionary
-
-```python
-user = {
-    "name": "Ayu",
-    "age": 21,
-    "active": True,
-}
-
-print(user["name"])
-user["city"] = "Bandung"
-print(user)
-```
-
-Dict cocok untuk data terstruktur berbasis key-value.
-
-### 4. Iterasi Dasar
-
-```python
-numbers = [1, 2, 3]
-for n in numbers:
-    print(n)
-
-for key, value in user.items():
-    print(key, value)
-```
-
-## Diagram
-
-![Big picture Basic Data Structures](assets/08_basic_data_structures.svg)
-
-Caption: Diagram memperlihatkan perbedaan peran list, tuple, set, dan dict dalam penyimpanan data.
-
-### Legenda Diagram
-
-- kotak biru: jenis struktur data
-- kotak tengah: operasi umum
-- kotak hijau: hasil penggunaan
-
-## Contoh Kode (Benar)
-
-```python
-tasks = ["belajar", "latihan", "review"]
-profile = {"name": "Raka", "level": "beginner"}
-
-for task in tasks:
-    print(task)
-
-print(profile["name"])
-```
-
-Expected output:
-
-```text
-belajar
-latihan
-review
-Raka
-```
-
-## Pitfall Umum
-
-Akses key dict yang tidak ada:
-
-```python
-user = {"name": "Ayu"}
-print(user["age"])
-```
-
-Perbaikan:
-
-```python
-user = {"name": "Ayu"}
-print(user.get("age", "unknown"))
-```
-
-Mengubah tuple secara langsung:
-
-```python
-point = (1, 2)
-point[0] = 10
-```
-
-Perbaikan:
-
-```python
-point = (1, 2)
-point = (10, point[1])
-print(point)
-```
-
-## Catatan Praktis
-
-- gunakan list saat data perlu update dinamis
-- gunakan tuple untuk data yang seharusnya tetap
-- gunakan set untuk cek keunikan/membership cepat
-- gunakan dict untuk data berlabel jelas
-
-## Latihan
-
-### Dasar
-
-Buat list berisi 5 nama, lalu tampilkan nama pertama dan terakhir.
-
-### Menengah
-
-Buat dict profil pengguna (`name`, `age`, `city`) dan cetak semua key-value.
-
-### Mini Challenge
-
-Buat aplikasi mini todo list sederhana dengan list dan dict (tiap task punya `title` dan `done`).
-
-## Checklist Lulus Bab
-
-- [ ] memahami perbedaan list, tuple, set, dict
-- [ ] bisa melakukan operasi dasar setiap struktur
-- [ ] bisa iterasi data dengan loop
-- [ ] menyelesaikan mini challenge
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: `07_functions.md`
-- Bab berikutnya: `09_modules_and_import.md`
-- Keterkaitan lintas buku Core: `CORE-06` (Modules and Import System)
-
-## Ringkasan
-
-- Python menyediakan struktur data dasar dengan karakteristik berbeda.
-- Pemilihan struktur data yang tepat memengaruhi kejelasan dan keandalan kode.
-- List/dict paling umum, tetapi tuple/set sangat penting pada konteks tertentu.
-
-## FAQ Singkat
-
-1. Kapan pilih list vs tuple?
-   Jawaban singkat: list untuk data mutable, tuple untuk data tetap.
-2. Kapan pakai set?
-   Jawaban singkat: saat butuh data unik dan cek membership cepat.
-3. Kenapa dict sangat sering dipakai?
-   Jawaban singkat: karena representasi key-value cocok untuk banyak data dunia nyata.
-
-## Referensi
-
-- Python Tutorial (Data Structures): https://docs.python.org/3/tutorial/datastructures.html
-- Python Standard Types: https://docs.python.org/3/library/stdtypes.html
-- Python `dict` docs: https://docs.python.org/3/library/stdtypes.html#dict
-
+| Mutable | Obyek yang isinya bisa diubah langsung di tempat | `list`, `dict`, `set` |
+| Immutable | Obyek yang isinya permanen dan tidak bisa diedit | `tuple` |
+| Index | Nomor posisi urutan item (dimulai dari 0) | `my_list[0]` |
+| Slicing | Teknik memotong sebagian isi urutan | `my_list[1:3]` |
+| Key-Value Pair | Pasangan kunci unik dan nilainya pada kamus | `'nama': 'Ana'` |
+| Hashing | Proses ghaib mengubah data menjadi kode unik untuk pencarian cepat | Jantung dari `dict` dan `set` |
+
+## 3. Konsep Utama
+
+### A. List (`[]`): Sang Serba Bisa
+List adalah urutan yang bisa berubah.
+- **Penambahan**: `.append(item)` (ujung) atau `.insert(indeks, item)` (tengah).
+- **Penghapusan**: `.pop()` (ambil ujung) atau `.remove(nilai)` (buang berdasarkan isi).
+
+### B. Tuple (`()`): Sang Penjaga Amanah
+Tuple adalah urutan yang TIDAK bisa berubah. Mengapa butuh? Karena lebih hemat memori dan aman dari perubahan tak sengaja.
+- **Unpacking**: `x, y = (10, 20)`. Cara cepat memecah isi kotak ke variabel.
+
+### C. Set (`{}`): Sang Pembersih
+Kumpulan unik tanpa urutan.
+- **Operasi Matematika**: `A | B` (Gabungan), `A & B` (Irisan/Kesamaan).
+- **Kecepatan**: Mengecek `if "Ana" in group_set` jauh lebih cepat daripada mencarinya di List yang sangat panjang.
+
+### D. Dictionary (`{key: value}`): Sang Pengarsip
+Mencari data berdasarkan label. Kuncinya (Key) haruslah benda yang *Immutable* (seperti string).
+- **Akses**: `my_dict['kunci']`.
+- **Pengamanan**: Gunakan `.get('kunci', 'Default')` agar program tidak error jika kuncinya tidak ada.
+
+## 4. Visualisasi Analogi
+
+![Big Picture Gudang Data Python](assets/08_basic_data_structures.svg)
+
+## 5. Di Balik Layar (Under the Hood)
+Pernahkah Anda bertanya mengapa Dictionary bisa mencari satu kata di antara jutaan kata secara instan? Ternyata Dictionary dan Set tidak menggunakan antrean. Mereka menggunakan sistem **Hash Table**. Python mengambil 'Kunci' Anda, mengubahnya menjadi angka unik (Hash), dan angka itu langsung menunjuk ke alamat koordinat memori tempat barang berada. Tanpa perlu menoleh ke kiri-kanan, Python langsung menuju sasarannya.
+
+## 6. Peringatan / Jebakan Umum (Gotchas)
+- **Teka-teki Kurung Kurawal `{}`**: Menulis `x = {}` akan menghasilkan **Dictionary kosong**, bukan Set kosong. Untuk membuat Set kosong, Anda wajib menulis `x = set()`.
+- **Index Dimulai dari 0**: Selalu ingat bahwa item pertama di List/Tuple adalah indeks 0, bukan 1.
+- **Mutable di dalam Immutable**: Hati-hati menaruh List di dalam Tuple. Walau Tuplenya tidak bisa diganti, List di dalamnya tetap bisa Anda ubah-ubah isinya!
+
+## 7. Referensi Kode Praktik
+Laboratorium gudang tersedia di folder `examples/`:
+- `01_rak_belanja_list.py`: Simulasi mengelola daftar belanja.
+- `02_kordinat_tuple.py`: Penggunaan tuple dan teknik unpacking.
+- `03_kantong_unik_set.py`: Eksperimen membuang duplikat dan irisan data.
+- `04_buku_telepon_dict.py`: Manajemen kontak menggunakan key-value.
+
+## 8. Latihan (Validasi)
+- [ ] Buatlah sebuah List berisi 3 buah favoritmu, lalu tambahkan 1 buah lagi di urutan paling depan.
+- [ ] Dari List `angka = [1, 2, 2, 3, 4, 4, 5]`, ubahlah menjadi Set untuk melihat angka uniknya saja.
+- [ ] Buatlah Dictionary yang menyimpan data "Harga" barang-barang di toko Anda, lalu coba ambil harga barang yang tidak ada tanpa merusak program (pakai `.get()`).

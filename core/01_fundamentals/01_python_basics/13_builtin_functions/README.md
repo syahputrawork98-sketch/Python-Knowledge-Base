@@ -1,220 +1,85 @@
-﻿# Built-in Functions
+# Bab 13: Built-in Functions (Fungsi Bawaan)
 
 Chapter Code: CORE-01-13
-Book Code: CORE-01
-Version: v0.3.4
-Last Updated: 2026-03-08
-Status: In Progress
-Difficulty: Basic
-Estimated Time: 45 menit teori + 40 menit praktik
+Version: Core.Fundamentals.01.01-draft
+Last Updated: 2026-03-14
+Status: Draft
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Bab ini membahas koleksi fungsi "sakti" yang sudah terpasang otomatis di Python. Anda bisa langsung memakainya kapan saja tanpa perlu mengimpor modul apapun.
 
-Bab ini membahas fungsi bawaan (built-in functions) Python yang paling sering dipakai dalam praktik sehari-hari. Fokusnya pada fungsi untuk konversi data, iterasi, agregasi, inspeksi tipe, dan utilitas dasar agar kode lebih ringkas.
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "Built-in Functions adalah **Kotak Peralatan Standar** yang sudah menempel di pinggang Anda. Anda tidak perlu pergi ke toko (import) untuk mengambil meteran (`len`) atau pemindai (`type`); alat-alat dasar ini selalu siap pakai kapan saja."
 
-- memahami `04_basic_data_types.md`
-- memahami `07_functions.md`
-- memahami `08_basic_data_structures.md`
+### Analogi Panjang / Cerita (Sabuk Alat Tukang Ahli)
+Bayangkan Anda adalah seorang Tukang Ahli (Programmer) yang sedang bekerja di sebuah proyek konstruksi raksasa.
 
-## Istilah Kunci
+- **Built-in Functions (Sabuk Alat Serbaguna)**: Di pinggang Anda, terdapat sabuk berisi alat-alat yang paling sering Anda butuhkan. Anda tidak perlu memanggil kurir logistik (Import) untuk alat-alat ini karena mereka adalah bagian dari seragam standar Anda.
+- **`len()` (Meteran)**: Setiap kali Anda ingin tahu seberapa panjang kayu atau berapa banyak paku dalam kotak, Anda mencabut meteran ini. `len([1, 2, 3])` memberikan hasil 3.
+- **`max()` & `min()` (Alat Seleksi)**: Anda memiliki mata yang sangat tajam untuk memilih kayu paling panjang atau baut paling kecil dalam sekejap dari tumpukan material.
+- **`sum()` (Alat Timbang Massa)**: Cukup letakkan seluruh koleksi material di atas alat ini, dan ia akan memberikan total beratnya tanpa Anda perlu menghitung satu per satu.
+- **`type()` (Pemindai Material)**: Anda ragu apakah sebuah benda itu Kayu atau Plastik? Gunakan alat pemindai ini untuk mengetahui "tipe data"-nya secara instan.
+- **`range()` (Mesin Pencetak Pola)**: Jika Anda butuh menandai titik-titik setiap 1 meter sepanjang 10 meter, alat ini akan memberikan daftar koordinatnya untuk Anda.
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| built-in function | fungsi tersedia tanpa import | `len()`, `sum()` |
-| iterable | objek yang bisa diiterasi | list, tuple, range |
-| callable | objek yang bisa dipanggil seperti fungsi | `print`, custom function |
-| predicate | fungsi yang menghasilkan bool | `lambda x: x > 0` |
-| casting function | fungsi konversi tipe | `int()`, `str()` |
-
-## Tujuan Besar
-
-Membantu pembaca menggunakan built-in functions secara efektif untuk menulis kode yang lebih sederhana dan idiomatik.
-
-## Tujuan Kecil
-
-- mengenali built-in yang sering dipakai
-- memilih fungsi bawaan yang sesuai kasus
-- menghindari penamaan variabel yang menimpa built-in
-- memakai built-in untuk validasi dan transformasi data sederhana
-
-## Hasil Belajar
-
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
-
-- menjelaskan konsep inti bab dengan kata-kata sendiri
-- menjalankan contoh utama tanpa error
-- menerapkan konsep bab pada latihan dasar
-
-## Peruntukan
-Bab ini digunakan saat:
-
-- ingin mengurangi kode manual berulang
-- butuh operasi cepat pada list/dict/string
-- ingin menulis kode Python yang lebih idiomatik
-
-## Bukan Peruntukan
-
-Bab ini bukan untuk:
-
-- pembahasan semua built-in secara exhaustif
-- metaprogramming built-in tingkat lanjut
-
-## Analogi
-
-Built-in functions seperti toolkit bawaan di mobil: tidak perlu bawa alat eksternal untuk kebutuhan dasar yang sering muncul.
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: semakin banyak built-in dipakai, kode makin sulit dibaca.
-  Klarifikasi: jika dipilih tepat, built-in justru memperjelas intent.
-
-- Miskonsepsi: menamai variabel dengan nama built-in aman.
-  Klarifikasi: menimpa nama built-in (`list`, `sum`) bisa bikin bug membingungkan.
-
-## Konsep Inti
-
-### 1. Built-in Konversi dan Inspeksi
-
-```python
-raw = "123"
-num = int(raw)
-text = str(num)
-
-print(type(num))
-print(isinstance(num, int))
-```
-
-### 2. Built-in Agregasi
-
-```python
-scores = [80, 90, 75]
-print(len(scores))
-print(sum(scores))
-print(min(scores), max(scores))
-```
-
-### 3. Built-in Iterasi
-
-```python
-names = ["Ayu", "Budi", "Cici"]
-for i, name in enumerate(names, start=1):
-    print(i, name)
-
-ages = [20, 21, 22]
-for name, age in zip(names, ages):
-    print(name, age)
-```
-
-### 4. Built-in Transformasi
-
-```python
-numbers = [1, 2, 3, 4]
-squared = list(map(lambda x: x * x, numbers))
-evans = list(filter(lambda x: x % 2 == 0, numbers))
-print(squared, evans)
-```
-
-## Diagram
-
-![Big picture Built-in Functions](assets/13_builtin_functions.svg)
-
-Caption: Diagram menunjukkan kategori built-in utama dan alur penggunaannya dalam pemrosesan data.
-
-### Legenda Diagram
-
-- kotak biru: kategori fungsi bawaan
-- kotak tengah: input data
-- kotak hijau: hasil transformasi/agregasi
-
-## Contoh Kode (Benar)
-
-```python
-prices = [12000, 15000, 10000]
-qty = [2, 1, 3]
-
-subtotals = [p * q for p, q in zip(prices, qty)]
-print("Subtotals:", subtotals)
-print("Total:", sum(subtotals))
-```
-
-Expected output:
-
-```text
-Subtotals: [24000, 15000, 30000]
-Total: 69000
-```
-
-## Pitfall Umum
-
-Menimpa nama built-in:
-
-```python
-list = [1, 2, 3]
-print(list("abc"))
-```
-
-Perbaikan:
-
-```python
-numbers = [1, 2, 3]
-print(list("abc"))
-```
-
-Menggunakan `map/filter` berlebihan saat list comprehension lebih jelas.
-
-## Catatan Praktis
-
-- prioritaskan built-in sebelum membuat helper function baru
-- jangan gunakan nama variabel yang sama dengan built-in
-- pakai list comprehension saat lebih terbaca daripada `map/filter`
-
-## Latihan
-
-### Dasar
-
-Gunakan `len`, `sum`, `min`, `max` pada list angka buatanmu.
-
-### Menengah
-
-Gunakan `enumerate` untuk menampilkan daftar menu bernomor.
-
-### Mini Challenge
-
-Buat program ringkasan nilai siswa: hitung rata-rata, nilai tertinggi, nilai terendah, dan status lulus berdasarkan threshold tertentu.
-
-## Checklist Lulus Bab
-
-- [ ] mengenali built-in utama untuk kasus dasar
-- [ ] bisa memilih built-in sesuai kebutuhan
-- [ ] menghindari shadowing nama built-in
-- [ ] menyelesaikan mini challenge
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: `12_errors_and_exceptions.md`
-- Bab berikutnya: `14_basic_programming_patterns.md`
-- Keterkaitan lintas buku Core: `CORE-07` (Standard Library)
-
-## Ringkasan
-
-- Built-in functions mempercepat pekerjaan umum tanpa import tambahan.
-- Pemakaian yang tepat membuat kode lebih ringkas dan ekspresif.
-- Hindari menimpa nama built-in untuk menjaga kejelasan kode.
-
-## FAQ Singkat
-
-1. Kapan pakai `map/filter` vs list comprehension?
-   Jawaban singkat: pakai yang paling jelas dibaca; seringnya list comprehension lebih eksplisit.
-2. Apakah semua built-in harus dihafal?
-   Jawaban singkat: tidak, kuasai yang paling sering dipakai dulu.
-3. Kenapa `type()` dan `isinstance()` keduanya ada?
-   Jawaban singkat: `isinstance()` lebih fleksibel untuk hierarchy class.
-
-## Referensi
-
-- Built-in Functions: https://docs.python.org/3/library/functions.html
-- Python Tutorial (Data Structures): https://docs.python.org/3/tutorial/datastructures.html
-- Functional Programming HOWTO: https://docs.python.org/3/howto/functional.html
-
+| Built-in | Sesuatu yang sudah ada di dalam bahasa sejak awal tanpa tambahan | `print`, `int` |
+| Argument | Data yang kita masukkan ke dalam "mulut" fungsi | `len("halo")` -> "halo" |
+| Return Value | "Hasil kerja" yang dilemparkan kembali oleh fungsi | `len()` -> 4 |
+| Iterable | Koleksi benda yang bisa dihitung satu per satu (seperti tas) | List, Tuple, String |
+| Built-in Scope | Wilayah terdalam di mana Python mencari nama fungsi | `__builtins__` |
+
+## 3. Konsep Utama
+
+### A. Alat Ukur dan Statistik (Measuring Tools)
+Python sangat mahir dalam mengolah data koleksi dengan sangat cepat:
+- **`len(x)`**: Berapa banyak isinya?
+- **`sum(iterable)`**: Berapa total jumlahnya? (Hanya untuk angka).
+- **`max(x)` / `min(x)`**: Mana yang paling ekstrem nilainya?
+- **`abs(n)`**: Mengubah angka negatif menjadi positif (Nilai Mutlak).
+
+### B. Alat Identifikasi (Identification Tools)
+Agar kode Anda tidak salah langkah, kenali material Anda:
+- **`type(obj)`**: Mengecek kelas dari objek tersebut.
+- **`dir(obj)`**: Mengintip "kemampuan" atau atribut apa saja yang dimiliki benda tersebut.
+- **`help(fungsi)`**: Membaca buku manual instruksi dari alat tersebut.
+
+### C. Alat Perapi dan Manipulasi (Organization Tools)
+- **`sorted(koleksi)`**: Membuat salinan baru yang sudah rapi berurutan. (Originalnya tidak berubah).
+- **`reversed(koleksi)`**: Membalik urutan dari belakang ke depan.
+- **`any(koleksi)`**: Bertanya, "Apakah ADA minimal satu yang benar (True)?"
+- **`all(koleksi)`**: Bertanya, "Apakah SEMUANYA benar (True)?"
+
+### D. Alat Iterasi (Looping Tools)
+Alat-alat ini adalah sahabat setia perulangan `for`:
+- **`range(start, stop, step)`**: Mencetak generator angka.
+- **`enumerate(iterable)`**: Memberikan "Nomor Antrian" sekaligus isinya.
+- **`zip(a, b)`**: Memasangkan dua list seperti menyatukan resleting (zipper).
+
+## 4. Visualisasi Analogi
+
+![Big Picture Built-in Functions - The Toolbelt](assets/13_builtin_functions.svg)
+
+## 5. Di Balik Layar (Under the Hood)
+Saat Anda mengetik `print()`, Python mencarinya melalui aturan **LEGB** (Local, Enclosing, Global, Built-in). **Built-in** adalah pemberhentian terakhir. Jika Python tidak menemukannya di folder Anda sendiri, ia akan mengecek sabuk alat standarnya. Karena ditulis dalam bahasa C (C-Python), fungsi-fungsi ini berjalan jauh lebih cepat daripada fungsi yang Anda buat sendiri secara manual.
+
+## 6. Peringatan / Jebakan Umum (Gotchas)
+- **Shadowing (Menutup Alat)**: Jangan pernah menamai variabel Anda dengan nama fungsi bawaan. Jika Anda menulis `list = [1, 2, 3]`, maka alat `list()` (untuk konversi) akan rusak atau "tertutup" oleh variabel Anda.
+- **`sorted` vs `.sort()`**: Ingat! `sorted(list)` memberikan hasil baru, sedangkan `list.sort()` merusak dan merubah list aslinya di tempat. Jangan tertukar!
+- **`all()` pada List Kosong**: Secara teknis, `all([])` adalah `True`. Ini sering membingungkan pemula (Prinsip *Vacuous Truth*).
+
+## 7. Referensi Kode Praktik
+Simulasi penggunaan sabuk alat tersedia di folder `examples/`:
+- `01_meteran_statistik.py`: Mengolah data angka secara instan.
+- `02_scanner_identitas.py`: Cara mengintip isi dan tipe data.
+- `03_alat_perapi.py`: Bermain dengan urutan data.
+- `04_super_looping.py`: Gabungan sakti antara penomoran dan pemasangan data.
+
+## 8. Latihan (Validasi)
+- [ ] Hitunglah rata-rata dari sebuah list angka menggunakan gabungan `sum()` dan `len()`.
+- [ ] Gunakan `enumerate()` untuk mencetak daftar belanjaan Anda lengkap dengan nomor urutnya.
+- [ ] Cobalah gunakan fungsi `zip()` untuk menggabungkan list nama siswa dan list nilai ujian mereka menjadi satu tampilan.
+- [ ] Cari tahu apa yang terjadi jika Anda memasukkan string ke dalam fungsi `max()`. Apa yang menjadi penentu "nilai tertinggi"?

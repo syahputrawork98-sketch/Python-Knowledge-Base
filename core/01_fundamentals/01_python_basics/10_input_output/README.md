@@ -1,240 +1,81 @@
-﻿# Input and Output
+# Bab 10: Input & Output (I/O) Dasar
 
 Chapter Code: CORE-01-10
-Book Code: CORE-01
-Version: v0.3.0
-Last Updated: 2026-03-08
-Status: In Progress
-Difficulty: Basic
-Estimated Time: 45 menit teori + 40 menit praktik
+Version: Core.Fundamentals.01.01-draft
+Last Updated: 2026-03-14
+Status: Draft
 
-## Bab Ini Tentang Apa
+> **Deskripsi Singkat**: Bab ini membahas cara dasar program Anda berkomunikasi dengan manusia di depannya. Kita akan belajar cara bertanya menggunakan `input()` dan menjawab menggunakan `print()`.
 
-Bab ini membahas mekanisme input dan output dasar pada program Python berbasis command line. Kamu akan belajar menerima data dari pengguna, mengubah tipe input, memformat output, dan melakukan validasi sederhana agar program lebih aman dipakai.
+## 1. Analogi (Pendekatan Konsep)
 
-## Prasyarat Spesifik Bab
+### Analogi Singkat
+> "Input/Output adalah **Meja Resepsionis** sebuah perusahaan. `input()` adalah saat resepsionis mendengarkan pertanyaan/data dari tamu (user), sementara `print()` adalah saat resepsionis memberikan jawaban atau informasi ke tamu."
 
-- memahami `04_basic_data_types.md`
-- memahami `05_operators_and_expressions.md`
-- memahami `06_control_flow.md`
+### Analogi Panjang / Cerita (Layanan Pelanggan / Customer Service)
+Bayangkan Anda sedang berbicara dengan seorang Petugas Layanan Pelanggan (Program Anda).
 
-## Istilah Kunci
+- **`input()` (Mendengarkan Tamu)**: Petugas bertanya: "Atas nama siapa?". Petugas akan terdiam (program berhenti sejenak) sampai tamu menjawab. Jawaban tamu akan diterima sebagai string (teks), karena petugas menganggap segala sesuatu yang diucapkan adalah "kata-kata".
+- **Parsing (Penerjemahan Bahasa)**: Jika tamu menyebutkan angka "25", petugas tetap mencatatnya di kertas sebagai teks `"25"`. Jika petugas ingin melakukan perhitungan matematika, ia harus menerjemahkannya dulu menjadi angka asli (`int` atau `float`) menggunakan alat penerjemah.
+- **`print()` (Menjawab Tamu)**: Setelah petugas punya informasi, ia akan membacakan hasilnya kembali ke tamu. Petugas bisa merangkai kata-kata yang rapi menggunakan "F-String" agar tamu senang.
+- **Validasi (Cek KTP)**: Sebelum memproses jawaban tamu, petugas akan mengecek: "Apakah jawabannya masuk akal?". Jika tamu ditanya umur dan menjawab "Pisang", petugas harus menolak dengan sopan.
+
+## 2. Istilah Kunci (Key Terms)
 
 | Istilah | Definisi Singkat | Contoh |
 |---|---|---|
-| input | data masuk dari pengguna | `input("Nama: ")` |
-| output | data keluar ke layar/file | `print("Halo")` |
-| prompt | pesan sebelum input diisi | `"Masukkan umur: "` |
-| parsing | konversi string ke tipe lain | `int(raw_age)` |
-| formatting | pengaturan tampilan output | `f"Umur: {age}"` |
-| validation | pengecekan data input | `if age >= 0` |
+| Prompt | Pesan instruksi sebelum user mengetik sesuatu | `"Siapa namamu?"` |
+| Standard Input | Aliran data masuk (biasanya keyboard) | `input()` |
+| Standard Output | Aliran data keluar (biasanya layar monitor) | `print()` |
+| F-String | Cara paling modern dan rapi untuk menggabung variabel ke teks | `f"Halo {nama}"` |
+| Separator | Karakter pemisah antar data saat print | `sep=" | "` |
 
-## Tujuan Besar
+## 3. Konsep Utama
 
-Membantu pembaca membangun interaksi pengguna dasar yang benar, jelas, dan tahan terhadap input tidak valid.
-
-## Tujuan Kecil
-
-- menggunakan `input()` dan `print()` secara efektif
-- memahami bahwa hasil `input()` selalu string
-- melakukan parsing ke `int`/`float` dengan aman
-- memformat output agar informatif
-- menulis validasi input sederhana
-
-## Hasil Belajar
-
-Setelah menyelesaikan bab ini, pembaca diharapkan mampu:
-
-- menjelaskan konsep inti bab dengan kata-kata sendiri
-- menjalankan contoh utama tanpa error
-- menerapkan konsep bab pada latihan dasar
-
-## Peruntukan
-Bab ini digunakan saat:
-
-- membuat program interaktif di terminal
-- menerima data pengguna untuk diproses
-- menampilkan hasil proses secara rapi
-
-## Bukan Peruntukan
-
-Bab ini bukan untuk:
-
-- antarmuka GUI/web
-- serialisasi data kompleks atau protocol IO lanjutan
-
-## Analogi
-
-Input/output seperti percakapan dua arah: program bertanya (prompt), pengguna menjawab (input), program merespons (output).
-
-## Miskonsepsi Umum
-
-- Miskonsepsi: `input()` langsung menghasilkan angka jika user mengetik angka.
-  Klarifikasi: `input()` selalu menghasilkan string; perlu konversi.
-
-- Miskonsepsi: validasi input tidak penting untuk program kecil.
-  Klarifikasi: tanpa validasi, program mudah error pada input tak terduga.
-
-## Konsep Inti
-
-### 1. Input Dasar dengan `input()`
-
+### A. Fungsi `input()`: Selalu Mendapatkan String
+Ingat! Apapun yang diketik user, Python akan menganggapnya sebagai `str`.
 ```python
-name = input("Masukkan nama: ")
-print("Halo,", name)
+nama = input("Siapa namamu? ")
+print(f"Halo {nama}, selamat datang!")
 ```
 
-### 2. Parsing Tipe Data
-
+### B. Mengubah Tipe Data (Casting)
+Jika butuh angka, bungkuslah input tersebut:
 ```python
-raw_age = input("Masukkan umur: ")
-age = int(raw_age)
-print(f"Tahun depan umurmu: {age + 1}")
+umur = int(input("Berapa umurmu? "))
+print(f"Tahun depan kamu berumur {umur + 1}")
 ```
 
-Untuk angka pecahan gunakan `float()`.
-
-### 3. Formatting Output
-
+### C. Teknik `print()` yang Pro
+Anda bisa mengatur bagaimana data ditampilkan:
 ```python
-name = "Ayu"
-score = 88.5
+# Mengatur akhir kalimat (end)
+print("Baris satu", end=" --- ")
+print("Masih di baris satu!")
 
-print(f"Nama: {name} | Nilai: {score:.1f}")
+# Menggunakan separator (sep)
+print("Apel", "Jeruk", "Mangga", sep=", ")
 ```
 
-### 4. Validasi Input Sederhana
+## 4. Visualisasi Analogi
 
-```python
-raw = input("Masukkan jumlah item: ")
-if raw.isdigit():
-    qty = int(raw)
-    print(f"Jumlah valid: {qty}")
-else:
-    print("Input harus berupa angka bulat non-negatif")
-```
+![Big Picture Input Output - The Receptionist](assets/10_input_output.svg)
 
-## Diagram
+## 5. Di Balik Layar (Under the Hood)
+Saat `input()` dipanggil, Python benar-benar membekukan eksekusi skrip. Ia menunggu sinyal dari sistem operasi bahwa user telah menekan tombol "Enter". Begitu tombol tersebut ditekan, barulah Python mengambil data dari memori sementara (keyboard buffer), mengubahnya menjadi objek string, dan menyimpannya ke variabel Anda.
 
-![Big picture Input and Output](assets/10_input_output.svg)
+## 6. Peringatan / Jebakan Umum (Gotchas)
+- **Input Kosong**: Jika user cuma tekan Enter tanpa ketik apapun, `input()` akan menghasilkan string kosong `""`. Program Anda bisa crash jika langsung mencoba merubah ini jadi angka.
+- **Tipe Data Salah**: Mencoba `int("25.5")` akan error. Gunakan `float()` untuk angka berkoma.
+- **Prompt yang Tidak Jelas**: Jangan gunakan `input()` tanpa pesan prompt, user akan bingung kenapa programnya mendadak "hang".
 
-Caption: Diagram memperlihatkan alur prompt -> input pengguna -> parsing/validasi -> output hasil.
+## 7. Referensi Kode Praktik
+Contoh percakapan dengan program tersedia di folder `examples/`:
+- `01_kenalan_input.py`: Dasar-dasar bertanya dan menjawab.
+- `02_kasir_sederhana.py`: Latihan konversi harga dan jumlah.
+- `03_variasi_print.py`: Teknik mempercantik tampilan output.
 
-### Legenda Diagram
-
-- kotak biru: sumber input
-- kotak tengah: proses validasi/parsing
-- kotak hijau: output valid atau pesan error
-
-## Contoh Kode (Benar)
-
-```python
-name = input("Nama: ")
-raw_price = input("Harga: ")
-raw_qty = input("Jumlah: ")
-
-if raw_price.replace('.', '', 1).isdigit() and raw_qty.isdigit():
-    price = float(raw_price)
-    qty = int(raw_qty)
-    total = price * qty
-    print(f"{name}, total belanja kamu: Rp {total:,.2f}")
-else:
-    print("Input harga/jumlah tidak valid")
-```
-
-Expected output (contoh):
-
-```text
-Ayu, total belanja kamu: Rp 150,000.00
-```
-
-## Pitfall Umum
-
-Lupa parsing input angka:
-
-```python
-a = input("A: ")
-b = input("B: ")
-print(a + b)
-```
-
-Perbaikan:
-
-```python
-a = int(input("A: "))
-b = int(input("B: "))
-print(a + b)
-```
-
-Parsing langsung tanpa penanganan:
-
-```python
-age = int(input("Umur: "))
-```
-
-Perbaikan (defensif):
-
-```python
-raw = input("Umur: ")
-if raw.isdigit():
-    age = int(raw)
-    print(age)
-else:
-    print("Umur harus angka")
-```
-
-## Catatan Praktis
-
-- selalu anggap input pengguna bisa salah
-- gunakan prompt yang jelas dan spesifik
-- pisahkan proses: ambil input -> validasi -> konversi -> proses -> output
-- gunakan f-string untuk output agar lebih terbaca
-
-## Latihan
-
-### Dasar
-
-Buat program yang meminta nama dan kota, lalu tampilkan kalimat sapaan.
-
-### Menengah
-
-Buat kalkulator BMI sederhana dari input tinggi dan berat.
-
-### Mini Challenge
-
-Buat program kasir mini: input beberapa item (nama, harga, qty), hitung subtotal, dan tampilkan ringkasan transaksi dengan format rapi.
-
-## Checklist Lulus Bab
-
-- [ ] memahami alur input -> validasi -> output
-- [ ] bisa parsing string ke int/float dengan aman
-- [ ] bisa memformat output dengan f-string
-- [ ] menyelesaikan mini challenge
-
-## Peta Keterkaitan
-
-- Bab sebelumnya: `09_modules_and_import.md`
-- Bab berikutnya: `11_file_handling.md`
-- Keterkaitan lintas buku Core: `CORE-08` (File System and IO)
-
-## Ringkasan
-
-- `input()` mengembalikan string, sehingga parsing sering diperlukan.
-- Output yang baik membantu pengguna memahami hasil proses.
-- Validasi input adalah langkah wajib untuk mencegah error runtime sederhana.
-
-## FAQ Singkat
-
-1. Kenapa angka dari input tidak bisa langsung dihitung?
-   Jawaban singkat: karena input berupa string, harus dikonversi dulu ke angka.
-2. Lebih baik validasi sebelum atau sesudah parsing?
-   Jawaban singkat: validasi format dasar dulu, lalu parsing.
-3. Kapan perlu pakai `try/except` untuk input?
-   Jawaban singkat: saat validasi string saja tidak cukup dan konversi bisa gagal.
-
-## Referensi
-
-- Python Built-in Functions (`input`, `print`): https://docs.python.org/3/library/functions.html
-- Python Tutorial (Input and Output): https://docs.python.org/3/tutorial/inputoutput.html
-- Python String Format Spec: https://docs.python.org/3/library/string.html#format-specification-mini-language
-
+## 8. Latihan (Validasi)
+- [ ] Buat program yang meminta input dua angka, lalu tampilkan hasil penjumlahannya. (Ingat casting!).
+- [ ] Buat "Mad Libs" mini: Minta input kata benda, kata sifat, dan kata kerja, lalu susun menjadi kalimat lucu.
+- [ ] Gunakan `sep` dan `end` untuk menciptakan tampilan menu makanan yang rapi.

@@ -1,0 +1,57 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <text x="250" y="40" font-family="Arial" font-size="24" fill="#1e293b" font-weight="bold">SISTEM KARGO PYTHON</text>
+
+  <!-- Desk (The Main Script) -->
+  <rect x="50" y="400" width="700" height="150" rx="10" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" />
+  <text x="60" y="425" font-family="Arial" font-size="16" fill="#475569" font-weight="bold">MEJA KERJA (Main Script - __main__)</text>
+
+  <!-- Module: The Parcel Box -->
+  <g transform="translate(100, 100)">
+    <rect width="180" height="120" rx="5" fill="#fde68a" stroke="#d97706" stroke-width="2" />
+    <text x="10" y="25" font-family="Arial" font-size="14" fill="#92400e" font-weight="bold">MODULE (.py)</text>
+    <rect x="20" y="40" width="40" height="40" fill="#fbbf24" stroke="#d97706" />
+    <text x="70" y="65" font-family="Arial" font-size="12" fill="#92400e">Alat (Fungsi)</text>
+    <text x="40" y="110" font-family="Arial" font-size="11" fill="#d97706" font-style="italic">__name__ = "nama_file"</text>
+  </g>
+
+  <!-- Package: The Cargo Container -->
+  <g transform="translate(450, 80)">
+    <rect width="250" height="200" rx="10" fill="#bae6fd" stroke="#0284c7" stroke-width="2" />
+    <text x="15" y="30" font-family="Arial" font-size="16" fill="#0369a1" font-weight="bold">PACKAGE (Folder)</text>
+    
+    <!-- Manifest -->
+    <rect x="20" y="50" width="100" height="30" rx="3" fill="#0ea5e9" />
+    <text x="25" y="70" font-family="Arial" font-size="11" fill="white">__init__.py</text>
+    
+    <!-- Inside Packages -->
+    <rect x="30" y="100" width="80" height="60" fill="#7dd3fc" stroke="#0284c7" />
+    <rect x="130" y="100" width="80" height="60" fill="#7dd3fc" stroke="#0284c7" />
+    <text x="40" y="135" font-family="Arial" font-size="10" fill="#0369a1">Module A</text>
+    <text x="140" y="135" font-family="Arial" font-size="10" fill="#0369a1">Module B</text>
+  </g>
+
+  <!-- Import Actions (The Messengers) -->
+  <!-- Action 1: Import all -->
+  <path d="M 190 220 L 190 400" stroke="#d97706" stroke-width="4" stroke-dasharray="5,5" marker-end="url(#arrow_orange)" />
+  <text x="200" y="310" font-family="Arial" font-size="14" fill="#d97706" font-weight="bold">import module</text>
+
+  <!-- Action 2: From Import -->
+  <path d="M 575 280 L 575 400" stroke="#0284c7" stroke-width="4" stroke-dasharray="5,5" marker-end="url(#arrow_blue)" />
+  <text x="585" y="340" font-family="Arial" font-size="14" fill="#0284c7" font-weight="bold">from package import ...</text>
+
+  <!-- Arrowheads -->
+  <defs>
+    <marker id="arrow_orange" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L0,10 L10,5 Z" fill="#d97706" />
+    </marker>
+    <marker id="arrow_blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L0,10 L10,5 Z" fill="#0284c7" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="320" y="580" font-family="Arial" font-size="14" fill="#94a3b8">© Python Knowledge Universe - Cargo System</text>
+</svg>

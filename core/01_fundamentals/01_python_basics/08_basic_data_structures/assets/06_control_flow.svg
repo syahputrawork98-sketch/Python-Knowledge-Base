@@ -1,0 +1,64 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <text x="300" y="40" font-family="Arial" font-size="24" fill="#1e293b" font-weight="bold">GUDANG DATA PYTHON</text>
+
+  <!-- LIST: The Ordered Shelf -->
+  <g transform="translate(50, 80)">
+    <rect width="330" height="180" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="3" />
+    <text x="15" y="25" font-family="Arial" font-size="16" fill="#047857" font-weight="bold">LIST [ ] - Berurutan &amp; Fleksibel</text>
+    <!-- Shelf Items -->
+    <rect x="20" y="50" width="60" height="60" rx="5" fill="#10b981" />
+    <rect x="90" y="50" width="60" height="60" rx="5" fill="#10b981" />
+    <rect x="160" y="50" width="60" height="60" rx="5" fill="#10b981" />
+    <text x="35" y="130" font-family="Arial" font-size="12" fill="#065f46">Indeks 0</text>
+    <text x="105" y="130" font-family="Arial" font-size="12" fill="#065f46">Indeks 1</text>
+    <path d="M 230 80 L 280 80" stroke="#10b981" stroke-width="4" marker-end="url(#arrow)" />
+    <text x="235" y="70" font-family="Arial" font-size="10" fill="#047857">append()</text>
+  </g>
+
+  <!-- TUPLE: The Sealed Vault -->
+  <g transform="translate(420, 80)">
+    <rect width="330" height="180" rx="10" fill="#fef2f2" stroke="#ef4444" stroke-width="3" />
+    <text x="15" y="25" font-family="Arial" font-size="16" fill="#b91c1c" font-weight="bold">TUPLE ( ) - Permanen / Segel</text>
+    <rect x="100" y="60" width="130" height="80" rx="10" fill="#ef4444" />
+    <path d="M 120 80 L 210 120 M 120 120 L 210 80" stroke="white" stroke-width="5" opacity="0.5" />
+    <text x="125" y="105" font-family="Arial" font-size="14" fill="white" font-weight="bold">LOCKED</text>
+  </g>
+
+  <!-- SET: The Unique Bucket -->
+  <g transform="translate(50, 300)">
+    <rect width="330" height="180" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="3" />
+    <text x="15" y="25" font-family="Arial" font-size="16" fill="#b45309" font-weight="bold">SET { } - Tanpa Duplikat</text>
+    <circle cx="100" cy="100" r="40" fill="#f59e0b" />
+    <circle cx="150" cy="80" r="40" fill="#f59e0b" opacity="0.6" />
+    <text x="95" y="105" font-family="Arial" font-size="12" fill="white">Unik</text>
+    <text x="210" y="80" font-family="Arial" font-size="12" fill="#92400e">Intersection &amp;</text>
+    <text x="210" y="100" font-family="Arial" font-size="12" fill="#92400e">Union |</text>
+  </g>
+
+  <!-- DICT: The Labeled Locker -->
+  <g transform="translate(420, 300)">
+    <rect width="330" height="180" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="3" />
+    <text x="15" y="25" font-family="Arial" font-size="16" fill="#1d4ed8" font-weight="bold">DICT { : } - Label / Kunci</text>
+    <rect x="20" y="50" width="80" height="30" rx="5" fill="#3b82f6" />
+    <text x="30" y="70" font-family="Arial" font-size="10" fill="white">'nama'</text>
+    <path d="M 100 65 L 140 65" stroke="#3b82f6" stroke-width="2" />
+    <text x="150" y="70" font-family="Arial" font-size="12" fill="#1e40af">"Syahputra"</text>
+
+    <rect x="20" y="100" width="80" height="30" rx="5" fill="#3b82f6" />
+    <text x="35" y="120" font-family="Arial" font-size="10" fill="white">'skor'</text>
+    <path d="M 100 115 L 140 115" stroke="#3b82f6" stroke-width="2" />
+    <text x="150" y="120" font-family="Arial" font-size="12" fill="#1e40af">100</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L0,10 L10,5 Z" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="320" y="550" font-family="Arial" font-size="14" fill="#94a3b8">© Python Knowledge Universe - Warehouse Management</text>
+</svg>

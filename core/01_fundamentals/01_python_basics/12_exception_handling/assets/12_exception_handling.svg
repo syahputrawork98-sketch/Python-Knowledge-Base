@@ -1,0 +1,48 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <text x="210" y="40" font-family="Arial" font-size="24" fill="#1e293b" font-weight="bold">SISTEM KESELAMATAN PYTHON (CRISIS MGMT)</text>
+
+  <!-- The Falling Error Ball -->
+  <circle cx="200" cy="50" r="20" fill="#ef4444">
+    <animate attributeName="cy" from="50" to="450" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <text x="130" y="60" font-family="Arial" font-size="14" fill="#ef4444" font-weight="bold">ERROR! (ZeroDivisionError)</text>
+
+  <!-- The Safe Zone (Try) -->
+  <rect x="100" y="150" width="600" height="300" rx="15" fill="#f1f5f9" stroke="#3b82f6" stroke-width="4" stroke-dasharray="8,4" />
+  <text x="120" y="180" font-family="Arial" font-size="20" fill="#1e40af" font-weight="bold">TRY: Zona Eksperimen</text>
+
+  <!-- The Safety Nets (Except) -->
+  <line x1="100" y1="350" x2="700" y2="350" stroke="#10b981" stroke-width="8" />
+  <text x="150" y="340" font-family="Arial" font-size="16" fill="#047857" font-weight="bold">EXCEPT: Jaring Pengaman 1 (ValueError)</text>
+  
+  <line x1="100" y1="420" x2="700" y2="420" stroke="#10b981" stroke-width="8" />
+  <text x="150" y="410" font-family="Arial" font-size="16" fill="#047857" font-weight="bold">EXCEPT: Jaring Pengaman 2 (ZeroDivisionError)</text>
+
+  <!-- Action Icons -->
+  <rect x="300" y="480" width="200" height="50" rx="5" fill="#64748b" />
+  <text x="350" y="510" font-family="Arial" font-size="16" fill="white" font-weight="bold">FINALLY</text>
+  <text x="520" y="510" font-family="Arial" font-size="12" fill="#64748b" font-style="italic">(Selalu Bersihkan Ruangan)</text>
+
+  <!-- Custom Alarm (Raise) -->
+  <g transform="translate(680, 50)">
+    <rect width="80" height="80" rx="40" fill="#ef4444" />
+    <text x="20" y="45" font-family="Arial" font-size="14" fill="white" font-weight="bold">RAISE</text>
+  </g>
+  <text x="650" y="150" font-family="Arial" font-size="12" fill="#ef4444">Alarm Manual</text>
+
+  <!-- Else Success Path -->
+  <path d="M 680 160 L 730 160 L 730 460" stroke="#3b82f6" stroke-width="4" fill="none" marker-end="url(#arrow_blue)" />
+  <text x="740" y="300" font-family="Arial" font-size="14" fill="#3b82f6" transform="rotate(90, 740, 300)">ELSE: Sukses Path</text>
+
+  <defs>
+    <marker id="arrow_blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L0,10 L10,5 Z" fill="#3b82f6" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="320" y="580" font-family="Arial" font-size="14" fill="#94a3b8">© Python Knowledge Universe - Crisis Management</text>
+</svg>
