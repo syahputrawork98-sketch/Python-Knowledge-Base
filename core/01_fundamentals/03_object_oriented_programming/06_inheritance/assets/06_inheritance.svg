@@ -1,0 +1,89 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- Title & Subtitle -->
+  <text x="400" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="28" fill="#1e293b" font-weight="bold" text-anchor="middle">Inheritance (Pewarisan)</text>
+  <text x="400" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#64748b" font-style="italic" text-anchor="middle">Hubungan "IS-A" Menurunkan Sifat Induk ke Anak</text>
+
+  <!-- PARENT CLASS (Hewan) -->
+  <g transform="translate(300, 140)">
+    <rect x="-8" y="0" width="216" height="150" rx="10" fill="#fef9c3" opacity="0.6" />
+    <rect x="0" y="0" width="200" height="150" rx="10" fill="white" stroke="#eab308" stroke-width="3" />
+    <rect x="0" y="0" width="200" height="40" rx="10" fill="#eab308" />
+    <!-- Fix bottom radius for header -->
+    <rect x="0" y="20" width="200" height="20" fill="#eab308" />
+    
+    <text x="100" y="25" font-family="'Segoe UI', Arial" font-size="18" fill="white" font-weight="bold" text-anchor="middle">Hewan (Parent)</text>
+
+    <!-- Methods -->
+    <text x="20" y="70" font-family="'Courier New', monospace" font-size="14" fill="#a16207" font-weight="bold">+ bernafas()</text>
+    <text x="20" y="100" font-family="'Courier New', monospace" font-size="14" fill="#a16207" font-weight="bold">+ makan()</text>
+    <text x="20" y="130" font-family="'Courier New', monospace" font-size="14" fill="#a16207" font-weight="bold">+ tidur()</text>
+  </g>
+
+  <!-- THE INHERITANCE LINES (DNA Flow) -->
+  <g stroke="#94a3b8" stroke-width="4" fill="none">
+    <!-- Center Line -->
+    <path d="M 400 290 L 400 350" />
+    <!-- Branch Left -->
+    <path d="M 400 350 L 220 350 L 220 380" marker-end="url(#arrow)" />
+    <!-- Branch Right -->
+    <path d="M 400 350 L 580 350 L 580 380" marker-end="url(#arrow)" />
+  </g>
+  
+  <rect x="360" y="325" width="80" height="25" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1" />
+  <text x="400" y="342" font-family="'Segoe UI', Arial" font-size="12" fill="#475569" font-weight="bold" text-anchor="middle">Inherits</text>
+
+  <!-- CHILD 1 (Kucing) -->
+  <g transform="translate(120, 390)">
+    <rect x="-8" y="0" width="216" height="150" rx="10" fill="#dbeafe" opacity="0.6" />
+    <rect x="0" y="0" width="200" height="150" rx="10" fill="white" stroke="#3b82f6" stroke-width="3" />
+    <rect x="0" y="0" width="200" height="40" rx="10" fill="#3b82f6" />
+    <rect x="0" y="20" width="200" height="20" fill="#3b82f6" />
+    
+    <text x="100" y="25" font-family="'Segoe UI', Arial" font-size="18" fill="white" font-weight="bold" text-anchor="middle">Kucing (Child)</text>
+
+    <!-- Inherited Methods (Watermarked) -->
+    <g fill="#94a3b8" font-family="'Courier New', monospace" font-size="12" opacity="0.6">
+      <text x="20" y="65">+ bernafas() [Dari Hewan]</text>
+      <text x="20" y="85">+ makan()    [Dari Hewan]</text>
+      <text x="20" y="105">+ tidur()    [Dari Hewan]</text>
+    </g>
+    
+    <!-- Unique Child Method -->
+    <rect x="15" y="115" width="170" height="25" rx="4" fill="#eff6ff" />
+    <text x="20" y="132" font-family="'Courier New', monospace" font-size="14" fill="#1d4ed8" font-weight="bold">+ mengeong()</text>
+  </g>
+
+  <!-- CHILD 2 (Anjing) -->
+  <g transform="translate(480, 390)">
+    <rect x="-8" y="0" width="216" height="150" rx="10" fill="#fce7f3" opacity="0.6" />
+    <rect x="0" y="0" width="200" height="150" rx="10" fill="white" stroke="#ec4899" stroke-width="3" />
+    <rect x="0" y="0" width="200" height="40" rx="10" fill="#ec4899" />
+    <rect x="0" y="20" width="200" height="20" fill="#ec4899" />
+    
+    <text x="100" y="25" font-family="'Segoe UI', Arial" font-size="18" fill="white" font-weight="bold" text-anchor="middle">Anjing (Child)</text>
+
+    <!-- Inherited Methods (Watermarked) -->
+    <g fill="#94a3b8" font-family="'Courier New', monospace" font-size="12" opacity="0.6">
+      <text x="20" y="65">+ bernafas() [Dari Hewan]</text>
+      <text x="20" y="85">+ makan()    [Dari Hewan]</text>
+      <text x="20" y="105">+ tidur()    [Dari Hewan]</text>
+    </g>
+    
+    <!-- Unique Child Method -->
+    <rect x="15" y="115" width="170" height="25" rx="4" fill="#fdf2f8" />
+    <text x="20" y="132" font-family="'Courier New', monospace" font-size="14" fill="#be185d" font-weight="bold">+ menggonggong()</text>
+  </g>
+
+  <defs>
+    <!-- Solid Triangle Arrow for inheritance -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="400" y="580" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">© Python Knowledge Universe - Bab 06: Inheritance</text>
+</svg>

@@ -1,0 +1,90 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- Title & Subtitle -->
+  <text x="400" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="28" fill="#1e293b" font-weight="bold" text-anchor="middle">Polymorphism (Banyak Bentuk)</text>
+  <text x="400" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#64748b" font-style="italic" text-anchor="middle">Satu Instruksi, Respon Berbeda Tergantung Tipe Objek</text>
+
+  <!-- CONTROLLER / INTERFACE (The Press Button) -->
+  <g transform="translate(100, 200)">
+    <rect x="-10" y="-10" width="180" height="220" rx="15" fill="#e2e8f0" opacity="0.6" />
+    <!-- Console Controller Shape -->
+    <rect x="0" y="0" width="160" height="200" rx="15" fill="#334155" stroke="#0f172a" stroke-width="4" />
+    <!-- Big Action Button -->
+    <circle cx="80" cy="100" r="45" fill="#ef4444" stroke="#b91c1c" stroke-width="4" />
+    <text x="80" y="107" font-family="'Courier New', monospace" font-size="16" fill="white" font-weight="bold" text-anchor="middle">.suara()</text>
+    <text x="80" y="170" font-family="'Segoe UI', Arial" font-size="14" fill="#cbd5e1" font-weight="bold" text-anchor="middle">INSTRUKSI</text>
+    <text x="80" y="185" font-family="'Segoe UI', Arial" font-size="12" fill="#94a3b8" text-anchor="middle">Universal</text>
+  </g>
+
+  <!-- TRANSMISSION LINES (Signal Broadcast) -->
+  <g stroke="#94a3b8" stroke-width="4" fill="none">
+    <path d="M 270 300 L 350 300" />
+    <path d="M 350 300 L 350 180 L 450 180" marker-end="url(#arrow)" />
+    <path d="M 350 300 L 450 300" marker-end="url(#arrow)" />
+    <path d="M 350 300 L 350 420 L 450 420" marker-end="url(#arrow)" />
+  </g>
+  <text x="350" y="290" font-family="'Segoe UI', Arial" font-size="12" fill="#64748b" font-weight="bold" text-anchor="middle">BROADCAST</text>
+
+  <!-- OBJECT 1: KUCING -->
+  <g transform="translate(480, 130)">
+    <rect x="0" y="0" width="240" height="100" rx="10" fill="white" stroke="#3b82f6" stroke-width="3" />
+    <rect x="0" y="0" width="70" height="100" rx="10" fill="#3b82f6" />
+    <rect x="60" y="0" width="10" height="100" fill="#3b82f6" />
+    <!-- Cat Ears Icon -->
+    <path d="M 20 60 L 35 30 L 50 60 Z" fill="white" />
+    
+    <text x="85" y="35" font-family="'Segoe UI', Arial" font-size="16" fill="#1e40af" font-weight="bold">Kucing</text>
+    <text x="85" y="55" font-family="'Segoe UI', Arial" font-size="11" fill="#60a5fa">« Type Animal »</text>
+    
+    <rect x="85" y="65" width="140" height="25" rx="5" fill="#eff6ff" />
+    <text x="155" y="82" font-family="'Courier New', monospace" font-size="14" fill="#3b82f6" font-weight="bold" text-anchor="middle">"Meow! 🐱"</text>
+  </g>
+
+  <!-- OBJECT 2: ANJING -->
+  <g transform="translate(480, 250)">
+    <rect x="0" y="0" width="240" height="100" rx="10" fill="white" stroke="#10b981" stroke-width="3" />
+    <rect x="0" y="0" width="70" height="100" rx="10" fill="#10b981" />
+    <rect x="60" y="0" width="10" height="100" fill="#10b981" />
+    <!-- Dog Icon -->
+    <rect x="25" y="35" width="20" height="30" rx="5" fill="white" />
+    <circle cx="28" cy="45" r="2" fill="#10b981" />
+    <circle cx="42" cy="45" r="2" fill="#10b981" />
+
+    <text x="85" y="35" font-family="'Segoe UI', Arial" font-size="16" fill="#065f46" font-weight="bold">Anjing</text>
+    <text x="85" y="55" font-family="'Segoe UI', Arial" font-size="11" fill="#34d399">« Type Animal »</text>
+    
+    <rect x="85" y="65" width="140" height="25" rx="5" fill="#ecfdf5" />
+    <text x="155" y="82" font-family="'Courier New', monospace" font-size="14" fill="#059669" font-weight="bold" text-anchor="middle">"Guk guk! 🐶"</text>
+  </g>
+
+  <!-- OBJECT 3: ROBOT -->
+  <g transform="translate(480, 370)">
+    <rect x="0" y="0" width="240" height="100" rx="10" fill="white" stroke="#8b5cf6" stroke-width="3" />
+    <rect x="0" y="0" width="70" height="100" rx="10" fill="#8b5cf6" />
+    <rect x="60" y="0" width="10" height="100" fill="#8b5cf6" />
+    <!-- Robot Antenna Icon -->
+    <rect x="25" y="45" width="20" height="20" rx="2" fill="white" />
+    <line x1="35" y1="35" x2="35" y2="45" stroke="white" stroke-width="2" />
+    <circle cx="35" cy="35" r="3" fill="#f472b6" />
+
+    <text x="85" y="35" font-family="'Segoe UI', Arial" font-size="16" fill="#4c1d95" font-weight="bold">Robot</text>
+    <text x="85" y="55" font-family="'Segoe UI', Arial" font-size="11" fill="#a78bfa">« Type DuckTyping »</text>
+    
+    <rect x="85" y="65" width="140" height="25" rx="5" fill="#f5f3ff" />
+    <text x="155" y="82" font-family="'Courier New', monospace" font-size="14" fill="#7c3aed" font-weight="bold" text-anchor="middle">"Bip Bop! 🤖"</text>
+  </g>
+
+  <!-- Bottom Legend -->
+  <text x="400" y="520" font-family="'Segoe UI', Arial" font-size="14" fill="#1e293b" font-weight="bold" text-anchor="middle">"Satu Tombol, Beda Aksi" - Itulah Polimorfisme!</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="400" y="580" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">© Python Knowledge Universe - Bab 08: Polymorphism</text>
+</svg>

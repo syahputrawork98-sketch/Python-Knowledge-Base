@@ -1,9 +1,9 @@
 # Object Oriented Programming
 
 Book Code: CORE-03
-Version: Core.Fundamentals.03.00
-Last Updated: 2026-03-14
-Status: In Progress
+Version: Core.Fundamentals.03.01
+Last Updated: 2026-03-15
+Status: Published
 
 Buku ini membangun fondasi paradigma pemrograman berbasis objek yang sangat kuat, bertindak sebagai jembatan sebelum masuk ke materi internal objek di Rak 02.
 

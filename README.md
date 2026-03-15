@@ -108,7 +108,7 @@ Sebagai proyek yang terus berkembang, tabel ini mencatat versi terkini dari pero
 | :--- | :--- | :--- | :--- | :--- |
 | Core | [01_python_basics](core/01_fundamentals/01_python_basics) | Published | Core.Fundamentals.01.00 | 2026-03-14 |
 | Core | [02_data_and_logic](core/01_fundamentals/02_data_and_logic) | Published | Core.Fundamentals.02.00 | 2026-03-14 |
-| Core | [03_object_oriented_programming](core/01_fundamentals/03_object_oriented_programming) | Planned | Core.Fundamentals.03.00 | 2026-03-14 |
+| Core | [03_object_oriented_programming](core/01_fundamentals/03_object_oriented_programming) | Published | Core.Fundamentals.03.01 | 2026-03-15 |
 | Core | [04_language_design](core/01_fundamentals/04_language_design) | Draft Complete | Core.Fundamentals.04.00 | 2026-03-14 |
 | ... | ... | ... | ... | ... |
 

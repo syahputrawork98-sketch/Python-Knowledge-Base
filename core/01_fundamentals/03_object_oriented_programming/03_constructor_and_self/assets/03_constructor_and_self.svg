@@ -1,0 +1,75 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- Title & Subtitle -->
+  <text x="400" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="28" fill="#1e293b" font-weight="bold" text-anchor="middle">Constructor (__init__) &amp; self</text>
+  <text x="400" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#64748b" font-style="italic" text-anchor="middle">Proses Injeksi Data Pertama Kali Saat Objek Lahir</text>
+
+  <!-- STEP 1: EMPTY SHELL -->
+  <g transform="translate(100, 250)">
+    <circle cx="60" cy="60" r="50" fill="none" stroke="#94a3b8" stroke-width="3" stroke-dasharray="5,5" />
+    <text x="60" y="55" font-family="'Segoe UI', Arial" font-size="14" fill="#64748b" font-weight="bold" text-anchor="middle">Cangkang</text>
+    <text x="60" y="75" font-family="'Segoe UI', Arial" font-size="14" fill="#64748b" font-weight="bold" text-anchor="middle">Kosong</text>
+    <text x="60" y="135" font-family="'Courier New', monospace" font-size="12" fill="#94a3b8" text-anchor="middle">Kucing()</text>
+  </g>
+
+  <!-- ARROW 1 -->
+  <path d="M 230 310 L 290 310" stroke="#0ea5e9" stroke-width="4" marker-end="url(#bluearrow)" />
+  <text x="260" y="295" font-family="'Segoe UI', Arial" font-size="12" fill="#0284c7" font-weight="bold" text-anchor="middle">self</text>
+
+  <!-- STEP 2: THE FUNNEL (__init__) -->
+  <g transform="translate(320, 200)">
+    <!-- The Funnel (Metode __init__) -->
+    <path d="M 0 0 L 160 0 L 110 80 L 110 140 L 50 140 L 50 80 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="3" />
+    <text x="80" y="40" font-family="'Courier New', monospace" font-size="16" fill="#0369a1" font-weight="bold" text-anchor="middle">def __init__(self, n, u):</text>
+    <text x="80" y="60" font-family="'Courier New', monospace" font-size="12" fill="#0284c7" text-anchor="middle">self.nama = n</text>
+    <text x="80" y="75" font-family="'Courier New', monospace" font-size="12" fill="#0284c7" text-anchor="middle">self.umur = u</text>
+    
+    <!-- Incoming Data -->
+    <g transform="translate(20, -50)">
+      <rect x="0" y="0" width="50" height="30" rx="5" fill="#fde047" stroke="#ca8a04" stroke-width="2" />
+      <text x="25" y="20" font-family="'Courier New', monospace" font-size="12" fill="#854d0e" font-weight="bold" text-anchor="middle">"Oren"</text>
+      <path d="M 25 30 L 25 45" stroke="#ca8a04" stroke-width="2" marker-end="url(#yellowarrow)" />
+    </g>
+    <g transform="translate(90, -50)">
+      <rect x="0" y="0" width="50" height="30" rx="5" fill="#fde047" stroke="#ca8a04" stroke-width="2" />
+      <text x="25" y="20" font-family="'Courier New', monospace" font-size="12" fill="#854d0e" font-weight="bold" text-anchor="middle">2</text>
+      <path d="M 25 30 L 25 45" stroke="#ca8a04" stroke-width="2" marker-end="url(#yellowarrow)" />
+    </g>
+  </g>
+
+  <!-- ARROW 2 -->
+  <path d="M 500 310 L 560 310" stroke="#10b981" stroke-width="4" marker-end="url(#greenarrow)" />
+
+  <!-- STEP 3: INITIALIZED OBJECT (Filled Shell) -->
+  <g transform="translate(600, 250)">
+    <circle cx="60" cy="60" r="50" fill="#dcfce7" stroke="#15803d" stroke-width="3" />
+    <rect x="20" y="30" width="80" height="20" rx="3" fill="#86efac" />
+    <text x="60" y="45" font-family="'Courier New', monospace" font-size="11" fill="#14532d" text-anchor="middle">.nama="Oren"</text>
+    <rect x="25" y="60" width="70" height="20" rx="3" fill="#86efac" />
+    <text x="60" y="75" font-family="'Courier New', monospace" font-size="11" fill="#14532d" text-anchor="middle">.umur=2</text>
+
+    <text x="60" y="135" font-family="'Segoe UI', Arial" font-size="14" fill="#15803d" font-weight="bold" text-anchor="middle">Objek Utuh</text>
+  </g>
+
+  <!-- Labels -->
+  <rect x="210" y="400" width="380" height="60" rx="10" fill="#fffbeb" stroke="#fcd34d" stroke-width="2" />
+  <text x="400" y="425" font-family="'Segoe UI', Arial" font-size="14" fill="#b45309" text-anchor="middle" font-weight="bold">"self" bertindak sebagai Tali Penghubung</text>
+  <text x="400" y="445" font-family="'Segoe UI', Arial" font-size="13" fill="#b45309" text-anchor="middle">Menarik cangkang kosong (kiri) untuk diisi oleh Corong (tengah)</text>
+
+  <defs>
+    <marker id="bluearrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0ea5e9" />
+    </marker>
+    <marker id="greenarrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
+    </marker>
+    <marker id="yellowarrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ca8a04" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="400" y="580" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">© Python Knowledge Universe - Bab 03: Constructor and Self</text>
+</svg>

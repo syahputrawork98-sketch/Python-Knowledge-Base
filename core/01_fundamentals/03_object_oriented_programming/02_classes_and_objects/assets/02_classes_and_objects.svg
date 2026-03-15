@@ -1,0 +1,93 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- Title & Subtitle -->
+  <text x="400" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="28" fill="#1e293b" font-weight="bold" text-anchor="middle">Classes &amp; Objects</text>
+  <text x="400" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#64748b" font-style="italic" text-anchor="middle">Pabrik Penghasil Robot dengan Spesifikasi Independen</text>
+
+  <!-- The Factory Box (THE CLASS) -->
+  <g transform="translate(50, 200)">
+    <rect x="-5" y="8" width="220" height="200" rx="10" fill="#cbd5e1" opacity="0.6" />
+    <rect x="0" y="0" width="220" height="200" rx="10" fill="#334155" stroke="#0f172a" stroke-width="4" />
+    
+    <!-- Factory Roof -->
+    <path d="M 0 0 L 70 -50 L 70 0 Z" fill="#475569" />
+    <path d="M 70 0 L 140 -50 L 140 0 Z" fill="#475569" />
+    <path d="M 140 0 L 210 -50 L 220 0 Z" fill="#475569" />
+    <line x1="0" y1="0" x2="220" y2="0" stroke="#0f172a" stroke-width="4"/>
+
+    <text x="110" y="40" font-family="'Segoe UI', Arial" font-size="18" fill="white" font-weight="bold" text-anchor="middle">class Robot:</text>
+    <rect x="20" y="60" width="180" height="120" rx="5" fill="#1e293b" />
+    
+    <g font-family="'Courier New', monospace" font-size="12" fill="#94a3b8">
+      <text x="30" y="85">Atribut:</text>
+      <text x="40" y="105" fill="#38bdf8">- nama (str)</text>
+      <text x="40" y="125" fill="#38bdf8">- baterai (int)</text>
+      <text x="30" y="150" fill="#f472b6">Metode:</text>
+      <text x="40" y="170" fill="#fb7185">- bergerak()</text>
+    </g>
+  </g>
+
+  <!-- The Conveyor Belt -->
+  <rect x="230" y="350" width="570" height="20" rx="10" fill="#94a3b8" />
+  <circle cx="250" cy="360" r="6" fill="#475569" />
+  <circle cx="350" cy="360" r="6" fill="#475569" />
+  <circle cx="450" cy="360" r="6" fill="#475569" />
+  <circle cx="550" cy="360" r="6" fill="#475569" />
+  <circle cx="650" cy="360" r="6" fill="#475569" />
+  <circle cx="750" cy="360" r="6" fill="#475569" />
+
+  <!-- Robot 1 (Instance A) -->
+  <g transform="translate(350, 210)">
+    <rect x="0" y="0" width="130" height="140" rx="8" fill="white" stroke="#eab308" stroke-width="3" />
+    <!-- Robot Icon -->
+    <rect x="50" y="15" width="30" height="30" rx="5" fill="#facc15" stroke="#ca8a04" stroke-width="2" />
+    <circle cx="58" cy="25" r="3" fill="white" />
+    <circle cx="72" cy="25" r="3" fill="white" />
+    <rect x="55" y="35" width="20" height="4" fill="#ca8a04" />
+    <line x1="65" y1="5" x2="65" y2="15" stroke="#ca8a04" stroke-width="2" />
+    <circle cx="65" cy="5" r="3" fill="#ef4444" />
+    <!-- Robot Body -->
+    <rect x="40" y="50" width="50" height="40" rx="5" fill="#fef08a" stroke="#ca8a04" stroke-width="2" />
+    
+    <!-- Data Tags -->
+    <rect x="15" y="100" width="100" height="30" rx="4" fill="#fef9c3" />
+    <text x="65" y="112" font-family="'Courier New', monospace" font-size="10" fill="#854d0e" text-anchor="middle" font-weight="bold">objek_1</text>
+    <text x="65" y="125" font-family="'Courier New', monospace" font-size="10" fill="#ca8a04" text-anchor="middle">.nama = 'Alpha'</text>
+  </g>
+
+  <!-- Robot 2 (Instance B) -->
+  <g transform="translate(550, 210)">
+    <rect x="0" y="0" width="130" height="140" rx="8" fill="white" stroke="#8b5cf6" stroke-width="3" />
+    <!-- Robot Icon -->
+    <rect x="50" y="15" width="30" height="30" rx="5" fill="#a78bfa" stroke="#6d28d9" stroke-width="2" />
+    <circle cx="58" cy="25" r="3" fill="#1e1b4b" />
+    <circle cx="72" cy="25" r="3" fill="#1e1b4b" />
+    <rect x="55" y="35" width="20" height="4" fill="#6d28d9" />
+    <!-- Robot Antenna -->
+    <line x1="55" y1="5" x2="55" y2="15" stroke="#6d28d9" stroke-width="2" />
+    <line x1="75" y1="5" x2="75" y2="15" stroke="#6d28d9" stroke-width="2" />
+    <!-- Robot Body -->
+    <rect x="40" y="50" width="50" height="40" rx="15" fill="#ede9fe" stroke="#6d28d9" stroke-width="2" />
+    
+    <!-- Data Tags -->
+    <rect x="15" y="100" width="100" height="30" rx="4" fill="#f5f3ff" />
+    <text x="65" y="112" font-family="'Courier New', monospace" font-size="10" fill="#4c1d95" text-anchor="middle" font-weight="bold">objek_2</text>
+    <text x="65" y="125" font-family="'Courier New', monospace" font-size="10" fill="#7c3aed" text-anchor="middle">.nama = 'Beta'</text>
+  </g>
+
+  <!-- Labels -->
+  <text x="160" y="440" font-family="'Segoe UI', Arial" font-size="16" fill="#1e293b" font-weight="bold" text-anchor="middle">1 TIPE CLASS</text>
+  <text x="560" y="440" font-family="'Segoe UI', Arial" font-size="16" fill="#1e293b" font-weight="bold" text-anchor="middle">MENCETAK 2 INSTANCE BERBEDA</text>
+  <path d="M 230 435 L 420 435" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)" />
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="400" y="580" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">© Python Knowledge Universe - Bab 02: Classes and Objects</text>
+</svg>

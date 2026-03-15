@@ -1,0 +1,80 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- Title & Subtitle -->
+  <text x="400" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="28" fill="#1e293b" font-weight="bold" text-anchor="middle">Class Attributes vs Instance Attributes</text>
+  <text x="400" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#64748b" font-style="italic" text-anchor="middle">Pengumuman Sekolah vs Buku Catatan Pribadi Siswa</text>
+
+  <!-- CLASS ATTRIBUTE (The Billboard) -->
+  <g transform="translate(250, 140)">
+    <rect x="-10" y="0" width="320" height="150" rx="10" fill="#fef9c3" opacity="0.6" />
+    <!-- Wooden Billboard -->
+    <rect x="0" y="10" width="300" height="130" rx="5" fill="#fef08a" stroke="#ca8a04" stroke-width="4" />
+    <rect x="20" y="20" width="260" height="110" rx="5" fill="white" stroke="#eab308" stroke-width="2" />
+    <!-- Posts -->
+    <rect x="50" y="140" width="15" height="50" fill="#854d0e" />
+    <rect x="235" y="140" width="15" height="50" fill="#854d0e" />
+
+    <text x="150" y="45" font-family="'Segoe UI', Arial" font-size="16" fill="#854d0e" font-weight="bold" text-anchor="middle">Papan Pengumuman Sekolah</text>
+    <text x="150" y="65" font-family="'Segoe UI', Arial" font-size="12" fill="#a16207" text-anchor="middle">« Class Attribute »</text>
+
+    <!-- The Data -->
+    <rect x="70" y="80" width="160" height="30" rx="4" fill="#fef3c7" />
+    <text x="150" y="100" font-family="'Courier New', monospace" font-size="14" fill="#d97706" font-weight="bold" text-anchor="middle">nama_sekolah = "SMA 1"</text>
+  </g>
+
+  <!-- Connecting Lines -->
+  <g stroke="#94a3b8" stroke-width="3" stroke-dasharray="8,4" fill="none">
+    <path d="M 400 330 L 400 400 L 250 400 L 250 420" marker-end="url(#arrow)" />
+    <path d="M 400 400 L 550 400 L 550 420" marker-end="url(#arrow)" />
+  </g>
+
+  <!-- INSTANCE ATTRIBUTE 1 (Student Budi) -->
+  <g transform="translate(150, 420)">
+    <rect x="-10" y="0" width="220" height="120" rx="10" fill="#dbeafe" opacity="0.6" />
+    <rect x="0" y="0" width="200" height="120" rx="10" fill="white" stroke="#3b82f6" stroke-width="3" />
+    <rect x="0" y="0" width="200" height="30" fill="#3b82f6" />
+    
+    <text x="100" y="20" font-family="'Segoe UI', Arial" font-size="14" fill="white" font-weight="bold" text-anchor="middle">Siswa: budi</text>
+    <text x="100" y="45" font-family="'Segoe UI', Arial" font-size="11" fill="#60a5fa" text-anchor="middle">« Instance Attribute »</text>
+
+    <!-- Personal Data -->
+    <text x="20" y="70" font-family="'Courier New', monospace" font-size="12" fill="#1e40af">self.nama = "Budi S."</text>
+    <text x="20" y="90" font-family="'Courier New', monospace" font-size="12" fill="#1e40af">self.nilai = 90</text>
+  </g>
+
+  <!-- INSTANCE ATTRIBUTE 2 (Student Siti) -->
+  <g transform="translate(450, 420)">
+    <rect x="-10" y="0" width="220" height="120" rx="10" fill="#fce7f3" opacity="0.6" />
+    <rect x="0" y="0" width="200" height="120" rx="10" fill="white" stroke="#ec4899" stroke-width="3" />
+    <rect x="0" y="0" width="200" height="30" fill="#ec4899" />
+    
+    <text x="100" y="20" font-family="'Segoe UI', Arial" font-size="14" fill="white" font-weight="bold" text-anchor="middle">Siswa: siti</text>
+    <text x="100" y="45" font-family="'Segoe UI', Arial" font-size="11" fill="#f472b6" text-anchor="middle">« Instance Attribute »</text>
+
+    <!-- Personal Data -->
+    <text x="20" y="70" font-family="'Courier New', monospace" font-size="12" fill="#be185d">self.nama = "Siti A."</text>
+    <text x="20" y="90" font-family="'Courier New', monospace" font-size="12" fill="#be185d">self.nilai = 95</text>
+  </g>
+
+  <!-- Legend / Note -->
+  <rect x="150" y="200" width="80" height="60" rx="5" fill="#f1f5f9" stroke="#94a3b8" />
+  <text x="190" y="222" font-family="'Segoe UI', Arial" font-size="11" fill="#475569" text-anchor="middle">Semua siswa</text>
+  <text x="190" y="236" font-family="'Segoe UI', Arial" font-size="11" fill="#475569" text-anchor="middle">membaca info</text>
+  <text x="190" y="250" font-family="'Segoe UI', Arial" font-size="11" fill="#475569" text-anchor="middle">yang SAMA.</text>
+
+  <rect x="580" y="200" width="90" height="60" rx="5" fill="#f1f5f9" stroke="#94a3b8" />
+  <text x="625" y="222" font-family="'Segoe UI', Arial" font-size="11" fill="#475569" text-anchor="middle">Perubahan di 1</text>
+  <text x="625" y="236" font-family="'Segoe UI', Arial" font-size="11" fill="#475569" text-anchor="middle">objek TIDAK</text>
+  <text x="625" y="250" font-family="'Segoe UI', Arial" font-size="11" fill="#475569" text-anchor="middle">mengubah objek lain</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="400" y="580" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">© Python Knowledge Universe - Bab 05: Attributes</text>
+</svg>

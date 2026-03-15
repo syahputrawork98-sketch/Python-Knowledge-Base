@@ -1,0 +1,86 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- Title & Subtitle -->
+  <text x="400" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="28" fill="#1e293b" font-weight="bold" text-anchor="middle">Encapsulation (Penyembunyian Data)</text>
+  <text x="400" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#64748b" font-style="italic" text-anchor="middle">Melindungi Integritas Data Melalui Jalur Akses Resmi</text>
+
+  <!-- PROGRAM LUAR / EXTERNAL PROGRAM -->
+  <g transform="translate(50, 220)">
+    <rect x="0" y="0" width="180" height="160" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2" />
+    <text x="90" y="30" font-family="'Segoe UI', Arial" font-size="16" fill="#475569" font-weight="bold" text-anchor="middle">Program Luar</text>
+    
+    <!-- Bad Attempt -->
+    <g transform="translate(15, 60)">
+      <rect x="0" y="0" width="150" height="35" rx="5" fill="#fee2e2" stroke="#ef4444" stroke-width="1" />
+      <text x="75" y="22" font-family="'Courier New', monospace" font-size="12" fill="#991b1b" text-anchor="middle">obj.__saldo = -500</text>
+    </g>
+    
+    <!-- Good Attempt -->
+    <g transform="translate(15, 110)">
+      <rect x="0" y="0" width="150" height="35" rx="5" fill="#dcfce7" stroke="#22c55e" stroke-width="1" />
+      <text x="75" y="22" font-family="'Courier New', monospace" font-size="12" fill="#14532d" text-anchor="middle">obj.tabung(100)</text>
+    </g>
+  </g>
+
+  <!-- THE BARRIER -->
+  <path d="M 280 150 L 280 450" stroke="#cbd5e1" stroke-width="8" stroke-linecap="round" stroke-dasharray="10,20" />
+  <text x="280" y="130" font-family="'Segoe UI', Arial" font-size="14" fill="#64748b" font-weight="bold" text-anchor="middle" transform="rotate(-90, 280, 130)">CLASS BOUNDARY</text>
+
+  <!-- VALIDATION CONTROLLER (The Gatekeeper) -->
+  <g transform="translate(350, 230)">
+    <path d="M 0 0 L 120 0 L 120 140 L 0 140 Z" fill="#bae6fd" stroke="#0284c7" stroke-width="3" />
+    <!-- Gear Icon -->
+    <circle cx="60" cy="70" r="25" fill="#0284c7" />
+    <rect x="55" y="35" width="10" height="70" fill="#0284c7" transform="rotate(0, 60, 70)" />
+    <rect x="55" y="35" width="10" height="70" fill="#0284c7" transform="rotate(45, 60, 70)" />
+    <rect x="55" y="35" width="10" height="70" fill="#0284c7" transform="rotate(90, 60, 70)" />
+    <rect x="55" y="35" width="10" height="70" fill="#0284c7" transform="rotate(135, 60, 70)" />
+    <circle cx="60" cy="70" r="12" fill="#bae6fd" />
+    
+    <text x="60" y="-15" font-family="'Segoe UI', Arial" font-size="14" fill="#0369a1" font-weight="bold" text-anchor="middle">Metode Publik</text>
+    <text x="60" y="155" font-family="'Segoe UI', Arial" font-size="12" fill="#0369a1" text-anchor="middle">(Validation Logic)</text>
+  </g>
+
+  <!-- ARROWS -->
+  <!-- Red Cross Arrow -->
+  <g transform="translate(200, 275)">
+    <line x1="0" y1="0" x2="100" y2="0" stroke="#ef4444" stroke-width="4" stroke-dasharray="8,4" />
+    <path d="M 80 -10 L 100 10 M 100 -10 L 80 10" stroke="#ef4444" stroke-width="4" stroke-linecap="round" />
+  </g>
+  
+  <!-- Green Success Arrow -->
+  <g transform="translate(200, 330)">
+    <path d="M 0 0 L 140 0" stroke="#10b981" stroke-width="4" marker-end="url(#greenarrow)" />
+  </g>
+
+  <!-- DATA STORAGE (The Vault) -->
+  <g transform="translate(550, 200)">
+    <!-- Vault Box -->
+    <rect x="0" y="0" width="180" height="200" rx="10" fill="#334155" stroke="#0f172a" stroke-width="4" />
+    <!-- Vault Door Shine -->
+    <rect x="10" y="10" width="160" height="180" rx="5" fill="#475569" />
+    <!-- Dial -->
+    <circle cx="90" cy="100" r="40" fill="#1e293b" stroke="#94a3b8" stroke-width="2" />
+    <rect x="88" y="70" width="4" height="60" fill="white" />
+    
+    <text x="90" y="170" font-family="'Courier New', monospace" font-size="16" fill="#f1f5f9" font-weight="bold" text-anchor="middle">__saldo</text>
+    <text x="90" y="-15" font-family="'Segoe UI', Arial" font-size="14" fill="#475569" font-weight="bold" text-anchor="middle">Atribut Private</text>
+  </g>
+
+  <!-- Internal Path -->
+  <path d="M 470 300 L 535 300" stroke="#0284c7" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#bluearrow)" />
+
+  <defs>
+    <marker id="greenarrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
+    </marker>
+    <marker id="bluearrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0284c7" />
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="400" y="580" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">© Python Knowledge Universe - Bab 07: Encapsulation</text>
+</svg>

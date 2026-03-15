@@ -1,0 +1,110 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- Title & Subtitle -->
+  <text x="400" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="28" fill="#1e293b" font-weight="bold" text-anchor="middle">S.O.L.I.D Principles</text>
+  <text x="400" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#64748b" font-style="italic" text-anchor="middle">Single Responsibility Principle (Pemecahan Tanggung Jawab)</text>
+
+  <!-- THE BAD: GOD OBJECT (Left Side) -->
+  <g transform="translate(80, 180)">
+    <!-- Shadow -->
+    <rect x="5" y="5" width="220" height="260" rx="15" fill="#fecaca" opacity="0.6" />
+    <!-- Main Box -->
+    <rect x="0" y="0" width="220" height="260" rx="15" fill="#fff1f2" stroke="#e11d48" stroke-width="4" stroke-dasharray="8,4" />
+    
+    <!-- Header -->
+    <rect x="0" y="0" width="220" height="60" rx="15" fill="#e11d48" />
+    <!-- Hide bottom radius of header -->
+    <rect x="0" y="40" width="220" height="20" fill="#e11d48" />
+    
+    <text x="110" y="30" font-family="'Segoe UI', Arial" font-size="16" fill="white" font-weight="bold" text-anchor="middle">KaryawanPekerjaKeras</text>
+    <text x="110" y="50" font-family="'Segoe UI', Arial" font-size="12" fill="#ffe4e6" text-anchor="middle">« God Object »</text>
+
+    <!-- Methods (Too many responsibilities) -->
+    <g font-family="'Courier New', monospace" font-size="13" fill="#881337">
+      <text x="20" y="90">+ tambah_penjualan()</text>
+      <text x="20" y="120">+ perbaiki_atap()</text>
+      <text x="20" y="150">+ hitung_pajak()</text>
+      <text x="20" y="180">+ seduh_kopi()</text>
+      <text x="20" y="210">+ sapu_lantai()</text>
+      <text x="20" y="240">+ negosiasi_tender()</text>
+    </g>
+
+    <!-- Error/Warning Overlay -->
+    <circle cx="220" cy="0" r="20" fill="#b91c1c" stroke="white" stroke-width="3" />
+    <path d="M 213 -7 L 227 7 M 227 -7 L 213 7" stroke="white" stroke-width="4" stroke-linecap="round" />
+    
+    <text x="110" y="295" font-family="'Segoe UI', Arial" font-size="14" fill="#e11d48" font-weight="bold" text-anchor="middle">BURUK: Rapuh &amp; Rumit</text>
+  </g>
+
+  <!-- TRANSITION ARROW (Middle) -->
+  <g transform="translate(320, 270)">
+    <path d="M 0 30 L 70 30" stroke="#94a3b8" stroke-width="6" stroke-dasharray="10,5" fill="none" />
+    <polygon points="70,20 90,30 70,40" fill="#94a3b8" />
+    <text x="45" y="15" font-family="'Segoe UI', Arial" font-size="14" fill="#64748b" font-weight="bold" text-anchor="middle">REFACTORING</text>
+  </g>
+
+  <!-- THE GOOD: SRP COMPONENTS (Right Side) -->
+  
+  <!-- Component 1: Sales -->
+  <g transform="translate(450, 140)">
+    <!-- Shadow -->
+    <rect x="4" y="4" width="250" height="90" rx="10" fill="#bfdbfe" opacity="0.6" />
+    <!-- Box -->
+    <rect x="0" y="0" width="250" height="90" rx="10" fill="white" stroke="#2563eb" stroke-width="3" />
+    <!-- Icon Area -->
+    <rect x="0" y="0" width="60" height="90" rx="10" fill="#2563eb" />
+    <rect x="50" y="0" width="10" height="90" fill="#2563eb" />
+    <!-- Briefcase Icon -->
+    <path d="M 15 40 L 45 40 L 45 70 L 15 70 Z" fill="none" stroke="white" stroke-width="2"/>
+    <path d="M 25 40 L 25 30 L 35 30 L 35 40" fill="none" stroke="white" stroke-width="2"/>
+    
+    <!-- Text -->
+    <text x="75" y="30" font-family="'Segoe UI', Arial" font-size="16" fill="#1e3a8a" font-weight="bold">SalesPerson</text>
+    <text x="75" y="50" font-family="'Segoe UI', Arial" font-size="12" fill="#60a5fa">« SRP Component »</text>
+    <text x="75" y="75" font-family="'Courier New', monospace" font-size="13" fill="#1e40af">+ tambah_penjualan()</text>
+  </g>
+
+  <!-- Component 2: Tukang -->
+  <g transform="translate(450, 260)">
+    <rect x="4" y="4" width="250" height="90" rx="10" fill="#bbf7d0" opacity="0.6" />
+    <rect x="0" y="0" width="250" height="90" rx="10" fill="white" stroke="#16a34a" stroke-width="3" />
+    <rect x="0" y="0" width="60" height="90" rx="10" fill="#16a34a" />
+    <rect x="50" y="0" width="10" height="90" fill="#16a34a" />
+    <!-- Hammer Icon -->
+    <path d="M 20 60 L 40 40 L 45 45 L 25 65 Z" fill="white" />
+    <path d="M 35 35 L 45 25 L 50 35 L 40 45 Z" fill="#bbf7d0" />
+    
+    <text x="75" y="30" font-family="'Segoe UI', Arial" font-size="16" fill="#14532d" font-weight="bold">TeknisiBangunan</text>
+    <text x="75" y="50" font-family="'Segoe UI', Arial" font-size="12" fill="#4ade80">« SRP Component »</text>
+    <text x="75" y="75" font-family="'Courier New', monospace" font-size="13" fill="#166534">+ perbaiki_atap()</text>
+  </g>
+
+  <!-- Component 3: Akuntan -->
+  <g transform="translate(450, 380)">
+    <rect x="4" y="4" width="250" height="90" rx="10" fill="#fef08a" opacity="0.6" />
+    <rect x="0" y="0" width="250" height="90" rx="10" fill="white" stroke="#ca8a04" stroke-width="3" />
+    <rect x="0" y="0" width="60" height="90" rx="10" fill="#ca8a04" />
+    <rect x="50" y="0" width="10" height="90" fill="#ca8a04" />
+    <!-- Calculator Icon -->
+    <rect x="20" y="30" width="20" height="30" rx="2" fill="none" stroke="white" stroke-width="2"/>
+    <line x1="24" y1="36" x2="36" y2="36" stroke="white" stroke-width="2" />
+    <line x1="24" y1="44" x2="28" y2="44" stroke="white" stroke-width="2" />
+    <line x1="32" y1="44" x2="36" y2="44" stroke="white" stroke-width="2" />
+    <line x1="24" y1="50" x2="28" y2="50" stroke="white" stroke-width="2" />
+    <line x1="32" y1="50" x2="36" y2="50" stroke="white" stroke-width="2" />
+
+    <text x="75" y="30" font-family="'Segoe UI', Arial" font-size="16" fill="#713f12" font-weight="bold">AkuntanKeuangan</text>
+    <text x="75" y="50" font-family="'Segoe UI', Arial" font-size="12" fill="#facc15">« SRP Component »</text>
+    <text x="75" y="75" font-family="'Courier New', monospace" font-size="13" fill="#854d0e">+ hitung_pajak()</text>
+  </g>
+
+  <!-- Success Indicator -->
+  <text x="575" y="510" font-family="'Segoe UI', Arial" font-size="14" fill="#047857" font-weight="bold" text-anchor="middle">BAIK: Modular, Reusable, Aman!</text>
+  <circle cx="575" cy="535" r="15" fill="#10b981" />
+  <path d="M 568 535 L 573 540 L 583 528" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Footer -->
+  <text x="400" y="580" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">© Python Knowledge Universe - Modular Architecture</text>
+</svg>

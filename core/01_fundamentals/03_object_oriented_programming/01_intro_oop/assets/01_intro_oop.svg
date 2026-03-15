@@ -1,0 +1,84 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- Title & Subtitle -->
+  <text x="400" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="28" fill="#1e293b" font-weight="bold" text-anchor="middle">Blueprint vs Object (Instance)</text>
+  <text x="400" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#64748b" font-style="italic" text-anchor="middle">Satu Cetakan Kelas Melahirkan Banyak Objek Berbeda</text>
+
+  <!-- THE CLASS (Blueprint) -->
+  <g transform="translate(100, 160)">
+    <!-- Blueprint Glow/Shadow -->
+    <rect x="-10" y="-10" width="260" height="320" rx="15" fill="#bae6fd" opacity="0.5" />
+    
+    <!-- Blueprint Paper -->
+    <rect x="0" y="0" width="240" height="300" rx="10" fill="#0284c7" stroke="#0369a1" stroke-width="4" />
+    <line x1="20" y1="40" x2="220" y2="40" stroke="#bae6fd" stroke-width="2" />
+    
+    <!-- Grid pattern (like architectural blueprint) -->
+    <g stroke="#38bdf8" stroke-width="1" opacity="0.3">
+      <!-- Verticals -->
+      <line x1="40" y1="40" x2="40" y2="280"/><line x1="80" y1="40" x2="80" y2="280"/><line x1="120" y1="40" x2="120" y2="280"/><line x1="160" y1="40" x2="160" y2="280"/><line x1="200" y1="40" x2="200" y2="280"/>
+      <!-- Horizontals -->
+      <line x1="20" y1="80" x2="220" y2="80"/><line x1="20" y1="120" x2="220" y2="120"/><line x1="20" y1="160" x2="220" y2="160"/><line x1="20" y1="200" x2="220" y2="200"/><line x1="20" y1="240" x2="220" y2="240"/>
+    </g>
+
+    <text x="120" y="30" font-family="'Courier New', monospace" font-size="18" fill="white" font-weight="bold" text-anchor="middle">class BlueprintRumah</text>
+
+    <!-- Blueprint Design (House Wireframe) -->
+    <path d="M 120 70 L 40 130 L 200 130 Z" fill="none" stroke="white" stroke-width="3" />
+    <rect x="60" y="130" width="120" height="100" fill="none" stroke="white" stroke-width="3" />
+    <rect x="100" y="180" width="40" height="50" fill="none" stroke="white" stroke-width="3" />
+
+    <!-- Attributes/Methods Box -->
+    <rect x="20" y="240" width="200" height="50" rx="5" fill="#0c4a6e" />
+    <text x="30" y="260" font-family="'Courier New', monospace" font-size="12" fill="#bae6fd">+ color  = ?</text>
+    <text x="30" y="278" font-family="'Courier New', monospace" font-size="12" fill="#bae6fd">+ build()</text>
+  </g>
+
+  <!-- ARROWS (Instantiation Process) -->
+  <g stroke="#94a3b8" stroke-width="4" stroke-dasharray="10,5" fill="none">
+    <path d="M 360 260 C 400 260, 420 200, 470 200" />
+    <path d="M 360 360 C 400 360, 420 420, 470 420" />
+  </g>
+  <polygon points="465,190 485,200 465,210" fill="#94a3b8" />
+  <polygon points="465,410 485,420 465,430" fill="#94a3b8" />
+  
+  <text x="415" y="215" font-family="'Segoe UI', Arial" font-size="13" fill="#64748b" font-weight="bold" font-style="italic">Instantiate</text>
+  <text x="415" y="440" font-family="'Segoe UI', Arial" font-size="13" fill="#64748b" font-weight="bold" font-style="italic">Instantiate</text>
+
+  <!-- OBJECT 1 (Budi's House) -->
+  <g transform="translate(500, 110)">
+    <rect x="5" y="5" width="220" height="180" rx="10" fill="#fca5a5" opacity="0.6" />
+    <rect x="0" y="0" width="220" height="180" rx="10" fill="white" stroke="#ef4444" stroke-width="3" />
+    
+    <text x="110" y="30" font-family="'Courier New', monospace" font-size="16" fill="#991b1b" font-weight="bold" text-anchor="middle">rumah_budi (Object)</text>
+    
+    <!-- Rendered Red House -->
+    <path d="M 110 50 L 50 100 L 170 100 Z" fill="#ef4444" stroke="#b91c1c" stroke-width="2" />
+    <rect x="70" y="100" width="80" height="70" fill="#fee2e2" stroke="#b91c1c" stroke-width="2" />
+    <rect x="95" y="130" width="30" height="40" fill="#7f1d1d" />
+
+    <rect x="130" y="80" width="60" height="25" rx="5" fill="#fef2f2" stroke="#ef4444" stroke-width="1" />
+    <text x="160" y="96" font-family="Arial" font-size="11" fill="#ef4444" font-weight="bold" text-anchor="middle">.color="Red"</text>
+  </g>
+
+  <!-- OBJECT 2 (Siti's House) -->
+  <g transform="translate(500, 330)">
+    <rect x="5" y="5" width="220" height="180" rx="10" fill="#86efac" opacity="0.6" />
+    <rect x="0" y="0" width="220" height="180" rx="10" fill="white" stroke="#22c55e" stroke-width="3" />
+    
+    <text x="110" y="30" font-family="'Courier New', monospace" font-size="16" fill="#14532d" font-weight="bold" text-anchor="middle">rumah_siti (Object)</text>
+    
+    <!-- Rendered Green House -->
+    <path d="M 110 50 L 50 100 L 170 100 Z" fill="#22c55e" stroke="#15803d" stroke-width="2" />
+    <rect x="70" y="100" width="80" height="70" fill="#dcfce7" stroke="#15803d" stroke-width="2" />
+    <rect x="95" y="130" width="30" height="40" fill="#14532d" />
+
+    <rect x="130" y="80" width="60" height="25" rx="5" fill="#f0fdf4" stroke="#22c55e" stroke-width="1" />
+    <text x="160" y="96" font-family="Arial" font-size="11" fill="#22c55e" font-weight="bold" text-anchor="middle">.color="Green"</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="400" y="580" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">© Python Knowledge Universe - Bab 01: Intro to OOP</text>
+</svg>

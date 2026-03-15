@@ -1,0 +1,71 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc" />
+  
+  <!-- Title & Subtitle -->
+  <text x="400" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="28" fill="#1e293b" font-weight="bold" text-anchor="middle">Instance vs Class vs Static Methods</text>
+  <text x="400" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#64748b" font-style="italic" text-anchor="middle">Tiga Jenis Perilaku Pekerja di Dalam Sebuah Kelas</text>
+
+  <!-- Main Box to represent the Class Boundaries -->
+  <rect x="50" y="140" width="700" height="380" rx="15" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8,4" />
+  <text x="400" y="165" font-family="'Courier New', monospace" font-size="18" fill="#64748b" font-weight="bold" text-anchor="middle">class MesinPembuatKopi:</text>
+
+  <!-- Type 1: Instance Method -->
+  <g transform="translate(80, 200)">
+    <rect x="0" y="0" width="200" height="280" rx="10" fill="white" stroke="#3b82f6" stroke-width="3" />
+    <rect x="0" y="0" width="200" height="50" rx="10" fill="#3b82f6" />
+    <rect x="0" y="30" width="200" height="20" fill="#3b82f6" />
+    <text x="100" y="30" font-family="'Segoe UI', Arial" font-size="16" fill="white" font-weight="bold" text-anchor="middle">Instance Method</text>
+    
+    <text x="100" y="90" font-family="'Courier New', monospace" font-size="14" fill="#1d4ed8" font-weight="bold" text-anchor="middle">def seduh(self):</text>
+    
+    <!-- Illustration -->
+    <circle cx="100" cy="150" r="30" fill="#bfdbfe" />
+    <text x="100" y="155" font-family="'Courier New', monospace" font-size="14" fill="#1e40af" font-weight="bold" text-anchor="middle">self</text>
+    
+    <text x="100" y="210" font-family="'Segoe UI', Arial" font-size="12" fill="#475569" text-anchor="middle">Terikat pada 1 Objek spesifik.</text>
+    <text x="100" y="230" font-family="'Segoe UI', Arial" font-size="12" fill="#475569" text-anchor="middle">Bisa membaca 'self.gula' milik</text>
+    <text x="100" y="250" font-family="'Segoe UI', Arial" font-size="12" fill="#475569" text-anchor="middle">pesanan pelanggan tersebut.</text>
+  </g>
+
+  <!-- Type 2: Class Method -->
+  <g transform="translate(300, 200)">
+    <rect x="0" y="0" width="200" height="280" rx="10" fill="white" stroke="#8b5cf6" stroke-width="3" />
+    <rect x="0" y="0" width="200" height="50" rx="10" fill="#8b5cf6" />
+    <rect x="0" y="30" width="200" height="20" fill="#8b5cf6" />
+    <text x="100" y="30" font-family="'Segoe UI', Arial" font-size="16" fill="white" font-weight="bold" text-anchor="middle">Class Method</text>
+    
+    <text x="100" y="75" font-family="'Courier New', monospace" font-size="12" fill="#6d28d9" text-anchor="middle">@classmethod</text>
+    <text x="100" y="95" font-family="'Courier New', monospace" font-size="14" fill="#6d28d9" font-weight="bold" text-anchor="middle">def isi_tangki(cls):</text>
+    
+    <!-- Illustration -->
+    <rect x="60" y="125" width="80" height="50" rx="5" fill="#ddd6fe" />
+    <text x="100" y="155" font-family="'Courier New', monospace" font-size="14" fill="#4c1d95" font-weight="bold" text-anchor="middle">cls</text>
+    
+    <text x="100" y="210" font-family="'Segoe UI', Arial" font-size="12" fill="#475569" text-anchor="middle">Terikat pada Kelas Utama.</text>
+    <text x="100" y="230" font-family="'Segoe UI', Arial" font-size="12" fill="#475569" text-anchor="middle">Mampu mengubah variabel global</text>
+    <text x="100" y="250" font-family="'Segoe UI', Arial" font-size="12" fill="#475569" text-anchor="middle">milik pabrik kopi (misal Stok).</text>
+  </g>
+
+  <!-- Type 3: Static Method -->
+  <g transform="translate(520, 200)">
+    <rect x="0" y="0" width="200" height="280" rx="10" fill="white" stroke="#10b981" stroke-width="3" />
+    <rect x="0" y="0" width="200" height="50" rx="10" fill="#10b981" />
+    <rect x="0" y="30" width="200" height="20" fill="#10b981" />
+    <text x="100" y="30" font-family="'Segoe UI', Arial" font-size="16" fill="white" font-weight="bold" text-anchor="middle">Static Method</text>
+    
+    <text x="100" y="75" font-family="'Courier New', monospace" font-size="12" fill="#059669" text-anchor="middle">@staticmethod</text>
+    <text x="100" y="95" font-family="'Courier New', monospace" font-size="14" fill="#059669" font-weight="bold" text-anchor="middle">def cetak_ktp(isi):</text>
+    
+    <!-- Illustration -->
+    <polygon points="100,120 130,170 70,170" fill="#a7f3d0" />
+    <text x="100" y="155" font-family="'Courier New', monospace" font-size="14" fill="#065f46" font-weight="bold" text-anchor="middle">X</text>
+    
+    <text x="100" y="210" font-family="'Segoe UI', Arial" font-size="12" fill="#475569" text-anchor="middle">Independen. Tidak peduli</text>
+    <text x="100" y="230" font-family="'Segoe UI', Arial" font-size="12" fill="#475569" text-anchor="middle">tentang 'self' atau 'cls'.</text>
+    <text x="100" y="250" font-family="'Segoe UI', Arial" font-size="12" fill="#475569" text-anchor="middle">Seperti fungsi biasa di dlm class.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="400" y="580" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">© Python Knowledge Universe - Bab 04: Methods Types</text>
+</svg>
