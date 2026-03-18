@@ -16,7 +16,11 @@ Pusat dokumentasi ini menyimpan seluruh cetak biru, standar kualitas, dan pandua
 - **[Repository Plan](./repository-plan/README.md)**: Dekomposisi total dari Python Docs ke dalam struktur 12-Rack.
 - **[Roadmap](./roadmap.md)**: Milestone pengembangan fitur.
 
-### 3. Narasi & Esensi
+### 3. Spesialisasi (Specializations)
+- **[RAK-13: Data Science & AI](../RAK-13-DATA-SCIENCE-AI/README.md)**: Implementasi Python di dunia data dan kecerdasan buatan.
+- **[RAK-14: Automation & Scripting](../RAK-14-AUTOMATION-SCRIPTING/README.md)**: Python sebagai penggerak otomasi sistem.
+
+### 4. Narasi & Esensi
 - **[Python Origins](./python-origins.md)**: Kisah di balik hobi libur Natal Guido van Rossum.
 - **[Python History](./python-history.md)**: Dari hobi liburan Natal hingga raja dunia Data Science.
 - **[Philosophy & Essence](./python-philosophy.md)**: Membedah "The Zen of Python" dan keterbacaan kode.
