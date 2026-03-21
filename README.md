@@ -1,52 +1,65 @@
 # Python Knowledge Base
 
-> **"Unlocking the Power of Pythonic Excellence: Ready for Senior Architects."**
+> **"From Simple Scripts to AI Data Science."**
 
-## Latar Belakang & Visi
-Python adalah bahasa yang sangat ekspansif, dari script sederhana hingga AI dan sistem engine C-API. Repositori ini membedah ekosistem Python secara anatomis mengikuti standar **docs.python.org** sebagai sumber kebenaran teknis tunggal.
-
-## Struktur Perpustakaan (12-Rack Architecture)
+## 🏛️ Arsitektur 6-Rak (Universal Standard)
+Repositori ini menggunakan **6-Rack Universal Architecture** dengan prinsip **Digital Mirroring** untuk memisahkan antara fondasi penggunaan dengan dekonstruksi arsitektur mesin.
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#3776AB', 'primaryTextColor': '#FFF'}}}%%
 graph TD
     Root["Python Knowledge Base"]
     
-    RAK01["RAK-01-setup<br/>(The Environment)"]
-    RAK02["RAK-02-tutorial<br/>(The Handbook)"]
-    RAK03["RAK-03-reference<br/>(The Specs)"]
-    RAK04["RAK-04-built-ins<br/>(The Essentials)"]
-    RAK05["RAK-05-data-processing<br/>(The Data)"]
-    RAK06["RAK-06-os-concurrency<br/>(The System)"]
-    RAK07["RAK-07-network-web<br/>(The Cloud)"]
-    RAK08["RAK-08-howtos<br/>(The Themes)"]
-    RAK09["RAK-09-packaging<br/>(The Eco)"]
-    RAK10["RAK-10-c-api<br/>(The Low-Level)"]
-    RAK11["RAK-11-evolution<br/>(The Pulse)"]
-    RAK12["RAK-12-faq-glossary<br/>(The Info)"]
+    RAK01["RAK-01-anatomy<br/>(The Landscape)"]
+    RAK02["RAK-02-foundation<br/>(The Standard Book)"]
+    RAK03["RAK-03-evolution<br/>(History & Future)"]
+    RAK04["RAK-04-core-mechanics<br/>(The Internal Logic)"]
+    RAK05["RAK-05-standard-library<br/>(The Environment)"]
+    RAK06["RAK-06-interpreters<br/>(The Machine Room)"]
     
-    Root --> RAK01 & RAK02 & RAK03 & RAK04 & RAK05 & RAK06 & RAK07 & RAK08 & RAK09 & RAK10 & RAK11 & RAK12
+    Root --> RAK01 & RAK02 & RAK03 & RAK04 & RAK05 & RAK06
     
-    style Root fill:#3776ab,stroke:#333,stroke-width:4px,color:#fff
+    style Root fill:#3776AB,stroke:#333,stroke-width:4px,color:#FFF
     style RAK01 fill:#fff,stroke:#333
     style RAK02 fill:#fff,stroke:#333
+    style RAK03 fill:#fff,stroke:#333
+    style RAK04 fill:#ddd,stroke:#333
+    style RAK05 fill:#fff,stroke:#333
+    style RAK06 fill:#ddd,stroke:#333
 ```
 
-## Roadmap & Status Pengembangan
+---
 
-| Rak | Deskripsi | Status |
-| :--- | :--- | :--- |
-| `RAK-01-setup/` | Environment & CLI | *Planned* |
-| `RAK-02-tutorial/` | Narrative Basics | *Planned* |
-| `RAK-03-reference/` | Data & Execution Model | *Planned* |
-| `RAK-04-built-ins/` | Functions & Essentials | *Planned* |
-| `RAK-05-data-processing/` | Text, Binary, & Math | *Planned* |
-| `RAK-06-os-concurrency/` | Systems & Asyncio | *Planned* |
-| `RAK-07-network-web/` | HTTP & Protocols | *Planned* |
-| `RAK-08-howtos/` | Thematic Guides (Logging, etc.) | *Planned* |
-| `RAK-09-packaging/` | PIP, Venv, & Dist | *Planned* |
-| `RAK-10-c-api/` | Extending with C/C++ | *Planned* |
-| `RAK-11-evolution/` | Release Notes & PEPs | *Planned* |
-| `RAK-12-faq-glossary/` | General Q&A | *Planned* |
+## 🗄️ Struktur Perpustakaan
+
+### 1. [RAK-01-anatomy](./RAK-01-anatomy/)
+Menelusuri esensi naratif Python, Zen of Python, dan target utamanya.
+
+### 2. [RAK-02-foundation](./RAK-02-foundation/)
+Struktur dan sintaks fundamental layaknya membaca Python documentation secara presisi.
+
+### 3. [RAK-03-evolution](./RAK-03-evolution/)
+Jejak evolusi PEP (Python Enhancement Proposals) dan pergeseran versi.
+
+### 4. [RAK-04-core-mechanics](./RAK-04-core-mechanics/)
+Mekanisme Internal, membedah Python Data Model (Dunder Methods), dan Duck Typing.
+
+### 5. [RAK-05-standard-library](./RAK-05-standard-library/)
+Eksplorasi komprehensif Modul Built-in Python dan ekosistem `pip`.
+
+### 6. [RAK-06-interpreters](./RAK-06-interpreters/)
+Deep Dive ke dalam Jantung Eksekutor: CPython, Bytecode, GIL, dan PyPy.
 
 ---
-*Dokumentasi Lengkap: [docs/README.md](./docs/README.md)*
+
+## 📏 Standar Kualitas (Gold Standard)
+Setiap materi mengikuti prinsip **Digital Mirroring** dan standar **PPM V4** yang mewajibkan:
+1. **Source-Synced**: Akurasi 1:1 terhadap dokumentasi resmi/spesifikasi.
+2. **Experimental Lab**: Kode pembuktian fungsional di folder `examples/`.
+3. **Mental Model Visual**: Diagram Mermaid di folder `assets/`.
+4. **Narrative Excellence**: Penjelasan mendalam dengan analogi dunia nyata.
+
+*Dokumentasi Lengkap Standar: [docs/standards/architecture.md](./docs/standards/architecture.md)*
+
+---
+*Status Pengembangan: [status.md](./status.md)*
