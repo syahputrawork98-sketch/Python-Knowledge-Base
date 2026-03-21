@@ -1,22 +1,22 @@
-# Protokol Pembaruan Status (Universal Edition)
+# Protokol Pembaruan Status (Unified Edition)
 
-Progress pengerjaan proyek Knowledge Base dihitung secara otomatis (bubbling up) dari unit terkecil untuk memastikan akurasi data yang mencerminkan realitas.
+Progress pengerjaan repositori dihitung secara otomatis (bubbling up) dari unit terkecil untuk memastikan akurasi data.
 
-## 1. Level Bab (Chapter)
-Status dicatat di `docs/status.md` pada level **Buku**.
-- `Draft`: Narasi sedang ditulis (PPM Stage 1-2).
-- `Partial`: Kode atau Diagram belum lengkap (PPM Stage 3-4).
-- `Sync`: Mencapai Gold Standard (Verified).
+## 1. Unit Dasar: Bab (Chapter) & Section
+Status dicatat langsung di dalam `README.md` pada folder masing-masing.
+- `[ ] Draft`: Narasi awal (Stage 1).
+- `[/] Partial`: Pengerjaan lab/visual (Stage 2-3).
+- `[x] Complete`: Lulus audit Sentinel (Gold Standard).
 
-## 2. Level Buku
-Setiap Buku wajib memiliki `docs/status.md` yang merangkum progress seluruh Bab di dalamnya.
-- **Format**: `(Σ Bab Sync) / (Total Bab)`.
-- **Target**: Mencetak persentase penyelesaian untuk dilaporkan ke level atas.
+## 2. Unit Menengah: Buku (Book)
+Status Buku ditentukan oleh persentase penyelesaian Bab di dalamnya.
+- **Rumus**: `(Σ Bab Complete) / (Total Bab)`.
+- Dicatat pada `README.md` di level Buku.
 
-## 3. Level Rak & Global
-Setiap kali Buku naik % progressnya, data tersebut dilaporkan secara bertahap ke:
-1. `RAK-XX/README.md` (Progress Rak)
-2. `docs/README.md` (Global Status Table)
+## 3. Unit Utama: Rak (Rack) & Global
+Global progress dipusatkan pada file `status.md` di root repositori.
+- **Pembaruan**: Dilakukan setiap kali Sub-Rak atau Rak mencapai milestone signifikan.
+- **Dashboard**: Gunakan tabel status di root `status.md` sebagai sumber kebenaran (Source of Truth).
 
 ---
 
@@ -24,13 +24,14 @@ Setiap kali Buku naik % progressnya, data tersebut dilaporkan secara bertahap ke
 
 ```mermaid
 graph BT
-    CH["Bab (Chapter)"] --> BK["Buku (Book)"]
-    BK --> SR["Sub-Rak"]
-    SR --> RK["Rak"]
-    RK --> ROOT["Library (Root)"]
+    SEC["Section (L6)"] --> CH["Bab (L5)"]
+    CH --> BK["Buku (L4)"]
+    BK --> SR["Sub-Rak (L3)"]
+    SR --> RK["Rak (L2)"]
+    RK --> ROOT["Library (L1)"]
 ```
 
-Setiap perubahan di dasar (Bab) harus "menguap" hingga mengubah angka di tingkat tertinggi (Root). Ini menjamin keterbukaan informasi bagi seluruh pengembang.
+Setiap perubahan di tingkat terbawah (Section/Bab) harus "menguap" hingga memperbarui angka persentase di tingkat Global (Root).
 
 ---
-*Peringatan: Dokumentasi dianggap "Published" hanya jika statusnya `Sync`.*
+*Status: Gold Standard hanya dicapai jika seluruh checklist PPM V4 terpenuhi.*

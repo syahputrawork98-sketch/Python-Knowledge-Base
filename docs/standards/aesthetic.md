@@ -1,22 +1,22 @@
-# Panduan Estetika Visual (Python Edition)
+# Panduan Estetika Visual (JS Edition)
 
-Produk akhir harus terasa bersih, ramah, dan akademis namun praktis.
+Mencerminkan energi dan interaktivitas web.
 
 ## 1. Skema Warna (Branding)
-- **Primary Color**: `#3776AB` (Python Blue).
-- **Secondary Color**: `#FFD43B` (Python Yellow).
-- **Background**: `#FFFFFF` (Clean White).
+- **Primary Color**: `#F7DF1E` (JS Yellow).
+- **Secondary Color**: `#000000` (Classic Black).
+- **Action Color**: `#61DAFB` (React Cyan - optional for frameworks).
 
 ## 2. Standar Mermaid
-Diagram harus terlihat rapi dan simetris:
+Diagram harus terlihat dinamis dan mengalir:
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#3776AB', 'primaryTextColor': '#fff'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#F7DF1E', 'primaryTextColor': '#000'}}}%%
 graph TD
-    A[Python Code] --> B[Bytecode]
-    B --> C[PVM]
+    A[Event] --> B{Event Loop}
+    B -->|Task| C[Callback Queue]
 ```
 
 ## 3. Simbol Visual
-- **Ular/S**: Gunakan sebagai ikon ornamen kecil untuk tips "Pythonic".
-- **Garis Lembut**: Mewakili keanggunan alur kode Python.
-- **Ikon Buku**: Mewakili setiap **Buku (BK)**.
+- **Lingkaran Berputar**: Mewakili **Event Loop**.
+- **Warna Kuning**: Digunakan untuk elemen yang bersifat *blocking*.
+- **Warna Transparan**: Digunakan untuk operasi *Background/Asynchronous*.
