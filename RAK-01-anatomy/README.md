@@ -1,19 +1,23 @@
 # Rak 01: Anatomy (The Landscape)
 
-Menelusuri esensi naratif Python, filosofi rancang bangun (The Zen of Python), dan target utamanya (dari Skrip Ringan hingga Data Science).
+> **"Before you use a tool, understand its soul."**
 
-## 🏗️ Struktur Sub-Rak & Buku
+Rak pertama ini adalah **Ruang Orientasi** — tempat kita mengenal Python sebelum mulai menguasainya. Tiga pertanyaan utama dijawab di sini: *Apa jiwanya? Dari mana dia? Apakah dia cocok untukku?*
 
-- **SR-01-essence**
-    - [BK-01_Philosophy](./SR-01-essence/BK-01_Philosophy/)
-    - [BK-02_Landscape](./SR-01-essence/BK-02_Landscape/)
+## 🏗️ Struktur Sub-Rak
+
+| Sub-Rak | Fokus | Pertanyaan Utama |
+| :--- | :--- | :--- |
+| [SR-01-essence](./SR-01-essence/) | Filosofi & Esensi | *Apa jiwa Python?* |
+| [SR-02-history](./SR-02-history/) | Sejarah & Evolusi | *Dari mana ia datang?* |
+| [SR-03-strengths](./SR-03-strengths/) | Kelebihan & Kekurangan | *Apakah ini pilihan yang tepat?* |
 
 ## 🎯 Key Goals
-- Memahami "Zen of Python" sebagai panduan desain.
-- Mengenali posisi Python dalam ekosistem bahasa pemrograman global.
-- Memahami mengapa Python dipilih untuk AI & Data Science.
+- Memahami Zen of Python sebagai panduan desain, bukan sekedar estetika.
+- Mengerti akar historis CPython dan makna "The Great Rift".
+- Mampu mengevaluasi kapan Python adalah pilihan terbaik — dan kapan bukan.
 
 ---
-- `[/] Draft`: Inisialisasi struktur utama.
+- **[x] Complete**: Konten naratif expert-level selesai.
 
 *Back to [Library Root](../README.md)*

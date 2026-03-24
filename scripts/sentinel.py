@@ -32,7 +32,11 @@ def audit_structure(base_path):
                 # Check for "Nil Content" (Narrative) disclaimer
                 with open(os.path.join(root, 'README.md'), 'r', encoding='utf-8') as f:
                     content = f.read().lower()
-                    is_narrative = "murni bersifat" in content or "tidak membutuhkan lab praktis" in content
+                    is_narrative = (
+                        "murni bersifat" in content or 
+                        "tidak membutuhkan lab praktis" in content or
+                        "nil content" in content
+                    )
                 
                 # Specific check for Chapter (Level 5)
                 if folder_name.startswith('CH-'):
