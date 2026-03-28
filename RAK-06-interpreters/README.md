@@ -8,12 +8,12 @@ Rak ini adalah **Ruang Mesin CPython** — membedah seluruh pipeline dari kode s
 
 | Sub-Rak | Fokus | Komponen CPython |
 | :--- | :--- | :--- |
-| [SR-01-pipeline](./SR-01-pipeline/) | Tokenisasi → AST | `tokenize`, `ast` module |
-| [SR-02-bytecode](./SR-02-bytecode/) | Kompilasi Bytecode | `dis` module, `.pyc`, opcode |
-| [SR-03-ceval](./SR-03-ceval/) | Evaluation Loop | `ceval.c`, frame object, stack machine |
-| [SR-04-gc](./SR-04-gc/) | Garbage Collector | Reference counting, Cyclic GC, `gc` module |
-| [SR-05-gil](./SR-05-gil/) | Global Interpreter Lock | `gil.c`, Thread safety, PEP 703 No-GIL |
-| [SR-06-c-api](./SR-06-c-api/) | C Extension API | `PyObject`, `Py_INCREF`, `Py_DECREF` |
+| [SR-01-source-anatomy](./SR-01-source-anatomy/) | Peta Repositori | `Include/`, `Objects/`, `Python/` |
+| [SR-02-parsing-ast](./SR-02-parsing-ast/) | Token → AST | `Parser/pegen.c`, `ast.c` |
+| [SR-03-compilation-bytecode](./SR-03-compilation-bytecode/) | AST → Bytecode | `compile.c`, `symtable.c` |
+| [SR-04-eval-loop](./SR-04-eval-loop/) | Evaluation Loop | `ceval.c`, Stack Machine |
+| [SR-05-object-c-api](./SR-05-object-c-api/) | Fondasi C-API | `object.h`, `PyObject` |
+| [SR-06-modern-internals](./SR-06-modern-internals/) | JIT & No-GIL | Python 3.13+, PEP 703 |
 
 ## 🎯 Key Goals
 - Mampu membaca bytecode dengan `dis.dis()` dan menjelaskan eksekusinya.
@@ -21,6 +21,6 @@ Rak ini adalah **Ruang Mesin CPython** — membedah seluruh pipeline dari kode s
 - Memahami bagaimana `PyObject` menjadi fondasi dari semua tipe Python.
 
 ---
-- `[ ] Planned`: Menunggu pengisian konten.
+- `[x] 100% Complete`: Seluruh 6 Hub (SR-01 s/d SR-06) telah dibangun dengan standar Gold Standard (PPM V4).
 
 *Back to [Library Root](../README.md)*

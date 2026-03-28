@@ -8,11 +8,11 @@ Rak ini adalah **Workshop Aplikasi** — tempat fondasi bahasa Python (RAK-01 hi
 
 | Sub-Rak | Fokus | Stack Utama |
 | :--- | :--- | :--- |
-| [SR-01-data-analytics](./SR-01-data-analytics/) | Analisis & Manipulasi Data | NumPy, Pandas, Polars |
-| [SR-02-machine-learning](./SR-02-machine-learning/) | Pembelajaran Mesin Klasik | Scikit-learn, XGBoost |
-| [SR-03-deep-learning](./SR-03-deep-learning/) | Deep Learning & Neural Nets | PyTorch, JAX, TensorFlow |
-| [SR-04-ai-engineering](./SR-04-ai-engineering/) | LLM, GenAI & MLOps | LangChain, Transformers, MLflow |
-| [SR-05-web-backend](./SR-05-web-backend/) | Server & API Development | Django, FastAPI, Flask |
+| [SR-01-modern-data](./SR-01-data-analytics/) | Modern Data Stack | Polars, DuckDB, Parquet |
+| [SR-02-ai-ml-eng](./SR-02-machine-learning/) | AI & ML Engineering | PyTorch, Scikit-learn, MLOps |
+| [SR-03-genai-llm](./SR-03-deep-learning/) | GenAI & LLM Ops | LangChain, Transformers, Vector-DB |
+| [SR-04-web-scalable](./SR-04-ai-engineering/) | Scalable Backend | FastAPI, Clean Architecture, Async SQL |
+| [SR-05-automation](./SR-05-web-backend/) | Enterprise Automation | Click/Typer, Ansible, Boto3 |
 | [SR-06-automation](./SR-06-automation/) | Skrip & Orkestrasi Infrastruktur | Ansible, Boto3, Fabric |
 
 ## 🎯 Key Goals
@@ -24,6 +24,6 @@ Rak ini adalah **Workshop Aplikasi** — tempat fondasi bahasa Python (RAK-01 hi
 Rak ini adalah **Rak Hidup** — terus berkembang mengikuti ekosistem Python yang dinamis. Sub-Rak baru dapat ditambahkan seiring dengan kemunculan domain baru (misalnya: Quantum Computing dengan Qiskit).
 
 ---
-- `[/] Planned`: Struktur dan panduan utama selesai.
+- `[/] In Progress`: Fase 1 (SR-01) Complete. Moving to Fase 2 (SR-02).
 
 *Back to [Library Root](../README.md)*
