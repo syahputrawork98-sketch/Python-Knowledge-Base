@@ -1,4 +1,4 @@
-# BK-01: Trade-Offs (Kelebihan & Kekurangan)
+# BK-04: Trade-Offs (Kelebihan & Kekurangan)
 
 Evaluasi teknis yang jujur sebelum berkomitmen ke Python.
 
@@ -7,4 +7,4 @@ Evaluasi teknis yang jujur sebelum berkomitmen ke Python.
 - [CH-02_Weaknesses](./CH-02_Weaknesses/) — Keterbatasan & Jebakan Python
 
 ---
-*Back to [SR-03-strengths](../README.md)*
+*Back to [Rak-01 Anatomy](../README.md)*

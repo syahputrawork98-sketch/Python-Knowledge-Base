@@ -1,4 +1,4 @@
-# BK-01: Genesis (Kelahiran & Evolusi)
+# BK-03: Genesis (Kelahiran & Evolusi)
 
 Mempelajari kisah kelahiran Python dan transformasi terbesarnya.
 
@@ -7,4 +7,4 @@ Mempelajari kisah kelahiran Python dan transformasi terbesarnya.
 - [CH-02_GreatRift](./CH-02_GreatRift/) — Krisis Python 2 → 3
 
 ---
-*Back to [SR-02-history](../README.md)*
+*Back to [Rak-01 Anatomy](../README.md)*

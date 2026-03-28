@@ -7,4 +7,4 @@ Mempelajari akar pemikiran di balik sintaksis Python.
 - [CH-02_OriginAndEvolution](./CH-02_OriginAndEvolution/)
 
 ---
-*Back to [SR-01-essence](../README.md)*
+*Back to [Rak-01 Anatomy](../README.md)*

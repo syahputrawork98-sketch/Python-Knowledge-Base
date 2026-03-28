@@ -7,4 +7,4 @@ Memetakan target penggunaan Python di industri modern.
 - [CH-02_WebAndAutomation](./CH-02_WebAndAutomation/)
 
 ---
-*Back to [SR-01-essence](../README.md)*
+*Back to [Rak-01 Anatomy](../README.md)*

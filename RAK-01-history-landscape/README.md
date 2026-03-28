@@ -4,13 +4,14 @@
 
 Rak pertama ini adalah **Ruang Orientasi** — tempat kita mengenal Python sebelum mulai menguasainya. Tiga pertanyaan utama dijawab di sini: *Apa jiwanya? Dari mana dia? Apakah dia cocok untukku?*
 
-## 🏗️ Struktur Sub-Rak
+## 📚 Daftar Buku (The Knowledge Core)
 
-| Sub-Rak | Fokus | Pertanyaan Utama |
+| Buku | Fokus | Deskripsi |
 | :--- | :--- | :--- |
-| [SR-01-essence](./SR-01-essence/) | Filosofi & Esensi | *Apa jiwa Python?* |
-| [SR-02-history](./SR-02-history/) | Sejarah & Evolusi | *Dari mana ia datang?* |
-| [SR-03-strengths](./SR-03-strengths/) | Kelebihan & Kekurangan | *Apakah ini pilihan yang tepat?* |
+| [BK-01_Philosophy](./BK-01_Philosophy/) | Filosofi & Esensi | Memahami Zen of Python sebagai jiwa bahasa. |
+| [BK-02_Landscape](./BK-02_Landscape/) | Lanskap Industri | Memetakan penggunaan Python di berbagai domain. |
+| [BK-03_Genesis](./BK-03_Genesis/) | Sejarah & Evolusi | Akar historis CPython dan evolusi fiturnya. |
+| [BK-04_TradeOffs](./BK-04_TradeOffs/) | Kelebihan & Kekurangan | Evaluasi teknis kekuatan dan limitasi Python. |
 
 ## 🎯 Key Goals
 - Memahami Zen of Python sebagai panduan desain, bukan sekedar estetika.
