@@ -1,13 +1,31 @@
-# SR-05: Functions & Scoping (The Functional Units)
+# SR-05: Functions & Scoping (The Workhorses)
 
-Mempelajari cara mendefinisikan unit logika yang dapat digunakan kembali, serta bagaimana Python mengelola cakupan variabel (Scoping).
+> **"A function is a unit of thought, and a scope is its horizon."**
+
+Sub-Rak ini mengeksplorasi unit eksekusi modular dalam Python. Kita akan membedah mulai dari fleksibilitas argumen, aturan cakupan variabel (**LEGB**), hingga teknik pemrosesan fungsional dan pembungkusan logika tingkat lanjut menggunakan **Decorators**.
 
 ---
 
-## 📚 Buku yang Direncanakan
-- **BK-01_FunctionSemantics** — Definisi, parameter, return values.
-- **BK-02_ScopingLEGB** — Local, Enclosing, Global, Built-in rules.
-- **BK-03_FunctionalThinking** — Decorators, Lambdas, Closures.
+## 🌍 Landscape (Daftar Buku)
+
+| Buku | Fokus | Deskripsi |
+| :--- | :--- | :--- |
+| **BK-01_Foundations** | Syntax & Scoping | Argumen fungsi dan aturan akses variabel (LEGB). |
+| **BK-02_FunctionalPattern** | Higher-Order | Fungsi sebagai objek kelas satu dan Closures. |
+| **BK-03_Decorators** | Wrappers | Menambahkan logika modular via `@decorator`. |
+
+---
+
+## 🎯 Key Learning Goals
+- Menguasai fleksibilitas **Argument Passing** (*args, **kwargs).
+- Memahami **LEGB Rule** untuk menghindari bug cakupan variabel.
+- Mampu mengimplementasikan **Decorators** untuk abstraksi logika yang bersih.
+
+---
+
+## 🧪 Prasyarat Teknis
+- Pemahaman tentang tipe data kolektif (SR-03).
+- Pemahaman alur kontrol (SR-04).
 
 ---
 *Back to [Rak-02 Foundation](../README.md)*

@@ -1,96 +1,71 @@
-# Numbers: int, float, complex — Di Balik Angka Python
+# CH-01: Numbers (The Numerical Atoms) [x] Complete
 
-**"In Python, integers are not just numbers — they are unlimited precision objects."**
-*Memahami mengapa `2 ** 100` bekerja sempurna di Python, tapi overflow di C.*
+> **"In Python, integers are not just numbers — they are unlimited precision objects."**
 
-> [!IMPORTANT]
-> **Source Link**: [Python Docs — Numeric Types](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex) | [CPython Objects — longobject.c](https://github.com/python/cpython/blob/main/Objects/longobject.c)
+Bab ini membedah tipe data numerik dalam Python (`int`, `float`, `complex`). Kita akan membongkar alasan mengapa Python tidak pernah mengalami *integer overflow* dan bagaimana standar biner IEEE 754 memengaruhi presisi angka desimal.
 
 ---
 
-## 1. Definisi & Konsep (The Logic)
-
-Python memiliki tiga tipe numerik bawaan:
-- **`int`**: *Arbitrary-precision integer* — tidak ada overflow. CPython mengimplementasikan ini dengan struktur data **digit array** dalam C.
-- **`float`**: Implementasi langsung dari **IEEE 754 double-precision** (64-bit). Bukan angka nyata — ini estimasi biner.
-- **`complex`**: Dua float digabungkan (`real + imag`).
-
-### Terminologi Utama (Senior Terms)
-
-| Istilah | Makna Teknis |
-|---|---|
-| **Arbitrary Precision** | `int` Python tidak punya batas ukuran — dibatasi hanya oleh RAM. |
-| **IEEE 754** | Standar representasi float di CPU. `0.1 + 0.2 != 0.3` adalah konsekuensi standar ini. |
-| **`ob_digit[]`** | Array internal CPython untuk menyimpan digit integer besar dalam basis 2^30. |
-| **Small Integer Cache** | CPython melakukan caching pre-alokasi untuk integer -5 hingga 256 — `a is b` menjadi `True`. |
+## 🌐 Source Hub (Authority)
+- **Primary Source**: [Python Docs - Numeric Types](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex)
+- **CPython Source**: [Objects/longobject.c](https://github.com/python/cpython/blob/main/Objects/longobject.c)
+- **Strategic Blueprint**: [RAK-02 Foundation](file:///i:/Workspace/Workspace-Syahputrawork/learning-matrix-blueprint/01-Language-Hubs/Python-Knowledge-Base.md)
 
 ---
 
-## 2. Rasionalitas (Why & How?)
+## 🧠 The Essence (Narrative)
+Python menganut prinsip **"Everything is an Object"**. Tipe data `int` bukan sekadar 32-bit atau 64-bit memori, melainkan *Heap-allocated object* yang tumbuh dinamis sesuai kebutuhan (Arbitrary Precision). Ini berarti Anda bisa menghitung faktorial dari 1000 tanpa takut *overflow*. Di sisi lain, `float` di Python adalah implementasi langsung dari standar 64-bit biner IEEE 754, yang membawa konsekuensi presisi pada angka desimal tertentu.
 
-### Mengapa `int` Python Tidak Overflow?
+---
 
-Di C, `int` adalah 32 atau 64 bit — ia meluap (overflow) saat melampaui batasnya. Python `int` adalah **heap-allocated object** yang bisa tumbuh secara dinamis. CPython menyimpannya sebagai array digit dalam basis **2^30**, sehingga angka sebesar apapun bisa direpresentasikan selama RAM cukup.
+## 🎨 Visual Logic (The CPython Integer)
 
 ```mermaid
-graph LR
-    A["Python int: 1234567890123456789"] -->|"stored as"| B["PyLongObject\nob_size=3\nob_digit=[...]"]
-    B --> C["digit[0] = low bits"]
-    B --> D["digit[1] = mid bits"]
-    B --> E["digit[2] = high bits"]
-    style A fill:#3776AB,color:#fff
-    style B fill:#FFD43B,color:#000
-```
-
-### Mengapa `0.1 + 0.2 != 0.3`?
-
-Karena `float` adalah biner, bukan desimal. `0.1` direpresentasikan sebagai `0.1000000000000000055511...` dalam IEEE 754. Ini bukan bug Python — ini perilaku fundamental IEEE 754 yang dipakai oleh semua bahasa pemrograman modern.
-
-### Small Integer Cache
-
-```python
-a = 256; b = 256; print(a is b)   # True  — cached!
-a = 257; b = 257; print(a is b)   # False — new object each time
-```
-
-CPython pre-allocates integer objects dari **-5 hingga 256** untuk efisiensi. `is` mengecek identitas objek (pointer), bukan nilai.
-
----
-
-## 3. Mekanisme Detil (Under the Hood)
-
-### Konversi Tipe Otomatis (Numeric Tower)
-
-Python mengikuti konsep **Numeric Tower** (PEP 3141):
-```
-int → float → complex
-```
-Saat dua tipe berbeda beroperasi, Python mempromosikan ke tipe yang lebih tinggi:
-```python
-1 + 2.0   # int + float → float (2.0 promoted)
-2 + 3j    # int + complex → complex
-```
-
-### `sys.getsizeof(n)` — Membuktikan Pertumbuhan int
-
-```python
-import sys
-for n in [0, 10**10, 10**100, 10**1000]:
-    print(f"{n:.2e}: {sys.getsizeof(n)} bytes")
-# 0: 24 bytes, 10^10: 32 bytes, 10^100: 72 bytes, 10^1000: 468 bytes
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#3776AB', 'primaryTextColor': '#fff', 'lineColor': '#FFD43B'}}}%%
+graph TD
+    X["Variable: 'n = 10**100'"] -- points to --> Obj[PyLongObject]
+    Obj --> RefCount[ob_refcnt: 1]
+    Obj --> Type[ob_type: <int>]
+    Obj --> Size[ob_size: 15]
+    Obj --> Digits["ob_digit[]: (Array of 2^30 digits)"]
+    style Obj fill:#3776AB,stroke:#333,color:#fff
 ```
 
 ---
 
-## 4. Lab Praktis (The Examples)
+## 🛠️ Mechanism (Under the Hood)
 
-Lihat pembuktian kode fungsional di [`examples/`](./examples/).
+### 1. Arbitrary Precision
+CPython menyimpan integer besar sebagai array digit dalam basis **2^30**. 
+- Perhitungan: `sys.getsizeof(n)` menunjukkan pertumbuhan memori seiring bertambahnya angka.
+- Batas: Dibatasi hanya oleh ketersediaan RAM sistem Anda.
 
-| File | Topik |
-|---|---|
-| `01_int_internals.py` | Small integer cache, `is` vs `==`, `sys.getsizeof()` |
-| `02_float_precision.py` | IEEE 754, `0.1+0.2`, `decimal` module, `math.isclose()` |
-| `03_numeric_operations.py` | Bitwise ops, numeric tower promotion, `divmod()` |
+### 2. The Floating Trap (IEEE 754)
+`0.1 + 0.2` tidak menghasilkan `0.3` secara presisi karena representasi biner. 
+- Solusi: Gunakan modul `decimal` untuk presisi finansial atau `math.isclose()` untuk perbandingan.
+
+### 3. Small Integer Cache
+CPython mem-prealokasi objek integer dari **-5 hingga 256** untuk meminimalkan overhead alokasi memori. 
+```python
+a, b = 256, 256
+print(a is b) # True (Point to same memory address)
+```
 
 ---
-*Back to [BK-01_Primitives](../README.md)*
+
+## 📑 Daftar Bab (The Syllabus)
+
+| Bab/Lab | Fokus | Spesifikasi |
+| :--- | :--- | :--- |
+| **[01_int_internals.py](./examples/01_int_internals.py)** | Interning Cache | Pembuktian `is` vs `==` & Small Int Cache. |
+| **[02_float_precision.py](./examples/02_float_precision.py)** | Floating Point | Demonstrasi IEEE 754 & `decimal` module. |
+| **[03_numeric_operations.py](./examples/03_numeric_operations.py)** | Numeric Tower | Bitwise ops & otomatisasi promosi tipe (int -> float). |
+
+---
+
+## ⚠️ Pitfalls
+- **`is` for Comparison**: Jangan gunakan kata kunci `is` untuk membandingkan nilai numerik. `is` mengecek alamat memori, bukan kesamaan nilai. Gunakan `==` kecuali Anda sedang membedah identitas memori.
+- **Float Comparison**: Hindari `if a == 0.3` saat bekerja dengan hasil perhitungan float. Selalu gunakan margin error atau `math.isclose()`.
+
+---
+*Back to [BK-01 Primitives](../README.md)*
