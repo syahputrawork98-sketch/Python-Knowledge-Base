@@ -18,6 +18,6 @@ Rak ini menelusuri **jejak evolusi Python** melalui PEP (*Python Enhancement Pro
 - Mengerti trade-off yang dipertimbangkan sebelum fitur diterima.
 
 ---
-- `[ ] Planned`: Menunggu pengisian konten.
+- `[x] Complete`: 3/3 Sub-Raks (Evolution & PEPs).
 
 *Back to [Library Root](../README.md)*
